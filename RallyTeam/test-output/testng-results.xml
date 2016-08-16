@@ -1,0 +1,415 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testng-results skipped="0" failed="0" total="4" passed="4">
+  <reporter-output>
+    <line>
+      <![CDATA[Aug 16,2016 10:38:15 [info]  
+*****************************************************************************
+Execution Started of Test Class com.rallyteam.Tests.RallyTeamTest >> SetUp
+*****************************************************************************
+]]>
+    </line>
+    <line>
+      <![CDATA[Aug 16,2016 10:38:18 [info]  Verified Sign Up Now button is displayed]]>
+    </line>
+    <line>
+      <![CDATA[Aug 16,2016 10:38:18 [info]  Clicked Sign Up button]]>
+    </line>
+    <line>
+      <![CDATA[Aug 16,2016 10:38:22 [info]  Verified Registration user is at sign up page]]>
+    </line>
+    <line>
+      <![CDATA[Aug 16,2016 10:38:22 [info]  Entered TestQAFirst1471324073298 into First name field ]]>
+    </line>
+    <line>
+      <![CDATA[Aug 16,2016 10:38:22 [info]  Entered TestQALast1471324073298 into Last name field ]]>
+    </line>
+    <line>
+      <![CDATA[Aug 16,2016 10:38:23 [info]  Entered TestQAFirst1471324073298@gmail.com into Last name field ]]>
+    </line>
+    <line>
+      <![CDATA[Aug 16,2016 10:38:23 [info]  Entered 360@Logica into Password field ]]>
+    </line>
+    <line>
+      <![CDATA[Aug 16,2016 10:38:26 [info]  Entered 360@Logica into Confirm Password field ]]>
+    </line>
+    <line>
+      <![CDATA[Aug 16,2016 10:38:26 [info]  User click on the 'Get Started' Button]]>
+    </line>
+    <line>
+      <![CDATA[Aug 16,2016 10:38:31 [info]  verify the success message of registration]]>
+    </line>
+    <line>
+      <![CDATA[Aug 16,2016 10:39:00 [info]  
+*****************************************************************************
+Execution Started of Test Class com.rallyteam.Tests.RallyTeamTest >> SetUp
+*****************************************************************************
+]]>
+    </line>
+    <line>
+      <![CDATA[Aug 16,2016 10:39:08 [info]  Login Into the application]]>
+    </line>
+    <line>
+      <![CDATA[Aug 16,2016 10:39:13 [info]  Click on the side navigation link 'Groups']]>
+    </line>
+    <line>
+      <![CDATA[Aug 16,2016 10:39:18 [info]  Click on the Add New Group button at projects page]]>
+    </line>
+    <line>
+      <![CDATA[Aug 16,2016 10:39:23 [info]  Verify the add new group form window]]>
+    </line>
+    <line>
+      <![CDATA[Aug 16,2016 10:39:29 [info]  Entered TestGroup1471324073298 into Group Name field ]]>
+    </line>
+    <line>
+      <![CDATA[Aug 16,2016 10:39:30 [info]  Entered Test Group for Automation1471324073298 into Group Snippet field ]]>
+    </line>
+    <line>
+      <![CDATA[Aug 16,2016 10:39:30 [info]  Entered Let's automate group1471324073298 into Group Description field ]]>
+    </line>
+    <line>
+      <![CDATA[Aug 16,2016 10:39:32 [info]  Selected ammar khan (ammark@360logica.com) into Group Leader field ]]>
+    </line>
+    <line>
+      <![CDATA[Aug 16,2016 10:39:32 [info]  Selected Private from Visbility radio optionss ]]>
+    </line>
+    <line>
+      <![CDATA[Aug 16,2016 10:39:32 [info]  Click on the create button at Add New Group form]]>
+    </line>
+    <line>
+      <![CDATA[Aug 16,2016 10:39:58 [info]  
+*****************************************************************************
+Execution Started of Test Class com.rallyteam.Tests.RallyTeamTest >> SetUp
+*****************************************************************************
+]]>
+    </line>
+    <line>
+      <![CDATA[Aug 16,2016 10:40:08 [info]  Login Into the application]]>
+    </line>
+    <line>
+      <![CDATA[Aug 16,2016 10:40:13 [info]  Click on the side navigation link 'Project']]>
+    </line>
+    <line>
+      <![CDATA[Aug 16,2016 10:40:14 [info]  Click on the Add Project button at projects page]]>
+    </line>
+    <line>
+      <![CDATA[Aug 16,2016 10:40:15 [info]  Verify the add project form dialog]]>
+    </line>
+    <line>
+      <![CDATA[Aug 16,2016 10:40:15 [info]  Entered TestProject1471324073298 into Project name field ]]>
+    </line>
+    <line>
+      <![CDATA[Aug 16,2016 10:40:15 [info]  Entered Test Project for Automation into Project description field ]]>
+    </line>
+    <line>
+      <![CDATA[Aug 16,2016 10:40:16 [info]  Click on the create button at add project form]]>
+    </line>
+    <line>
+      <![CDATA[Aug 16,2016 10:40:21 [info]  select project type as 'Just for me' option]]>
+    </line>
+    <line>
+      <![CDATA[Aug 16,2016 10:40:26 [info]   Click on the add new member button into the project]]>
+    </line>
+    <line>
+      <![CDATA[Aug 16,2016 10:40:27 [info]  Enter text into member field]]>
+    </line>
+    <line>
+      <![CDATA[Aug 16,2016 10:40:37 [info]  select user from suggestion]]>
+    </line>
+    <line>
+      <![CDATA[Aug 16,2016 10:40:42 [info]  click plus icon at add member page]]>
+    </line>
+    <line>
+      <![CDATA[Aug 16,2016 10:40:48 [info]  Verify the member is added on add member page]]>
+    </line>
+    <line>
+      <![CDATA[Aug 16,2016 10:40:48 [info]  Click 'Done' button at Add member page]]>
+    </line>
+    <line>
+      <![CDATA[Aug 16,2016 10:40:53 [info]  user navigate to 'Projects' page by clicking on side nav]]>
+    </line>
+    <line>
+      <![CDATA[Aug 16,2016 10:40:54 [info]  Select option form  project menu as 'My Project']]>
+    </line>
+    <line>
+      <![CDATA[Aug 16,2016 10:40:59 [info]  Click on newly created project]]>
+    </line>
+    <line>
+      <![CDATA[Aug 16,2016 10:41:04 [info]  Verify the member is added in project at project detail page]]>
+    </line>
+    <line>
+      <![CDATA[Aug 16,2016 10:41:21 [info]  
+*****************************************************************************
+Execution Started of Test Class com.rallyteam.Tests.RallyTeamTest >> SetUp
+*****************************************************************************
+]]>
+    </line>
+    <line>
+      <![CDATA[Aug 16,2016 10:41:32 [info]  Login Into the application]]>
+    </line>
+    <line>
+      <![CDATA[Aug 16,2016 10:41:37 [info]  Click on the side navigation link 'Project']]>
+    </line>
+    <line>
+      <![CDATA[Aug 16,2016 10:41:38 [info]  Select option form  project menu as 'My Project']]>
+    </line>
+    <line>
+      <![CDATA[Aug 16,2016 10:41:43 [info]  Click on newly created project]]>
+    </line>
+    <line>
+      <![CDATA[Aug 16,2016 10:41:48 [info]  Navigated to to Discussion tab]]>
+    </line>
+    <line>
+      <![CDATA[Aug 16,2016 10:41:48 [info]  Click on discussion message text fields]]>
+    </line>
+    <line>
+      <![CDATA[Aug 16,2016 10:41:49 [info]  Enter text into discussion message field]]>
+    </line>
+    <line>
+      <![CDATA[Aug 16,2016 10:41:59 [info]  Select user from suggestion list]]>
+    </line>
+    <line>
+      <![CDATA[Aug 16,2016 10:42:04 [info]  Enter message into discussion field]]>
+    </line>
+    <line>
+      <![CDATA[Aug 16,2016 10:42:05 [info]  Click on post button]]>
+    </line>
+    <line>
+      <![CDATA[Aug 16,2016 10:42:40 [info]  verify that last sent message and user name]]>
+    </line>
+  </reporter-output>
+  <suite name="Rallyteam Testsuite" duration-ms="288909" started-at="2016-08-16T05:07:53Z" finished-at="2016-08-16T05:12:42Z">
+    <groups>
+    </groups>
+    <test name="RallyTeamTest" duration-ms="288909" started-at="2016-08-16T05:07:53Z" finished-at="2016-08-16T05:12:42Z">
+      <class name="com.rallyteam.Tests.RallyTeamTest">
+        <test-method status="PASS" signature="SetUp()[pri:0, instance:com.rallyteam.Tests.RallyTeamTest@72967906]" name="SetUp" is-config="true" duration-ms="22447" started-at="2016-08-16T10:37:53Z" finished-at="2016-08-16T10:38:15Z">
+          <reporter-output>
+            <line>
+              <![CDATA[Aug 16,2016 10:38:15 [info]  
+*****************************************************************************
+Execution Started of Test Class com.rallyteam.Tests.RallyTeamTest >> SetUp
+*****************************************************************************
+]]>
+            </line>
+          </reporter-output>
+        </test-method> <!-- SetUp -->
+        <test-method status="PASS" signature="testRegistrationProcess()[pri:0, instance:com.rallyteam.Tests.RallyTeamTest@72967906]" name="testRegistrationProcess" duration-ms="15832" started-at="2016-08-16T10:38:15Z" finished-at="2016-08-16T10:38:31Z">
+          <reporter-output>
+            <line>
+              <![CDATA[Aug 16,2016 10:38:18 [info]  Verified Sign Up Now button is displayed]]>
+            </line>
+            <line>
+              <![CDATA[Aug 16,2016 10:38:18 [info]  Clicked Sign Up button]]>
+            </line>
+            <line>
+              <![CDATA[Aug 16,2016 10:38:22 [info]  Verified Registration user is at sign up page]]>
+            </line>
+            <line>
+              <![CDATA[Aug 16,2016 10:38:22 [info]  Entered TestQAFirst1471324073298 into First name field ]]>
+            </line>
+            <line>
+              <![CDATA[Aug 16,2016 10:38:22 [info]  Entered TestQALast1471324073298 into Last name field ]]>
+            </line>
+            <line>
+              <![CDATA[Aug 16,2016 10:38:23 [info]  Entered TestQAFirst1471324073298@gmail.com into Last name field ]]>
+            </line>
+            <line>
+              <![CDATA[Aug 16,2016 10:38:23 [info]  Entered 360@Logica into Password field ]]>
+            </line>
+            <line>
+              <![CDATA[Aug 16,2016 10:38:26 [info]  Entered 360@Logica into Confirm Password field ]]>
+            </line>
+            <line>
+              <![CDATA[Aug 16,2016 10:38:26 [info]  User click on the 'Get Started' Button]]>
+            </line>
+            <line>
+              <![CDATA[Aug 16,2016 10:38:31 [info]  verify the success message of registration]]>
+            </line>
+          </reporter-output>
+        </test-method> <!-- testRegistrationProcess -->
+        <test-method status="PASS" signature="CloseBrowser()[pri:0, instance:com.rallyteam.Tests.RallyTeamTest@72967906]" name="CloseBrowser" is-config="true" duration-ms="2345" started-at="2016-08-16T10:38:31Z" finished-at="2016-08-16T10:38:33Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- CloseBrowser -->
+        <test-method status="PASS" signature="SetUp()[pri:0, instance:com.rallyteam.Tests.RallyTeamTest@72967906]" name="SetUp" is-config="true" duration-ms="26865" started-at="2016-08-16T10:38:33Z" finished-at="2016-08-16T10:39:00Z">
+          <reporter-output>
+            <line>
+              <![CDATA[Aug 16,2016 10:39:00 [info]  
+*****************************************************************************
+Execution Started of Test Class com.rallyteam.Tests.RallyTeamTest >> SetUp
+*****************************************************************************
+]]>
+            </line>
+          </reporter-output>
+        </test-method> <!-- SetUp -->
+        <test-method status="PASS" signature="testCreateGroup()[pri:0, instance:com.rallyteam.Tests.RallyTeamTest@72967906]" name="testCreateGroup" duration-ms="31960" started-at="2016-08-16T10:39:00Z" finished-at="2016-08-16T10:39:32Z">
+          <reporter-output>
+            <line>
+              <![CDATA[Aug 16,2016 10:39:08 [info]  Login Into the application]]>
+            </line>
+            <line>
+              <![CDATA[Aug 16,2016 10:39:13 [info]  Click on the side navigation link 'Groups']]>
+            </line>
+            <line>
+              <![CDATA[Aug 16,2016 10:39:18 [info]  Click on the Add New Group button at projects page]]>
+            </line>
+            <line>
+              <![CDATA[Aug 16,2016 10:39:23 [info]  Verify the add new group form window]]>
+            </line>
+            <line>
+              <![CDATA[Aug 16,2016 10:39:29 [info]  Entered TestGroup1471324073298 into Group Name field ]]>
+            </line>
+            <line>
+              <![CDATA[Aug 16,2016 10:39:30 [info]  Entered Test Group for Automation1471324073298 into Group Snippet field ]]>
+            </line>
+            <line>
+              <![CDATA[Aug 16,2016 10:39:30 [info]  Entered Let's automate group1471324073298 into Group Description field ]]>
+            </line>
+            <line>
+              <![CDATA[Aug 16,2016 10:39:32 [info]  Selected ammar khan (ammark@360logica.com) into Group Leader field ]]>
+            </line>
+            <line>
+              <![CDATA[Aug 16,2016 10:39:32 [info]  Selected Private from Visbility radio optionss ]]>
+            </line>
+            <line>
+              <![CDATA[Aug 16,2016 10:39:32 [info]  Click on the create button at Add New Group form]]>
+            </line>
+          </reporter-output>
+        </test-method> <!-- testCreateGroup -->
+        <test-method status="PASS" signature="CloseBrowser()[pri:0, instance:com.rallyteam.Tests.RallyTeamTest@72967906]" name="CloseBrowser" is-config="true" duration-ms="2355" started-at="2016-08-16T10:39:32Z" finished-at="2016-08-16T10:39:35Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- CloseBrowser -->
+        <test-method status="PASS" signature="SetUp()[pri:0, instance:com.rallyteam.Tests.RallyTeamTest@72967906]" name="SetUp" is-config="true" duration-ms="23142" started-at="2016-08-16T10:39:35Z" finished-at="2016-08-16T10:39:58Z">
+          <reporter-output>
+            <line>
+              <![CDATA[Aug 16,2016 10:39:58 [info]  
+*****************************************************************************
+Execution Started of Test Class com.rallyteam.Tests.RallyTeamTest >> SetUp
+*****************************************************************************
+]]>
+            </line>
+          </reporter-output>
+        </test-method> <!-- SetUp -->
+        <test-method status="PASS" signature="testCreateAProjectAndAddAnUserIntoProject()[pri:0, instance:com.rallyteam.Tests.RallyTeamTest@72967906]" name="testCreateAProjectAndAddAnUserIntoProject" duration-ms="66046" started-at="2016-08-16T10:39:58Z" finished-at="2016-08-16T10:41:04Z">
+          <reporter-output>
+            <line>
+              <![CDATA[Aug 16,2016 10:40:08 [info]  Login Into the application]]>
+            </line>
+            <line>
+              <![CDATA[Aug 16,2016 10:40:13 [info]  Click on the side navigation link 'Project']]>
+            </line>
+            <line>
+              <![CDATA[Aug 16,2016 10:40:14 [info]  Click on the Add Project button at projects page]]>
+            </line>
+            <line>
+              <![CDATA[Aug 16,2016 10:40:15 [info]  Verify the add project form dialog]]>
+            </line>
+            <line>
+              <![CDATA[Aug 16,2016 10:40:15 [info]  Entered TestProject1471324073298 into Project name field ]]>
+            </line>
+            <line>
+              <![CDATA[Aug 16,2016 10:40:15 [info]  Entered Test Project for Automation into Project description field ]]>
+            </line>
+            <line>
+              <![CDATA[Aug 16,2016 10:40:16 [info]  Click on the create button at add project form]]>
+            </line>
+            <line>
+              <![CDATA[Aug 16,2016 10:40:21 [info]  select project type as 'Just for me' option]]>
+            </line>
+            <line>
+              <![CDATA[Aug 16,2016 10:40:26 [info]   Click on the add new member button into the project]]>
+            </line>
+            <line>
+              <![CDATA[Aug 16,2016 10:40:27 [info]  Enter text into member field]]>
+            </line>
+            <line>
+              <![CDATA[Aug 16,2016 10:40:37 [info]  select user from suggestion]]>
+            </line>
+            <line>
+              <![CDATA[Aug 16,2016 10:40:42 [info]  click plus icon at add member page]]>
+            </line>
+            <line>
+              <![CDATA[Aug 16,2016 10:40:48 [info]  Verify the member is added on add member page]]>
+            </line>
+            <line>
+              <![CDATA[Aug 16,2016 10:40:48 [info]  Click 'Done' button at Add member page]]>
+            </line>
+            <line>
+              <![CDATA[Aug 16,2016 10:40:53 [info]  user navigate to 'Projects' page by clicking on side nav]]>
+            </line>
+            <line>
+              <![CDATA[Aug 16,2016 10:40:54 [info]  Select option form  project menu as 'My Project']]>
+            </line>
+            <line>
+              <![CDATA[Aug 16,2016 10:40:59 [info]  Click on newly created project]]>
+            </line>
+            <line>
+              <![CDATA[Aug 16,2016 10:41:04 [info]  Verify the member is added in project at project detail page]]>
+            </line>
+          </reporter-output>
+        </test-method> <!-- testCreateAProjectAndAddAnUserIntoProject -->
+        <test-method status="PASS" signature="CloseBrowser()[pri:0, instance:com.rallyteam.Tests.RallyTeamTest@72967906]" name="CloseBrowser" is-config="true" duration-ms="1627" started-at="2016-08-16T10:41:04Z" finished-at="2016-08-16T10:41:05Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- CloseBrowser -->
+        <test-method status="PASS" signature="SetUp()[pri:0, instance:com.rallyteam.Tests.RallyTeamTest@72967906]" name="SetUp" is-config="true" duration-ms="15043" started-at="2016-08-16T10:41:05Z" finished-at="2016-08-16T10:41:21Z">
+          <reporter-output>
+            <line>
+              <![CDATA[Aug 16,2016 10:41:21 [info]  
+*****************************************************************************
+Execution Started of Test Class com.rallyteam.Tests.RallyTeamTest >> SetUp
+*****************************************************************************
+]]>
+            </line>
+          </reporter-output>
+        </test-method> <!-- SetUp -->
+        <test-method status="PASS" signature="testPostingAMessageInTheDiscussionFeed()[pri:0, instance:com.rallyteam.Tests.RallyTeamTest@72967906]" name="testPostingAMessageInTheDiscussionFeed" duration-ms="79389" started-at="2016-08-16T10:41:21Z" finished-at="2016-08-16T10:42:40Z">
+          <reporter-output>
+            <line>
+              <![CDATA[Aug 16,2016 10:41:32 [info]  Login Into the application]]>
+            </line>
+            <line>
+              <![CDATA[Aug 16,2016 10:41:37 [info]  Click on the side navigation link 'Project']]>
+            </line>
+            <line>
+              <![CDATA[Aug 16,2016 10:41:38 [info]  Select option form  project menu as 'My Project']]>
+            </line>
+            <line>
+              <![CDATA[Aug 16,2016 10:41:43 [info]  Click on newly created project]]>
+            </line>
+            <line>
+              <![CDATA[Aug 16,2016 10:41:48 [info]  Navigated to to Discussion tab]]>
+            </line>
+            <line>
+              <![CDATA[Aug 16,2016 10:41:48 [info]  Click on discussion message text fields]]>
+            </line>
+            <line>
+              <![CDATA[Aug 16,2016 10:41:49 [info]  Enter text into discussion message field]]>
+            </line>
+            <line>
+              <![CDATA[Aug 16,2016 10:41:59 [info]  Select user from suggestion list]]>
+            </line>
+            <line>
+              <![CDATA[Aug 16,2016 10:42:04 [info]  Enter message into discussion field]]>
+            </line>
+            <line>
+              <![CDATA[Aug 16,2016 10:42:05 [info]  Click on post button]]>
+            </line>
+            <line>
+              <![CDATA[Aug 16,2016 10:42:40 [info]  verify that last sent message and user name]]>
+            </line>
+          </reporter-output>
+        </test-method> <!-- testPostingAMessageInTheDiscussionFeed -->
+        <test-method status="PASS" signature="CloseBrowser()[pri:0, instance:com.rallyteam.Tests.RallyTeamTest@72967906]" name="CloseBrowser" is-config="true" duration-ms="1839" started-at="2016-08-16T10:42:40Z" finished-at="2016-08-16T10:42:42Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- CloseBrowser -->
+        <test-method status="PASS" signature="afterMainMethod()[pri:0, instance:com.rallyteam.Tests.RallyTeamTest@72967906]" name="afterMainMethod" is-config="true" duration-ms="0" started-at="2016-08-16T10:42:42Z" finished-at="2016-08-16T10:42:42Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- afterMainMethod -->
+      </class> <!-- com.rallyteam.Tests.RallyTeamTest -->
+    </test> <!-- RallyTeamTest -->
+  </suite> <!-- Rallyteam Testsuite -->
+</testng-results>
