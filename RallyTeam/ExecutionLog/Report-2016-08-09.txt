@@ -1,0 +1,69 @@
+Aug 09,2016 10:50:19 [info]  
+*****************************************************************************
+Execution Started of Test Class com.rallyteam.Tests.RallyTeamTest >> SetUp
+*****************************************************************************
+
+Aug 09,2016 10:50:30 [info]  Verified Sign Up Now button is displayed
+Aug 09,2016 10:50:31 [info]  Clicked Sign Up button
+Aug 09,2016 10:50:35 [info]  Verified Registration user is at sign up page
+Aug 09,2016 10:50:35 [info]  Entered TestQAFirst1470719977495 into First name field 
+Aug 09,2016 10:50:35 [info]  Entered TestQALast1470719977495 into Last name field 
+Aug 09,2016 10:50:36 [info]  Entered TestQAFirst1470719977495@gmail.com into Last name field 
+Aug 09,2016 10:50:36 [info]  Entered 360@Logica into Password field 
+Aug 09,2016 10:50:36 [info]  Entered 360@Logica into Confirm Password field 
+Aug 09,2016 10:50:36 [info]  User click on the 'Get Started' Button
+Aug 09,2016 10:50:41 [info]  verify the success message of registration
+Aug 09,2016 11:03:14 [info]  
+*****************************************************************************
+Execution Started of Test Class com.rallyteam.Tests.RallyTeamTest >> SetUp
+*****************************************************************************
+
+Aug 09,2016 11:03:26 [info]  Verified Sign Up Now button is displayed
+Aug 09,2016 11:03:27 [info]  Clicked Sign Up button
+Aug 09,2016 11:03:31 [info]  Verified Registration user is at sign up page
+Aug 09,2016 11:03:31 [info]  Entered TestQAFirst1470720771657 into First name field 
+Aug 09,2016 11:03:31 [info]  Entered TestQALast1470720771657 into Last name field 
+Aug 09,2016 11:03:31 [info]  Entered TestQAFirst1470720771657@gmail.com into Last name field 
+Aug 09,2016 11:03:32 [info]  Entered 360@Logica into Password field 
+Aug 09,2016 11:03:33 [info]  Entered 360@Logica into Confirm Password field 
+Aug 09,2016 11:03:33 [info]  User click on the 'Get Started' Button
+Aug 09,2016 11:03:38 [info]  verify the success message of registration
+Aug 09,2016 11:04:02 [info]  
+*****************************************************************************
+Execution Started of Test Class com.rallyteam.Tests.RallyTeamTest >> SetUp
+*****************************************************************************
+
+Aug 09,2016 11:04:12 [info]  Login Into the application
+Aug 09,2016 11:04:17 [info]  Click on the side navigation link 'Project'
+Aug 09,2016 11:04:18 [info]  Click on the Add Project button at projects page
+Aug 09,2016 11:04:18 [info]  Verify the add project form dialog
+Aug 09,2016 11:04:18 [info]  Entered TestProject1470720771657 into Project name field 
+Aug 09,2016 11:04:19 [info]  Entered Test Project for Automation into Project description field 
+Aug 09,2016 11:04:19 [info]  Click on the create button at add project form
+Aug 09,2016 11:04:24 [info]  select project type as 'Just for me' option
+Aug 09,2016 11:04:29 [info]   Click on the add new member button into the project
+Aug 09,2016 11:04:30 [info]  Enter text into member field
+Aug 09,2016 11:04:41 [info]  select user from suggestion
+Aug 09,2016 11:04:46 [info]  click plus icon at add member page
+Aug 09,2016 11:04:51 [info]  Verify the member is added on add member page
+Aug 09,2016 11:04:51 [info]  Click 'Done' button at Add member page
+Aug 09,2016 11:04:56 [info]  user navigate to 'Projects' page by clicking on side nav
+Aug 09,2016 11:04:57 [info]  Select option form  project menu as 'My Project'
+Aug 09,2016 11:05:02 [info]  Click on newly created project
+Aug 09,2016 11:05:07 [info]  Verify the member is added in project at project detail page
+Aug 09,2016 11:05:25 [info]  
+*****************************************************************************
+Execution Started of Test Class com.rallyteam.Tests.RallyTeamTest >> SetUp
+*****************************************************************************
+
+Aug 09,2016 11:05:50 [info]  Login Into the application
+Aug 09,2016 11:05:55 [info]  Click on the side navigation link 'Project'
+Aug 09,2016 11:05:55 [info]  Select option form  project menu as 'My Project'
+Aug 09,2016 11:06:01 [info]  Click on newly created project
+Aug 09,2016 11:06:06 [info]  Navigated to to Discussion tab
+Aug 09,2016 11:06:06 [info]  Click on discussion message text fields
+Aug 09,2016 11:06:07 [info]  Enter text into discussion message field
+Aug 09,2016 11:06:17 [info]  Select user from suggestion list
+Aug 09,2016 11:06:22 [info]  Enter message into discussion field
+Aug 09,2016 11:06:22 [info]  Click on post button
+Aug 09,2016 11:06:58 [info]  verify that last sent message and user name
