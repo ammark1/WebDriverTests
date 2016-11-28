@@ -35,6 +35,7 @@ namespace RallyTeam.TestScripts
         protected int _browserWidth = Convert.ToInt32(ConfigurationSettings.AppSettings["BrowserWidth"]);
         protected int _browserHeight = Convert.ToInt32(ConfigurationSettings.AppSettings["BrowserHeight"]);
         private string _testURL = ConfigurationSettings.AppSettings["URL"];
+        public string _externalStormURL = ConfigurationSettings.AppSettings["ExternalStormURL"];
 
         private static readonly ILog Log = LogManager.GetLogger(MethodBase.GetCurrentMethod().DeclaringType);
 
@@ -42,6 +43,7 @@ namespace RallyTeam.TestScripts
         protected RegistrationPage registrationPage;
         protected DashboardPage dashboardPage;
         protected CommonMethods commonPage;
+        protected OnboardingPage onboardingPage;
 
         [SetUp]
         public void TestSetUp()
@@ -49,6 +51,7 @@ namespace RallyTeam.TestScripts
             _driver = GetDriver();
             authenticationPage = new AuthenticationPage(_driver, _pageLoadTimeout);
             registrationPage = new RegistrationPage(_driver, _pageLoadTimeout);
+            onboardingPage = new OnboardingPage(_driver, _pageLoadTimeout);
 
             _assertHelper = new AssertHelper(_driver, _pageLoadTimeout);
             _driver.Manage().Window.Maximize();

@@ -27,7 +27,7 @@ namespace RallyTeam.UILocators
 
         public static By ProjectNameOnPage(String variable)
         {
-            return By.XPath("//div[contains(@class, 'rt-project-tile')]//span[contains(text(), '" + variable+"')]");
+            return By.XPath("//span[contains(text(), '" + variable+"')]");
         }
 
         public readonly static By statusDropDown = By.XPath("//div[contains(@class, 'rt-about-details__details-container')]//div[3]//dd[1]//select[contains(@class, 'form-control')]");
@@ -46,9 +46,9 @@ namespace RallyTeam.UILocators
         public readonly static By deleteProjectIcon = By.XPath("//li[3]/a/div/i");
 
 
-        public readonly static By discussionAddMemberIcon = By.XPath("//div[2]/div/div/ul/li/a/div/i");
-        public readonly static By discussionShareProjectIcon = By.XPath("//div[2]/div/div/ul/li[2]/a/div/i");
-        public readonly static By discussionDeleteProjectIcon = By.XPath("//div[2]/div/div/ul/li[3]/a/div/i");
+        public readonly static By discussionAddMemberIcon = By.XPath("//div[3]/div/div/ul/li/a/div/i");
+        public readonly static By discussionShareProjectIcon = By.XPath("//div[3]/div/div/ul/li[2]/a/div/i");
+        public readonly static By discussionDeleteProjectIcon = By.XPath("//div[3]/div/div/ul/li[3]/a/div/i");
 
         public readonly static By deleteProjectWindow = By.XPath("//div[contains(@class, 'modal-content')]//h1[text()='Are you sure you want to delete this project?']");
         public readonly static By deleteProjectWindowNoBtn = By.XPath("//div[contains(@class, 'modal-content')]//button[contains(text(),'No')]");
@@ -87,8 +87,8 @@ namespace RallyTeam.UILocators
         public readonly static By PlusIcon = By.XPath("//div[contains(@class, 'add-button') and contains(text(), '+')]");
         public readonly static By searchSkillsText = By.XPath("//input[@placeholder='What skills are you looking for?']");
         public readonly static By myTeamDiv = By.XPath("//div[@class='row m-t-xl rt-staffing-wizard__team']");
-        public readonly static By doneBtn = By.XPath("//button[text()='Done']");
-        public readonly static By closeAddMemberWindowIcon = By.XPath("//i[@class='fa fa-times rt-close-tool']");
+        public readonly static By doneBtn = By.XPath("//a[text()='Done']");
+        public readonly static By closeAddMemberWindowIcon = By.XPath("//i[contains(@class, 'fa fa-times rt-close-tool')]");
         public static By addMemberSuggList(string variable)
         {
             return By.XPath("//ul[contains(@class, 'suggestion-list')]//span[contains(text(), '" + variable + "')]");

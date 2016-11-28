@@ -20,6 +20,12 @@ namespace RallyTeam.UIPages
 
         }
 
+        //Navigate To Mailinator.com
+        public void NavigateToUrl(String _navigateUrl)
+        {
+            _driver.Navigate().GoToUrl(_navigateUrl);
+        }
+
         //Navigate To External Storm
         public void NavigateToExternalStorm(String _ExternalStormURL)
         {
@@ -57,6 +63,12 @@ namespace RallyTeam.UIPages
             ((IJavaScriptExecutor)_driver).ExecuteScript("window.scrollTo(0, document.body.scrollHeight - 200)");
         }
 
+        //Scrolldown Variable
+        public void ScrollDownVariable(int size)
+        {
+            ((IJavaScriptExecutor)_driver).ExecuteScript("window.scrollTo(0, document.body.scrollHeight - "+size+")");
+        }
+
         //Get User name through User Icon
         public string GetUserName()
         {
@@ -64,5 +76,6 @@ namespace RallyTeam.UIPages
             return userName;
         }
 
+        
     }
 }

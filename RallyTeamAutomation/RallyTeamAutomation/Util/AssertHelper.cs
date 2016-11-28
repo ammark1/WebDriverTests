@@ -35,6 +35,11 @@ namespace RallyTeam.Util
             PageLoadTimeout = pageLoadTimeout;
         }
 
+        public void AssertFailTestCase()
+        {
+            Assert.Fail();
+        }
+
         public void AssertTitleIs(string Title)
         {
             DefaultWait<IWebDriver> wait = new DefaultWait<IWebDriver>(_driver);

@@ -172,7 +172,7 @@ namespace RallyTeam.Util
         }
 
 
-        //Attempts to find an element but does not throw an exception if the element can not be found.
+        //Attempts to find an element text but does not throw an exception if the element can not be found.
         public static String GetElementText(this IWebDriver driver, By locator)
         {
             DefaultWait<IWebDriver> wait = new DefaultWait<IWebDriver>(driver);
@@ -181,6 +181,22 @@ namespace RallyTeam.Util
             try
             {
                 return wait.Until<IWebElement>(ExpectedConditionsExtender.ElementIsVisible(locator)).Text;                
+            }
+            catch (WebDriverTimeoutException)
+            {
+                return null;
+            }
+        }
+
+        //Attempts to find an element but does not throw an exception if the element can not be found.
+        public static String GetElementAttributeValue(this IWebDriver driver, By locator, String attribute)
+        {
+            DefaultWait<IWebDriver> wait = new DefaultWait<IWebDriver>(driver);
+            wait.Timeout = TimeSpan.FromSeconds(timeout);
+            wait.IgnoreExceptionTypes(typeof(NoSuchElementException));
+            try
+            {
+                return wait.Until<IWebElement>(ExpectedConditionsExtender.ElementIsVisible(locator)).GetAttribute(attribute);
             }
             catch (WebDriverTimeoutException)
             {

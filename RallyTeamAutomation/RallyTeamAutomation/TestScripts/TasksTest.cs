@@ -1169,7 +1169,7 @@ namespace RallyTeam.TestScripts
             //Select I've Posted option from All Projects Dropdown
             projectsPage.SelectAllProjectsIvePosted();
             log.Info("Select I've Posted option from the All Projects dropdown.");
-            Thread.Sleep(2000);
+            Thread.Sleep(5000);
 
             //Click the created project
             projectsPage.ClickProjectNameOnPage(projectName);
@@ -1283,7 +1283,7 @@ namespace RallyTeam.TestScripts
             //Select I've Posted option from All Projects Dropdown
             projectsPage.SelectAllProjectsIvePosted();
             log.Info("Select I've Posted option from the All Projects dropdown.");
-            Thread.Sleep(2000);
+            Thread.Sleep(5000);
 
             //Click the created project
             projectsPage.ClickProjectNameOnPage(projectName);
@@ -1406,7 +1406,7 @@ namespace RallyTeam.TestScripts
             //Select I've Posted option from All Projects Dropdown
             projectsPage.SelectAllProjectsIvePosted();
             log.Info("Select I've Posted option from the All Projects dropdown.");
-            Thread.Sleep(2000);
+            Thread.Sleep(5000);
 
             //Click the created project
             projectsPage.ClickProjectNameOnPage(projectName);
@@ -1523,7 +1523,7 @@ namespace RallyTeam.TestScripts
             //Select I've Posted option from All Projects Dropdown
             projectsPage.SelectAllProjectsIvePosted();
             log.Info("Select I've Posted option from the All Projects dropdown.");
-            Thread.Sleep(2000);
+            Thread.Sleep(5000);
 
             //Click the created project
             projectsPage.ClickProjectNameOnPage(projectName);
@@ -1646,7 +1646,7 @@ namespace RallyTeam.TestScripts
             //Select I've Posted option from All Projects Dropdown
             projectsPage.SelectAllProjectsIvePosted();
             log.Info("Select I've Posted option from the All Projects dropdown.");
-            Thread.Sleep(2000);
+            Thread.Sleep(5000);
 
             //Click the created project
             projectsPage.ClickProjectNameOnPage(projectName);

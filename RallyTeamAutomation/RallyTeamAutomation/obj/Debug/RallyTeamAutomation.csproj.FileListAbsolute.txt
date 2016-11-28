@@ -61,6 +61,3 @@ F:\Automation_SeleniumCSharp\RallyTeam\RallyTeamAutomation\RallyTeamAutomation\b
 F:\Automation_SeleniumCSharp\RallyTeam\RallyTeamAutomation\RallyTeamAutomation\obj\Debug\RallyTeamAutomation.exe
 F:\Automation_SeleniumCSharp\RallyTeam\RallyTeamAutomation\RallyTeamAutomation\obj\Debug\RallyTeamAutomation.pdb
 F:\Automation_SeleniumCSharp\RallyTeam\RallyTeamAutomation\RallyTeamAutomation\obj\Debug\RallyTeamAutomation.csprojResolveAssemblyReference.cache
-F:\Automation_SeleniumCSharp\RallyTeam\Repository_HelloWorld\RallyTeamAutomation\RallyTeamAutomation\bin\Debug\RallyTeamAutomation.exe.config
-F:\Automation_SeleniumCSharp\RallyTeam\Repository_HelloWorld\RallyTeamAutomation\RallyTeamAutomation\obj\Debug\RallyTeamAutomation.exe
-F:\Automation_SeleniumCSharp\RallyTeam\Repository_HelloWorld\RallyTeamAutomation\RallyTeamAutomation\obj\Debug\RallyTeamAutomation.pdb

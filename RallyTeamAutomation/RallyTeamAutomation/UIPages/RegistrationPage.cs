@@ -124,6 +124,30 @@ namespace RallyTeam.UIPages
         }
 
         //Assert the Error message
+        public void DifferentPwdError()
+        {
+            _assertHelper.AssertElementDisplayed(RegistrationUI.differentPwdError);
+        }
+
+        //Assert the Error message
+        public void ShortPwdError()
+        {
+            _assertHelper.AssertElementDisplayed(RegistrationUI.shortPwdError);
+        }
+
+        //Assert the Create Pwd empty message
+        public void CreatePwdEmpty()
+        {
+            _assertHelper.AssertElementDisplayed(RegistrationUI.createPwdEmpty);
+        }
+
+        //Assert the Confirm Pwd empty message
+        public void ConfirmPwdEmpty()
+        {
+            _assertHelper.AssertElementDisplayed(RegistrationUI.confirmPwdEmpty);
+        }
+
+        //Assert the Error message
         public void InvalidEmailErrorMessage()
         {
             _assertHelper.AssertElementDisplayed(RegistrationUI.invalidEmailErrorMessage);

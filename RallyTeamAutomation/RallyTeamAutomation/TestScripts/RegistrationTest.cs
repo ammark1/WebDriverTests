@@ -91,8 +91,12 @@ namespace RallyTeam.TestScripts
             Thread.Sleep(2000);
 
             //Enter Work Email on the screen
+            Thread.Sleep(5000);
+            StringBuilder builder = new StringBuilder();
+            builder.Append(RandomString(4));
             String validWorkEmail = readRegistration.GetValue("Credentials", "validWorkEmail");
-            registrationPage.EnterWorkEmail(validWorkEmail);
+            String workEmail = builder + validWorkEmail;         
+            registrationPage.EnterWorkEmail(workEmail);
             log.Info("Enter Work Email on the screen.");
             Thread.Sleep(2000);
 
@@ -280,11 +284,11 @@ namespace RallyTeam.TestScripts
             Thread.Sleep(2000);
 
             //Enter Work Email on the screen
-            String validWorkEmail = readRegistration.GetValue("Credentials", "validWorkEmail");
             StringBuilder builder = new StringBuilder();
             builder.Append(RandomString(4));
-            validWorkEmail = builder + validWorkEmail;
-            registrationPage.EnterWorkEmail(validWorkEmail);
+            String validWorkEmail = readRegistration.GetValue("Credentials", "validWorkEmail");
+            String workEmail = builder + validWorkEmail;
+            registrationPage.EnterWorkEmail(workEmail);
             log.Info("Enter Work Email on the screen.");
             Thread.Sleep(2000);
 
@@ -305,7 +309,7 @@ namespace RallyTeam.TestScripts
             Thread.Sleep(2000);
 
             //Verify Error Message on the screen
-            registrationPage.ErrorMessage();
+            registrationPage.CreatePwdEmpty();
             log.Info("Verify error message on the screen.");
             Thread.Sleep(2000);
         }
@@ -359,7 +363,7 @@ namespace RallyTeam.TestScripts
             Thread.Sleep(2000);
 
             //Verify Error Message on the screen
-            registrationPage.ErrorMessage();
+            registrationPage.ConfirmPwdEmpty();
             log.Info("Verify error message on the screen.");
             Thread.Sleep(2000);
         }
@@ -402,12 +406,12 @@ namespace RallyTeam.TestScripts
             Thread.Sleep(2000);
 
             //Enter Create a Password field on the screen
-            registrationPage.EnterCreatePwdFields("create123");
+            registrationPage.EnterCreatePwdFields("Create123");
             log.Info("Enter Create a Password field on the screen.");
             Thread.Sleep(2000);
 
             //Enter Confirm Password field on the screen
-            registrationPage.EnterConfirmPwdFields("confirm123");
+            registrationPage.EnterConfirmPwdFields("Confirm123");
             log.Info("Enter Confirm Password field on the screen.");
             Thread.Sleep(2000);
 
@@ -417,7 +421,7 @@ namespace RallyTeam.TestScripts
             Thread.Sleep(2000);
 
             //Verify Error Message on the screen
-            registrationPage.ErrorMessage();
+            registrationPage.DifferentPwdError();
             log.Info("Verify error message on the screen.");
             Thread.Sleep(2000);
         }
@@ -476,7 +480,7 @@ namespace RallyTeam.TestScripts
             Thread.Sleep(2000);
 
             //Verify Error Message on the screen
-            registrationPage.ErrorMessage();
+            registrationPage.ShortPwdError();
             log.Info("Verify error message on the screen.");
             Thread.Sleep(2000);
         }

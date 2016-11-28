@@ -197,17 +197,17 @@ namespace RallyTeam.TestScripts
             //Select I've Posted option from All Projects Dropdown
             projectsPage.SelectAllProjectsIvePosted();
             log.Info("Select I've Posted option from the All Projects dropdown.");
-            Thread.Sleep(2000);
+            Thread.Sleep(5000);
 
             //Click the created project
             projectsPage.ClickProjectNameOnPage(projectName);
             log.Info("Click the Project Name on the Projects Page.");
-            Thread.Sleep(3000);
+            Thread.Sleep(5000);
 
             //Select Project status as In Progress
             projectsPage.SelectStatusDropDown("In Progress");
             log.Info("Select Project status as 'In Progress'");
-            Thread.Sleep(2000);
+            Thread.Sleep(5000);
 
             //Click Projects menu option
             projectsPage.ClickProjectsMenu();
@@ -222,7 +222,7 @@ namespace RallyTeam.TestScripts
             //Select In Progress option from All Projects Dropdown
             projectsPage.SelectAllProjectsInProgress();
             log.Info("Select 'In Progress' option from the All Projects dropdown.");
-            Thread.Sleep(2000);
+            Thread.Sleep(5000);
 
             //Verify created project should be displayed on the Projects page
             projectsPage.VerifyProjectNameOnPage(projectName);
@@ -232,7 +232,7 @@ namespace RallyTeam.TestScripts
             //Click the created project
             projectsPage.ClickProjectNameOnPage(projectName);
             log.Info("Click the Project Name on the Projects Page.");
-            Thread.Sleep(3000);
+            Thread.Sleep(5000);
 
             //Delete Project
             DeleteProject();
@@ -266,22 +266,22 @@ namespace RallyTeam.TestScripts
             //Select I've Posted option from All Projects Dropdown
             projectsPage.SelectAllProjectsIvePosted();
             log.Info("Select I've Posted option from the All Projects dropdown.");
-            Thread.Sleep(2000);
+            Thread.Sleep(5000);
 
             //Click the created project
             projectsPage.ClickProjectNameOnPage(projectName);
             log.Info("Click the Project Name on the Projects Page.");
-            Thread.Sleep(3000);
+            Thread.Sleep(5000);
 
             //Select Project status as Completed
             projectsPage.SelectStatusDropDown("Completed");
             log.Info("Select Project status as 'Completed'");
-            Thread.Sleep(2000);
+            Thread.Sleep(4000);
 
             //Click on Mark Complete button
             projectsPage.ClickMarkComplete();
             log.Info("Click Mark Complete button.");
-            Thread.Sleep(3000);
+            Thread.Sleep(5000);
 
             //Click Projects menu option
             projectsPage.ClickProjectsMenu();
@@ -296,7 +296,7 @@ namespace RallyTeam.TestScripts
             //Select Completed option from All Projects Dropdown
             projectsPage.SelectAllProjectsCompleted();
             log.Info("Select 'Completed' option from the All Projects dropdown.");
-            Thread.Sleep(3000);
+            Thread.Sleep(5000);
 
             //Verify created project should be displayed on the Projects page
             projectsPage.VerifyProjectNameOnPage(projectName);
@@ -306,7 +306,7 @@ namespace RallyTeam.TestScripts
             //Click the created project
             projectsPage.ClickProjectNameOnPage(projectName);
             log.Info("Click the Project Name on the Projects Page.");
-            Thread.Sleep(3000);
+            Thread.Sleep(5000);
 
             //Delete Project
             DeleteProject();
@@ -335,17 +335,17 @@ namespace RallyTeam.TestScripts
             //Click the All Projects Dropdown option
             projectsPage.ClickAllProjectsDropDown();
             log.Info("Click the All Projects dropdown.");
-            Thread.Sleep(2000);
+            Thread.Sleep(5000);
 
             //Select I've Posted option from All Projects Dropdown
             projectsPage.SelectAllProjectsIvePosted();
             log.Info("Select I've Posted option from the All Projects dropdown.");
-            Thread.Sleep(2000);
+            Thread.Sleep(5000);
 
             //Click the created project
             projectsPage.ClickProjectNameOnPage(projectName);
             log.Info("Click the Project Name on the Projects Page.");
-            Thread.Sleep(3000);
+            Thread.Sleep(5000);
 
             //Select Project status as Closed
             projectsPage.SelectStatusDropDown("Closed");
@@ -365,7 +365,7 @@ namespace RallyTeam.TestScripts
             //Select Closed option from All Projects Dropdown
             projectsPage.SelectAllProjectsClosed();
             log.Info("Select 'Closed' option from the All Projects dropdown.");
-            Thread.Sleep(3000);
+            Thread.Sleep(5000);
 
             //Verify created project should be displayed on the Projects page
             projectsPage.VerifyProjectNameOnPage(projectName);
@@ -419,7 +419,7 @@ namespace RallyTeam.TestScripts
             //Select Recruiting option from All Projects Dropdown
             projectsPage.SelectAllProjectsRecruiting();
             log.Info("Select Recruiting option from the All Projects dropdown.");
-            Thread.Sleep(2000);
+            Thread.Sleep(5000);
 
             //Verify created project should be displayed on the Projects page
             projectsPage.VerifyProjectNameOnPage(projectName);
@@ -535,7 +535,7 @@ namespace RallyTeam.TestScripts
             //Select In Progress option from All Projects Dropdown
             projectsPage.SelectAllProjectsInProgress();
             log.Info("Select In Progress option from the All Projects dropdown.");
-            Thread.Sleep(2000);
+            Thread.Sleep(5000);
 
             //Click the created project
             projectsPage.ClickProjectNameOnPage(projectName);
@@ -1414,12 +1414,12 @@ namespace RallyTeam.TestScripts
             //Select Recruiting option from All Projects Dropdown
             projectsPage.SelectAllProjectsRecruiting();
             log.Info("Select Recruiting option from the All Projects dropdown.");
-            Thread.Sleep(2000);
+            Thread.Sleep(5000);
 
             //Click the created project
             projectsPage.ClickProjectNameOnPage(projectName);
             log.Info("Click the Project Name on the Projects Page.");
-            Thread.Sleep(3000);
+            Thread.Sleep(5000);
 
             //Verify that Request to Join button is displayed on the screen
             projectsPage.AsssertRequestToJoinBtn();
@@ -1926,9 +1926,9 @@ namespace RallyTeam.TestScripts
             log.Info("Click the Remove Project Member window No button.");
             Thread.Sleep(2000);
 
-            //Verify Project is not deleted
+            //Verify Project member is deleted
             projectsPage.VerifyProjectMemberNameIsDeleted(addMemberName);
-            log.Info("Verified the group Name");
+            log.Info("Verified Project member is deleted.");
             Thread.Sleep(2000);
 
             //Delete Project
@@ -2694,17 +2694,17 @@ namespace RallyTeam.TestScripts
             }
 
             //Click the Add Project Member window Done button
-            Thread.Sleep(2000);
+            Thread.Sleep(5000);
             projectsPage.ClickAddProjectMemberDoneBtn();
             log.Info("Click the Add Project Member window Done button.");
 
             //Again click on Add member icon
-            Thread.Sleep(3000);
+            Thread.Sleep(5000);
             projectsPage.ClickAddMemberIcon();
             log.Info("Click the Add member icon for the Project.");
 
             //Click on View Team Status link
-            Thread.Sleep(2000);
+            Thread.Sleep(5000);
             projectsPage.ClickViewTeamStatus();
             log.Info("Click on the Biew Team Status hyperlink.");
 
@@ -2833,27 +2833,32 @@ namespace RallyTeam.TestScripts
             //Select I've Posted option from All Projects Dropdown
             projectsPage.SelectAllProjectsIvePosted();
             log.Info("Select I've Posted option from the All Projects dropdown.");
-            Thread.Sleep(2000);
+            Thread.Sleep(5000);
 
             //Click the created project
             projectsPage.ClickProjectNameOnPage(projectName);
             log.Info("Click the Project Name on the Projects Page.");
-            Thread.Sleep(3000);
+            Thread.Sleep(5000);
 
             //Select Project status as Closed
             projectsPage.SelectStatusDropDown("Closed");
             log.Info("Select Project status as 'Closed'");
-            Thread.Sleep(2000);
+            Thread.Sleep(3000);
 
             //Click Projects menu option
             projectsPage.ClickProjectsMenu();
             log.Info("Click the Projects menu option.");
             Thread.Sleep(5000);
 
+            //Click the All Projects Dropdown option
+            projectsPage.ClickAllProjectsDropDown();
+            log.Info("Click the All Projects dropdown.");
+            Thread.Sleep(2000);
+
             //Select Closed option from All Projects Dropdown
             projectsPage.SelectAllProjectsClosed();
             log.Info("Select 'Closed' option from the All Projects dropdown.");
-            Thread.Sleep(2000);
+            Thread.Sleep(5000);
 
             //Verify created project should be displayed on the Projects page
             projectsPage.VerifyProjectNameOnPage(projectName);

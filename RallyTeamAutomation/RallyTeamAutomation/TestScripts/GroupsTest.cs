@@ -1735,7 +1735,7 @@ namespace RallyTeam.TestScripts
         }
 
         [Test]
-        public void Groups_044_UploadDiscussionFileAndVerify()
+        public void Groups_044_DiscussionFileAndVerify()
         {
             Global.MethodName = "Groups_044_UploadDiscussionFileAndVerify";
 

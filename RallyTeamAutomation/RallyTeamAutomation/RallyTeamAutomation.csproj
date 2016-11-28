@@ -94,7 +94,9 @@
     <Compile Include="TestScripts\BaseTestWithoutLogin.cs" />
     <Compile Include="TestScripts\EventsTest.cs" />
     <Compile Include="TestScripts\GroupsTest.cs" />
+    <Compile Include="TestScripts\InviteUsersTest.cs" />
     <Compile Include="TestScripts\MessagesTest.cs" />
+    <Compile Include="TestScripts\OnboardingTest.cs" />
     <Compile Include="TestScripts\PeopleTest.cs" />
     <Compile Include="TestScripts\ProjectsTest.cs" />
     <Compile Include="TestScripts\RegistrationTest.cs" />
@@ -107,6 +109,7 @@
     <Compile Include="UILocators\DashboardUI.cs" />
     <Compile Include="UILocators\EventsUI.cs" />
     <Compile Include="UILocators\GroupsUI.cs" />
+    <Compile Include="UILocators\InviteUsersUI.cs" />
     <Compile Include="UILocators\MessagesUI.cs" />
     <Compile Include="UILocators\PeopleUI.cs" />
     <Compile Include="UILocators\ProjectsUI.cs" />
@@ -121,7 +124,9 @@
     <Compile Include="UIPages\DashboardPage.cs" />
     <Compile Include="UIPages\EventsPage.cs" />
     <Compile Include="UIPages\GroupsPage.cs" />
+    <Compile Include="UIPages\InviteUsersPage.cs" />
     <Compile Include="UIPages\MessagesPage.cs" />
+    <Compile Include="UIPages\OnboardingPage.cs" />
     <Compile Include="UIPages\PeoplePage.cs" />
     <Compile Include="UIPages\ProjectsPage.cs" />
     <Compile Include="UIPages\RegistrationPage.cs" />

@@ -53,6 +53,9 @@ namespace RallyTeam.TestScripts
         protected SearchPage searchPage;
         protected PeoplePage peoplePage;
         protected MessagesPage messagesPage;
+        protected InviteUsersPage inviteUsersPage;
+        protected OnboardingPage onboardingPage;
+        protected RegistrationPage registrationPage;
 
         [SetUp]
         public void TestSetUp()
@@ -68,7 +71,9 @@ namespace RallyTeam.TestScripts
             searchPage = new SearchPage(_driver, _pageLoadTimeout);
             peoplePage = new PeoplePage(_driver, _pageLoadTimeout);
             messagesPage = new MessagesPage(_driver, _pageLoadTimeout);
-
+            inviteUsersPage = new InviteUsersPage(_driver, _pageLoadTimeout);
+            onboardingPage = new OnboardingPage(_driver, _pageLoadTimeout);
+            registrationPage = new RegistrationPage(_driver, _pageLoadTimeout);
 
             _assertHelper = new AssertHelper(_driver, _pageLoadTimeout);
             _driver.Manage().Window.Maximize();

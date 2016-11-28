@@ -10,11 +10,13 @@ namespace RallyTeam
     {
         static void Main(string[] args)
         {
-            String
-            startupPath = null;
-            startupPath = System.IO.Directory.GetCurrentDirectory();
-            startupPath = startupPath + "\\no-testing-required-it-will-work.jpg";
-            Console.WriteLine("Start up path: " + startupPath);
+            StringBuilder sb = new StringBuilder();
+            String s;
+            s = null;
+            sb.Append("Value: ");
+            if (s != null) sb.Append(s);
+            Console.WriteLine("sb: "+sb) ;
+
         }
     }
 }
