@@ -11,6 +11,8 @@ using System.Windows.Forms;
 
 namespace RallyTeam.TestScripts
 {
+    [TestFixture]
+    [Category("People"), Category("Nightly")]
     public class PeopleTest : BaseTest
     {
         static ReadData readPeople = new ReadData("People");
