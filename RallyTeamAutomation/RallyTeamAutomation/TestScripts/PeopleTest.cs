@@ -12,7 +12,7 @@ using System.Windows.Forms;
 namespace RallyTeam.TestScripts
 {
     [TestFixture]
-    [Category("Nightly")]
+    [Category("Nightly"), Category("Regression")]
     public class PeopleTest : BaseTest
     {
         static ReadData readPeople = new ReadData("People");
@@ -86,7 +86,7 @@ namespace RallyTeam.TestScripts
             log.Info("Verify View Profile button is displayed.");
             Thread.Sleep(2000);
         }
-
+        /*
         [Test]
         public void People_003_ClickMessageAndVerify()
         {
@@ -446,6 +446,6 @@ namespace RallyTeam.TestScripts
             peoplePage.VerifyNewMessagwPosted(messageText);
             log.Info("Verify New Message is Posted.");
             Thread.Sleep(2000);
-        }
+        }*/
     }
 }
