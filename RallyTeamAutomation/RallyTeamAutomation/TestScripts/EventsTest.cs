@@ -146,6 +146,7 @@ namespace RallyTeam.TestScripts
             log.Info("Click on the Settings option after Event is created.");
 
             //Click Settings Options value 'Delete Event'
+            Thread.Sleep(2000);
             eventsPage.ClickSettingsOptionsValues("Delete Event");
             log.Info("Verified Settings option value: 'Delete Event'");
             Thread.Sleep(2000);
@@ -171,6 +172,7 @@ namespace RallyTeam.TestScripts
 
             //Select Event
             //Click Events menu option
+            Thread.Sleep(5000);
             eventsPage.ClickEventsMenu();
             log.Info("Click the Events menu option.");
             Thread.Sleep(5000);
@@ -370,10 +372,10 @@ namespace RallyTeam.TestScripts
             log.Info("Create a new Group");
 
             //Click Events menu option
-            Thread.Sleep(3000);
+            Thread.Sleep(5000);
             eventsPage.ClickEventsMenu();
             log.Info("Click the Events menu option.");
-            Thread.Sleep(5000);
+            Thread.Sleep(6000);
 
             //Click New Event button
             eventsPage.ClickOnNewEventButton();
@@ -1462,7 +1464,7 @@ namespace RallyTeam.TestScripts
             //Click Event's About tab
             eventsPage.ClickEventsAboutTab();
             log.Info("Click on Event's About tab.");
-            Thread.Sleep(2000);
+            Thread.Sleep(5000);
 
             //Delete the Event
             DeleteEvent();
@@ -1712,13 +1714,12 @@ namespace RallyTeam.TestScripts
 
             //Select Event
             //Click Events menu option
+            Thread.Sleep(5000);
             eventsPage.ClickEventsMenu();
             log.Info("Click the Events menu option.");
             Thread.Sleep(5000);
 
             //Click the Event created
-            commonPage.ScrollDown();
-            Thread.Sleep(2000);
             eventsPage.ClickEventOnEventPage(eventName);
             log.Info("Click the Event Name on Events Page.");
             Thread.Sleep(2000);
@@ -1801,13 +1802,12 @@ namespace RallyTeam.TestScripts
 
             //Select Event
             //Click Events menu option
+            Thread.Sleep(5000);
             eventsPage.ClickEventsMenu();
             log.Info("Click the Events menu option.");
             Thread.Sleep(5000);
 
             //Click the Event created
-            commonPage.ScrollDown();
-            Thread.Sleep(2000);
             eventsPage.ClickEventOnEventPage(eventName);
             log.Info("Click the Event Name on Events Page.");
             Thread.Sleep(2000);
@@ -1884,13 +1884,12 @@ namespace RallyTeam.TestScripts
 
             //Select Event
             //Click Events menu option
+            Thread.Sleep(5000);
             eventsPage.ClickEventsMenu();
             log.Info("Click the Events menu option.");
             Thread.Sleep(5000);
 
             //Click the Event created
-            commonPage.ScrollDown();
-            Thread.Sleep(2000);
             eventsPage.ClickEventOnEventPage(eventName);
             log.Info("Click the Event Name on Events Page.");
             Thread.Sleep(2000);

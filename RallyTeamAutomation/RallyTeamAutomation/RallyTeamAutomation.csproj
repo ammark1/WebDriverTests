@@ -75,12 +75,12 @@
     <Reference Include="System.Data" />
     <Reference Include="System.Net.Http" />
     <Reference Include="System.Xml" />
-    <Reference Include="WebDriver, Version=2.45.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\Selenium.WebDriver.PhantomJS.Xplatform.2.45.0.1\lib\net40\WebDriver.dll</HintPath>
+    <Reference Include="WebDriver, Version=3.0.1.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Selenium.WebDriver.3.0.1\lib\net40\WebDriver.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="WebDriver.Support, Version=2.53.1.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\Selenium.Support.2.53.1\lib\net40\WebDriver.Support.dll</HintPath>
+    <Reference Include="WebDriver.Support, Version=3.0.1.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Selenium.Support.3.0.1\lib\net40\WebDriver.Support.dll</HintPath>
       <Private>True</Private>
     </Reference>
   </ItemGroup>
@@ -91,13 +91,19 @@
     <Compile Include="TestScripts\ActivitiesTest.cs" />
     <Compile Include="TestScripts\AuthenticationTest.cs" />
     <Compile Include="TestScripts\BaseTest.cs" />
+    <Compile Include="TestScripts\BaseTestES.cs" />
     <Compile Include="TestScripts\BaseTestWithoutLogin.cs" />
+    <Compile Include="TestScripts\CommonIssuesTest.cs" />
     <Compile Include="TestScripts\EventsTest.cs" />
     <Compile Include="TestScripts\GroupsTest.cs" />
     <Compile Include="TestScripts\InviteUsersTest.cs" />
-    <Compile Include="TestScripts\MessagesTest.cs" />
+    <Compile Include="TestScripts\InvoicingTest.cs" />
+    <Compile Include="TestScripts\MarketplaceTest.cs" />
+    <Compile Include="TestScripts\DirectMessagingTest.cs" />
     <Compile Include="TestScripts\OnboardingTest.cs" />
     <Compile Include="TestScripts\PeopleTest.cs" />
+    <Compile Include="TestScripts\PeopleTestES.cs" />
+    <Compile Include="TestScripts\PostProjectTest.cs" />
     <Compile Include="TestScripts\ProjectsTest.cs" />
     <Compile Include="TestScripts\RegistrationTest.cs" />
     <Compile Include="TestScripts\SearchTest.cs" />
@@ -110,8 +116,12 @@
     <Compile Include="UILocators\EventsUI.cs" />
     <Compile Include="UILocators\GroupsUI.cs" />
     <Compile Include="UILocators\InviteUsersUI.cs" />
-    <Compile Include="UILocators\MessagesUI.cs" />
+    <Compile Include="UILocators\InvoicingUI.cs" />
+    <Compile Include="UILocators\MarketPlaceUI.cs" />
+    <Compile Include="UILocators\DirectMessagingUI.cs" />
+    <Compile Include="UILocators\OnboardingUI.cs" />
     <Compile Include="UILocators\PeopleUI.cs" />
+    <Compile Include="UILocators\PostProjectUI.cs" />
     <Compile Include="UILocators\ProjectsUI.cs" />
     <Compile Include="UILocators\RegistrationUI.cs" />
     <Compile Include="UILocators\SearchUI.cs" />
@@ -120,14 +130,18 @@
     <Compile Include="UIPages\ActivitiesPage.cs" />
     <Compile Include="UIPages\AuthenticationPage.cs" />
     <Compile Include="UIPages\BasePage.cs" />
+    <Compile Include="UIPages\CommonIssuesPage.cs" />
     <Compile Include="UIPages\CommonMethods.cs" />
     <Compile Include="UIPages\DashboardPage.cs" />
     <Compile Include="UIPages\EventsPage.cs" />
     <Compile Include="UIPages\GroupsPage.cs" />
     <Compile Include="UIPages\InviteUsersPage.cs" />
-    <Compile Include="UIPages\MessagesPage.cs" />
+    <Compile Include="UIPages\InvoicingPage.cs" />
+    <Compile Include="UIPages\MarketplacePage.cs" />
+    <Compile Include="UIPages\DirectMessagingPage.cs" />
     <Compile Include="UIPages\OnboardingPage.cs" />
     <Compile Include="UIPages\PeoplePage.cs" />
+    <Compile Include="UIPages\PostProjectPage.cs" />
     <Compile Include="UIPages\ProjectsPage.cs" />
     <Compile Include="UIPages\RegistrationPage.cs" />
     <Compile Include="UIPages\SearchPage.cs" />
@@ -157,13 +171,27 @@
     <None Include="TestData\Events.ini">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
-    <None Include="TestData\Messages.ini" />
-    <None Include="TestData\People.ini" />
+    <None Include="TestData\DirectMessaging.ini">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="TestData\Invoicing.ini">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="TestData\People.ini">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="TestData\PostProject.ini">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
     <None Include="TestData\Projects.ini">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
-    <None Include="TestData\Registration.ini" />
-    <None Include="TestData\Search.ini" />
+    <None Include="TestData\Registration.ini">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="TestData\Search.ini">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
     <None Include="TestData\Tasks.ini">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
@@ -181,13 +209,13 @@
     </Content>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <Import Project="..\packages\Selenium.WebDriver.IEDriver.3.0.0.1\build\Selenium.WebDriver.IEDriver.targets" Condition="Exists('..\packages\Selenium.WebDriver.IEDriver.3.0.0.1\build\Selenium.WebDriver.IEDriver.targets')" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
     <PropertyGroup>
       <ErrorText>This project references NuGet package(s) that are missing on this computer. Use NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
     </PropertyGroup>
-    <Error Condition="!Exists('..\packages\Selenium.WebDriver.IEDriver.2.53.1.1\build\Selenium.WebDriver.IEDriver.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Selenium.WebDriver.IEDriver.2.53.1.1\build\Selenium.WebDriver.IEDriver.targets'))" />
+    <Error Condition="!Exists('..\packages\Selenium.WebDriver.IEDriver.3.0.0.1\build\Selenium.WebDriver.IEDriver.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Selenium.WebDriver.IEDriver.3.0.0.1\build\Selenium.WebDriver.IEDriver.targets'))" />
   </Target>
-  <Import Project="..\packages\Selenium.WebDriver.IEDriver.2.53.1.1\build\Selenium.WebDriver.IEDriver.targets" Condition="Exists('..\packages\Selenium.WebDriver.IEDriver.2.53.1.1\build\Selenium.WebDriver.IEDriver.targets')" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
   <Target Name="BeforeBuild">

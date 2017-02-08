@@ -42,11 +42,11 @@ namespace RallyTeam.TestScripts
         {
             Global.MethodName = "UserProfile_002_VerifyUserIconAfterClick";
 
-            //Verify the User Profile icon tooltip
+            /*//Verify the User Profile icon tooltip
             String loggedInUserName = readUserProfile.GetValue("UserProfile", "loggedInUserName");
             userProfilePage.VerifyUserTooltip(loggedInUserName);
             log.Info("Verify the USer Profile icon tooltip.");
-            Thread.Sleep(2000);
+            Thread.Sleep(2000);*/
 
             //Click User Profile Icon
             userProfilePage.ClickUserProfileIcon();
@@ -366,7 +366,10 @@ namespace RallyTeam.TestScripts
             //Enter empty Edit Profile Window Last Name
             userProfilePage.EnterEditProfileLastName("");
             log.Info("Enter empty Edit Profile Window Last Name.");
-            Thread.Sleep(1000);
+            Thread.Sleep(3000);
+
+            commonPage.ScrollUp();
+            Thread.Sleep(2000);
 
             //Click Save button
             userProfilePage.ClickEditProfileSaveBtn();
@@ -451,7 +454,7 @@ namespace RallyTeam.TestScripts
             //Click Edit Profile Window Profile Builder button
             userProfilePage.ClickEditProfilProfileBuilderBtn();
             log.Info("Click Edit Profile Window Profile Builder button.");
-            Thread.Sleep(3000);
+            Thread.Sleep(5000);
 
             //Verify Profile Builder window
             userProfilePage.VerifyProfileBuilderWindow();
@@ -491,16 +494,21 @@ namespace RallyTeam.TestScripts
             //Select the User Profile Option 'Admin'
             userProfilePage.ClickUserProfileOptions("Admin");
             log.Info("Click User Profile option 'Admin'.");
-            Thread.Sleep(2000);
+            Thread.Sleep(5000);
 
             //Verify Features tab
             userProfilePage.VerifyFeaturesTab();
             log.Info("Verify Features tab is displayed.");
             Thread.Sleep(1000);
 
-            //Verify Manage Users tab
+            //Verify Users tab
             userProfilePage.VerifyManageUsersTab();
             log.Info("Verify Manage Users tab is displayed.");
+            Thread.Sleep(1000);
+
+            //Verify Groups tab
+            userProfilePage.VerifyGroupsTab();
+            log.Info("Verify Groups tab is displayed.");
         }
 
         [Test]
@@ -521,10 +529,10 @@ namespace RallyTeam.TestScripts
             //Click Manage Users tab
             userProfilePage.ClickManageUsersTab();
             log.Info("Click Manage Users tab.");
-            Thread.Sleep(2000);
+            Thread.Sleep(4000);
 
-            //Verify Admin column
-            userProfilePage.VerifyAdminColumn();
+            //Verify Group column
+            userProfilePage.VerifyGroupColumn();
             log.Info("Verify Admin column is displayed.");
         }
         /*
@@ -815,7 +823,7 @@ namespace RallyTeam.TestScripts
 
             //Press enter key
             peoplePage.PressEnterKey();
-            Thread.Sleep(3000);
+            Thread.Sleep(5000);
 
             //Move to User Container
             peoplePage.MoveToUserContainer();
@@ -825,12 +833,12 @@ namespace RallyTeam.TestScripts
             //Click View Profile button
             peoplePage.ClickViewProfileBtn();
             log.Info("Click on Message button.");
-            Thread.Sleep(3000);
+            Thread.Sleep(5000);
                         
             //Click the Settings Profile button
             userProfilePage.ClickSettingsProfileBtn();
             log.Info("Click the User Settings Profile button.");
-            Thread.Sleep(1000);
+            Thread.Sleep(2000);
 
             //Select Edit Profile from the Settings options
             userProfilePage.SelectSettingProfileOption("Edit Profile");
@@ -863,205 +871,7 @@ namespace RallyTeam.TestScripts
             //Verify updated Title
             userProfilePage.VerifyUserProfileTitle(editTitle);
             log.Info("Verify update Title is displayed.");
-        }
-
-        [Test]
-        public void ENG2248_001_VerifyAddNotesViewNotes()
-        {
-            Global.MethodName = "ENG2248_001_VerifyAddNotesViewNotes";
-
-            commonPage.NavigateToExternalStorm(_externalStormURL);
-            
-            //Login to the application
-            Thread.Sleep(5000);
-            authenticationPage.SetUserName(_workEmail);
-            authenticationPage.SetPassword(_password);
-            authenticationPage.ClickOnLoginButton();
-
-            //Click User Profile Icon
-            Thread.Sleep(5000);
-            userProfilePage.ClickUserProfileIcon();
-            log.Info("Click the User Profile Icon.");
-            Thread.Sleep(2000);
-
-            //Select the User Profile Option 'Admin'
-            userProfilePage.ClickUserProfileOptions("Admin");
-            log.Info("Click User Profile option 'Admin'.");
-            Thread.Sleep(2000);
-
-            //Verify Notes column
-            userProfilePage.VerifyNotesColumn();
-            log.Info("Verify Notes column is displayed.");
-            Thread.Sleep(1000);
-
-            //Verify View Notes Link
-            userProfilePage.VerifyViewNotesLink();
-            log.Info("Verify View Notes link is displayed.");
-        }
-
-        [Test]
-        public void ENG2248_002_VerifyViewNotesWindow()
-        {
-            Global.MethodName = "ENG2248_002_VerifyViewNotesWindow";
-            commonPage.NavigateToExternalStorm(_externalStormURL);
-
-            //Login to the application
-            Thread.Sleep(5000);
-            authenticationPage.SetUserName(_workEmail);
-            authenticationPage.SetPassword(_password);
-            authenticationPage.ClickOnLoginButton();
-
-            //Click User Profile Icon
-            Thread.Sleep(3000);
-            userProfilePage.ClickUserProfileIcon();
-            log.Info("Click the User Profile Icon.");
-            Thread.Sleep(2000);
-
-            //Select the User Profile Option 'Admin'
-            userProfilePage.ClickUserProfileOptions("Admin");
-            log.Info("Click User Profile option 'Admin'.");
-            Thread.Sleep(2000);
-
-            //Enter Search User Email Id
-            String searchUser = readUserProfile.GetValue("Admin", "searchUser");
-            userProfilePage.EnterSearchUser(searchUser);
-            log.Info("Enter search user email id.");
-            Thread.Sleep(2000);
-
-            //Press Enter Key
-            userProfilePage.PressEnterKey();
-            Thread.Sleep(2000);
-
-            //Click View Notes Link
-            userProfilePage.ClickViewNotesLink();
-            log.Info("Click View Notes link.");
-            Thread.Sleep(3000);
-
-            //Verify View Notes Window
-            userProfilePage.VerifyViewNotesWindow();
-            log.Info("Verify View Notes Window.");
-        }
-
-        /*[Test]
-        public void ENG2248_003_VerifyViewNotesPage()
-        {
-            Global.MethodName = "ENG2248_003_VerifyViewNotesPage";
-            commonPage.NavigateToExternalStorm(_externalStormURL);
-
-            //Login to the application
-            Thread.Sleep(5000);
-            authenticationPage.SetUserName(_workEmail);
-            authenticationPage.SetPassword(_password);
-            authenticationPage.ClickOnLoginButton();
-
-            //Click User Profile Icon
-            Thread.Sleep(3000);
-            userProfilePage.ClickUserProfileIcon();
-            log.Info("Click the User Profile Icon.");
-            Thread.Sleep(2000);
-
-            //Select the User Profile Option 'Admin'
-            userProfilePage.ClickUserProfileOptions("Admin");
-            log.Info("Click User Profile option 'Admin'.");
-            Thread.Sleep(2000);
-
-            //Enter Search User Email Id
-            String searchUser = readUserProfile.GetValue("Admin", "searchUser");
-            userProfilePage.EnterSearchUser(searchUser);
-            log.Info("Enter search user email id.");
-            Thread.Sleep(2000);
-
-            //Press Enter Key
-            userProfilePage.PressEnterKey();
-            Thread.Sleep(2000);
-
-            //Click View Notes Link
-            userProfilePage.ClickViewNotesLink();
-            log.Info("Click View Notes link.");
-            Thread.Sleep(3000);
-
-            //Verify View Notes Window
-            userProfilePage.VerifyViewNotesWindow();
-            log.Info("Verify View Notes Window.");
-            Thread.Sleep(1000);
-
-            //Verify View Notes TextArea
-            userProfilePage.VerifyViewNotesTextArea();
-            log.Info("Verify View Notes TextArea.");
-            Thread.Sleep(1000);
-
-            //Verify View Notes Add Note Button
-            userProfilePage.VerifyViewNotesAddNoteBtn();
-            log.Info("Verify View Notes Add Note Button.");
-            Thread.Sleep(1000);
-
-            //Verify View Notes Close Icon
-            userProfilePage.VerifyViewNotesCloseIcon();
-            log.Info("Verify View Notes Close Icon.");
-            Thread.Sleep(1000);
-        }*/
-
-        [Test]
-        public void ENG2248_004_AddNoteAndVerify()
-        {
-            Global.MethodName = "ENG2248_004_AddNoteAndVerify";
-            commonPage.NavigateToExternalStorm(_externalStormURL);
-
-            //Login to the application
-            Thread.Sleep(5000);
-            authenticationPage.SetUserName(_workEmail);
-            authenticationPage.SetPassword(_password);
-            authenticationPage.ClickOnLoginButton();
-
-            //Click User Profile Icon
-            Thread.Sleep(5000);
-            userProfilePage.ClickUserProfileIcon();
-            log.Info("Click the User Profile Icon.");
-            Thread.Sleep(3000);
-
-            //Select the User Profile Option 'Admin'
-            userProfilePage.ClickUserProfileOptions("Admin");
-            log.Info("Click User Profile option 'Admin'.");
-            Thread.Sleep(2000);
-
-            //Enter Search User Email Id
-            String searchUser = readUserProfile.GetValue("Admin", "searchUser");
-            userProfilePage.EnterSearchUser(searchUser);
-            log.Info("Enter search user email id.");
-            Thread.Sleep(2000);
-
-            //Press Enter Key
-            userProfilePage.PressEnterKey();
-            Thread.Sleep(2000);
-
-            //Click View Notes Link
-            userProfilePage.ClickViewNotesLink();
-            log.Info("Click View Notes link.");
-            Thread.Sleep(3000);
-
-            //Enter A Note
-            String note = readUserProfile.GetValue("Admin", "note");
-            userProfilePage.EnterViewNotesTextArea(note);
-            log.Info("Enter View Notes TextArea.");
-            Thread.Sleep(2000);
-
-            //Click on Add Note button
-            userProfilePage.ClickViewNotesAddNoteBtn();
-            log.Info("Click the Add Note button.");
-            Thread.Sleep(3000);
-
-            /*//Verify the added note displayed
-            userProfilePage.VerifyViewNotesAddedNote(note);
-            log.Info("Verify the added note is displayed.");*/
-
-            String b = userProfilePage.letsDoIt();
-            Console.WriteLine("Value of b: " + b);
-        }
-
-
-
-
-
-
+        }    
+        
     }
 }

@@ -182,7 +182,7 @@ namespace RallyTeam.UIPages
         public void ClickEditDivPostButton()
         {
             _driver.SafeClick(ActivitiesUI.editDivPostBtn);
-        }
+        }        
 
     }
 }

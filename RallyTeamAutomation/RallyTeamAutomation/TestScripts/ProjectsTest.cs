@@ -213,7 +213,7 @@ namespace RallyTeam.TestScripts
             projectsPage.ClickProjectsMenu();
             log.Info("Click the Projects menu option.");
             Thread.Sleep(5000);
-
+            
             //Click the All Projects Dropdown option
             projectsPage.ClickAllProjectsDropDown();
             log.Info("Click the All Projects dropdown.");
@@ -460,12 +460,12 @@ namespace RallyTeam.TestScripts
             //Select Recruiting Posted option from All Projects Dropdown
             projectsPage.SelectAllProjectsRecruiting();
             log.Info("Select 'Recruiting' option from the All Projects dropdown.");
-            Thread.Sleep(3000);
+            Thread.Sleep(5000);
 
             //Click the created project
             projectsPage.ClickProjectNameOnPage(projectName);
             log.Info("Click the Project Name on the Projects Page.");
-            Thread.Sleep(3000);
+            Thread.Sleep(5000);
 
             //Delete Project
             DeleteProject();
@@ -499,12 +499,12 @@ namespace RallyTeam.TestScripts
             //Select I've Posted option from All Projects Dropdown
             projectsPage.SelectAllProjectsIvePosted();
             log.Info("Select I've Posted option from the All Projects dropdown.");
-            Thread.Sleep(2000);
+            Thread.Sleep(5000);
 
             //Click the created project
             projectsPage.ClickProjectNameOnPage(projectName);
             log.Info("Click the Project Name on the Projects Page.");
-            Thread.Sleep(3000);
+            Thread.Sleep(5000);
 
             //Select Project status as In Progress
             projectsPage.SelectStatusDropDown("In Progress");
@@ -576,14 +576,14 @@ namespace RallyTeam.TestScripts
             //Click the created project
             projectsPage.ClickProjectNameOnPage(projectName);
             log.Info("Click the Project Name on the Projects Page.");
-            Thread.Sleep(3000);
+            Thread.Sleep(5000);
 
             //Delete Project
             DeleteProject();
             Thread.Sleep(2000);
         }
 
-        [Test]
+        /*[Test]
         public void Projects_013_VerifyJoiningOptionForCompletedProject()
         {
             Global.MethodName = "Projects_013_VerifyJoiningOptionForCompletedProject";
@@ -808,12 +808,12 @@ namespace RallyTeam.TestScripts
             //Delete Project
             DeleteProject();
             Thread.Sleep(2000);
-        }
-
+        }*/
+        
         [Test]
-        public void Projects_015_VerifyNoJoiningOptionForRecruitingProject()
+        public void Projects_015_VerifyRequestSentOptionForRecruitingProject()
         {
-            Global.MethodName = "Projects_015_VerifyNoJoiningOptionForRecruitingProject";
+            Global.MethodName = "Projects_015_VerifyRequestSentOptionForRecruitingProject";
 
             //Create a new project
             Thread.Sleep(5000);
@@ -847,6 +847,11 @@ namespace RallyTeam.TestScripts
             //Select Recruiting option from All Projects Dropdown
             projectsPage.SelectAllProjectsRecruiting();
             log.Info("Select Recruiting option from the All Projects dropdown.");
+            Thread.Sleep(5000);
+
+            //Verify created project should be displayed on the Projects page
+            projectsPage.VerifyProjectNameOnPage(projectName);
+            log.Info("Verify the Project Name on the Projects Page.");
             Thread.Sleep(2000);
 
             //Click the created project
@@ -854,15 +859,20 @@ namespace RallyTeam.TestScripts
             log.Info("Click the Project Name on the Projects Page.");
             Thread.Sleep(3000);
 
-            //Click Request to Join button displayed on the screen
+            //Verify that Request to Join button is displayed on the screen
+            projectsPage.AsssertRequestToJoinBtn();
+            log.Info("Verify Request To Join button doisplayed on screen.");
+            Thread.Sleep(2000);
+
+            //Click Request to Join button displayed
             projectsPage.ClickRequestToJoinBtn();
-            log.Info("Click Request To Join button doisplayed on screen.");
+            log.Info("Click Request To Join button.");
             Thread.Sleep(3000);
 
-            //Verify the Request Sent button sisplayed on screen or not
+            //Verify the Request Sent button displayed on screen or not
             projectsPage.AsssertRequestSentBtn();
-            log.Info("Verify Request Sent button doisplayed on screen.");
-            Thread.Sleep(3000);
+            log.Info("Verify Request Sent button displayed on screen.");
+            Thread.Sleep(1000);
 
             //Signout of the application
             Thread.Sleep(5000);
@@ -902,9 +912,9 @@ namespace RallyTeam.TestScripts
 
 
         [Test]
-        public void Projects_016_VerifyJoiningOptionForInProgressProject()
+        public void Projects_016_VerifyRequestSentOptionForInProgressProject()
         {
-            Global.MethodName = "Projects_016_VerifyJoiningOptionForInProgressProject";
+            Global.MethodName = "Projects_016_VerifyRequestSentOptionForInProgressProject";
 
             //Create a new project
             Thread.Sleep(5000);
@@ -928,12 +938,12 @@ namespace RallyTeam.TestScripts
             //Select I've Posted option from All Projects Dropdown
             projectsPage.SelectAllProjectsIvePosted();
             log.Info("Select I've Posted option from the All Projects dropdown.");
-            Thread.Sleep(2000);
+            Thread.Sleep(5000);
 
             //Click the created project
             projectsPage.ClickProjectNameOnPage(projectName);
             log.Info("Click the Project Name on the Projects Page.");
-            Thread.Sleep(3000);
+            Thread.Sleep(5000);
 
             //Select Project status as In Progress
             projectsPage.SelectStatusDropDown("In Progress");
@@ -964,22 +974,27 @@ namespace RallyTeam.TestScripts
             //Select In Progress option from All Projects Dropdown
             projectsPage.SelectAllProjectsInProgress();
             log.Info("Select In Progress option from the All Projects dropdown.");
-            Thread.Sleep(2000);
+            Thread.Sleep(5000);
 
             //Click the created project
             projectsPage.ClickProjectNameOnPage(projectName);
             log.Info("Click the Project Name on the Projects Page.");
             Thread.Sleep(3000);
 
-            //Click Request to Join button displayed on the screen
+            //Verify that Request to Join button is displayed on the screen
+            projectsPage.AsssertRequestToJoinBtn();
+            log.Info("Verify Request To Join button doisplayed on screen.");
+            Thread.Sleep(2000);
+
+            //Click Request to Join button 
             projectsPage.ClickRequestToJoinBtn();
-            log.Info("Click Request To Join button doisplayed on screen.");
+            log.Info("Click Request To Join button.");
             Thread.Sleep(3000);
 
-            //Verify the Request Sent button sisplayed on screen or not
+            //Verify the Request Sent button displayed on screen or not
             projectsPage.AsssertRequestSentBtn();
-            log.Info("Verify Request Sent button doisplayed on screen.");
-            Thread.Sleep(3000);
+            log.Info("Verify Request Sent button displayed on screen.");
+            Thread.Sleep(1000);
 
             //Signout of the application
             Thread.Sleep(5000);
@@ -1005,12 +1020,12 @@ namespace RallyTeam.TestScripts
             //Select In Progress Posted option from All Projects Dropdown
             projectsPage.SelectAllProjectsInProgress();
             log.Info("Select 'In Progress' option from the All Projects dropdown.");
-            Thread.Sleep(3000);
+            Thread.Sleep(5000);
 
             //Click the created project
             projectsPage.ClickProjectNameOnPage(projectName);
             log.Info("Click the Project Name on the Projects Page.");
-            Thread.Sleep(3000);
+            Thread.Sleep(5000);
 
             //Delete Project
             DeleteProject();
@@ -1128,7 +1143,7 @@ namespace RallyTeam.TestScripts
             //Click the created project
             projectsPage.ClickProjectNameOnPage(projectName);
             log.Info("Click the Project Name on the Projects Page.");
-            Thread.Sleep(3000);
+            Thread.Sleep(5000);
 
             //Click Request to Join button displayed on the screen
             projectsPage.ClickRequestToJoinBtn();
@@ -1141,12 +1156,13 @@ namespace RallyTeam.TestScripts
             log.Info("Click on the Signout button.");
 
             //Login to the application
+            Thread.Sleep(5000);
             authenticationPage.SetUserName(_workEmail);
             authenticationPage.SetPassword(_password);
             authenticationPage.ClickOnLoginButton();
-            authenticationPage.VerifyHomeScreen();
 
             //Click Projects menu option
+            Thread.Sleep(5000);
             projectsPage.ClickProjectsMenu();
             log.Info("Click the Projects menu option.");
             Thread.Sleep(5000);
@@ -1159,23 +1175,27 @@ namespace RallyTeam.TestScripts
             //Select Recruiting Posted option from All Projects Dropdown
             projectsPage.SelectAllProjectsRecruiting();
             log.Info("Select 'Recruiting' option from the All Projects dropdown.");
-            Thread.Sleep(3000);
+            Thread.Sleep(5000);
 
             //Click the created project
-            projectsPage.ClickProjectNameOnPage(projectName);
             log.Info("Click the Project Name on the Projects Page.");
-            Thread.Sleep(3000);
+            Thread.Sleep(5000);
 
             //Select the Requested Member Icon
+            commonPage.ScrollDown();
+            Thread.Sleep(2000);
             projectsPage.ClickRequestedMember();
             log.Info("Click the Requested Member of the Project.");
             Thread.Sleep(3000);
 
-            //Click on the Accept icon of the Pending Request window
-            commonPage.ScrollDown();
-            Thread.Sleep(2000);
+            //Click on the Accept icon of the Pending Request window            
             projectsPage.AcceptRequestedMember();
             log.Info("Accept the Requested member.");
+            Thread.Sleep(3000);
+
+            //Click on the Close icon of the Pending Request window
+            projectsPage.ClosePendingMemberWindow();
+            log.Info("Close the Pending member window.");
             Thread.Sleep(3000);
 
             //Signout of the application
@@ -1184,12 +1204,13 @@ namespace RallyTeam.TestScripts
             log.Info("Click on the Signout button.");
 
             //Sign in with a different user
-            Thread.Sleep(2000);
+            Thread.Sleep(5000);
             SignInDifferentUser();
             log.Info("Sign in with different user.");
 
             //Select Projects
             //Click Projects menu option
+            Thread.Sleep(5000);
             projectsPage.ClickProjectsMenu();
             log.Info("Click the Projects menu option.");
             Thread.Sleep(5000);
@@ -1202,17 +1223,17 @@ namespace RallyTeam.TestScripts
             //Select Recruiting option from All Projects Dropdown
             projectsPage.SelectAllProjectsRecruiting();
             log.Info("Select Recruiting option from the All Projects dropdown.");
-            Thread.Sleep(2000);
+            Thread.Sleep(5000);
 
             //Click the created project
             projectsPage.ClickProjectNameOnPage(projectName);
             log.Info("Click the Project Name on the Projects Page.");
-            Thread.Sleep(3000);
+            Thread.Sleep(5000);
 
             //Verify the Leave Project icon displayed on screen or not
             projectsPage.LeaveProjectIcon();
             log.Info("Verify Leave Project icon displayed on screen.");
-            Thread.Sleep(3000);
+            Thread.Sleep(1000);
 
             //Signout of the application
             Thread.Sleep(5000);
@@ -1238,12 +1259,12 @@ namespace RallyTeam.TestScripts
             //Select Recruiting Posted option from All Projects Dropdown
             projectsPage.SelectAllProjectsRecruiting();
             log.Info("Select 'Recruiting' option from the All Projects dropdown.");
-            Thread.Sleep(3000);
+            Thread.Sleep(5000);
 
             //Click the created project
             projectsPage.ClickProjectNameOnPage(projectName);
             log.Info("Click the Project Name on the Projects Page.");
-            Thread.Sleep(3000);
+            Thread.Sleep(5000);
 
             //Delete Project
             DeleteProject();
@@ -1301,12 +1322,7 @@ namespace RallyTeam.TestScripts
             projectsPage.VerifyTasksTab();
             log.Info("Verify Tasks tab on the created Project page.");
             Thread.Sleep(2000);
-
-            //Verify Files tab
-            projectsPage.VerifyFilesTab();
-            log.Info("Verify Files tab on the created Project page.");
-            Thread.Sleep(2000);
-
+                       
             //Verify Add member icon
             projectsPage.VerifyAddMemberIcon();
             log.Info("Verify Add member icon on the created Project page.");
@@ -1360,12 +1376,7 @@ namespace RallyTeam.TestScripts
             //Verify Owner field
             projectsPage.VerifyOwner();
             log.Info("Verify Owner field on the created Project page.");
-            Thread.Sleep(2000);
-
-            //Verify GitHub field
-            projectsPage.VerifyGitHub();
-            log.Info("Verify GitHub field on the created Project page.");
-            Thread.Sleep(2000);
+            Thread.Sleep(2000);                       
 
             //Verify Mark Complete button
             projectsPage.VerifyMarkCompleteBtn();
@@ -1504,7 +1515,7 @@ namespace RallyTeam.TestScripts
             //Click the created project
             projectsPage.ClickProjectNameOnPage(projectName);
             log.Info("Click the Project Name on the Projects Page.");
-            Thread.Sleep(3000);
+            Thread.Sleep(5000);
 
             //Click Request to Join button displayed on the screen
             projectsPage.ClickRequestToJoinBtn();
@@ -1552,7 +1563,11 @@ namespace RallyTeam.TestScripts
             Thread.Sleep(2000);
             projectsPage.AcceptRequestedMember();
             log.Info("Accept the Requested member.");
-            Thread.Sleep(3000);
+            Thread.Sleep(5000);
+
+            //Click on the Close icon of the Pending Request window
+            projectsPage.ClosePendingMemberWindow();
+            log.Info("Close the Pending member window.");
 
             //Signout of the application
             Thread.Sleep(5000);
@@ -1560,7 +1575,7 @@ namespace RallyTeam.TestScripts
             log.Info("Click on the Signout button.");
 
             //Sign in with a different user
-            Thread.Sleep(2000);
+            Thread.Sleep(6000);
             SignInDifferentUser();
             log.Info("Sign in with different user.");
 
@@ -1955,11 +1970,15 @@ namespace RallyTeam.TestScripts
             projectsPage.EditProjectName(editProjectName);
             log.Info("Edit the Project Name.");
 
-            //Edit the Start Date
+            //Click the Start Date Field
+            projectsPage.ClickStartDateField();
+            log.Info("Click Start Date Field.");
             Thread.Sleep(2000);
-            String editStartDate = readProjects.GetValue("EditProject", "editStartDate");
-            projectsPage.EditStartDate(editStartDate);
-            log.Info("Edit the Start Date.");
+
+            //Select today's date
+            projectsPage.ClickTodaysDate();
+            log.Info("Select today's date.");
+            Thread.Sleep(2000);
 
             //Edit the Project Name
             Thread.Sleep(2000);
@@ -2297,12 +2316,13 @@ namespace RallyTeam.TestScripts
             log.Info("Click on the Signout button.");
 
             //Sign in with a different user
-            Thread.Sleep(2000);
+            Thread.Sleep(5000);
             SignInDifferentUser();
             log.Info("Sign in with different user.");
 
             //Select Projects
             //Click Projects menu option
+            Thread.Sleep(5000);
             projectsPage.ClickProjectsMenu();
             log.Info("Click the Projects menu option.");
             Thread.Sleep(5000);
@@ -2320,9 +2340,9 @@ namespace RallyTeam.TestScripts
             //Click the created project
             projectsPage.ClickProjectNameOnPage(projectName);
             log.Info("Click the Project Name on the Projects Page.");
-            Thread.Sleep(3000);
+            Thread.Sleep(5000);
 
-            //Click the Leave Project icon displayed on screen or not
+            //Click the Leave Project icon displayed on screen 
             projectsPage.ClickLeaveProjectIcon();
             log.Info("Click Leave Project icon displayed on screen.");
             Thread.Sleep(2000);
@@ -2763,19 +2783,19 @@ namespace RallyTeam.TestScripts
             }
 
             //Click the Add Project Member window Done button
-            Thread.Sleep(2000);
+            Thread.Sleep(3000);
             projectsPage.ClickAddProjectMemberDoneBtn();
             log.Info("Click the Add Project Member window Done button.");
 
             //Again click on Add member icon
-            Thread.Sleep(3000);
+            Thread.Sleep(7000);
             projectsPage.ClickAddMemberIcon();
             log.Info("Click the Add member icon for the Project.");
 
             //Click on View Team Status link
-            Thread.Sleep(2000);
+            Thread.Sleep(5000);
             projectsPage.ClickViewTeamStatus();
-            log.Info("Click on the Biew Team Status hyperlink.");
+            log.Info("Click on the View Team Status hyperlink.");
 
             //Assert Team member Type
             Thread.Sleep(2000);

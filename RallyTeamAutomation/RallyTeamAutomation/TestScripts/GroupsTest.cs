@@ -1545,7 +1545,7 @@ namespace RallyTeam.TestScripts
             //Click on Join button to join the Group
             groupsPage.ClickJoinBtn();
             log.Info("Click on Join button to join the Group");
-            Thread.Sleep(2000);
+            Thread.Sleep(4000);
 
             //Verify Joined button present on the screen or not
             Thread.Sleep(2000);
@@ -1612,7 +1612,7 @@ namespace RallyTeam.TestScripts
             //Click Settings Options value 'Leave Group'
             groupsPage.ClickSettingsOptionsValues("Leave Group");
             log.Info("Verified Settings option value: 'Leave Group'");
-            Thread.Sleep(2000);
+            Thread.Sleep(4000);
 
             //Click Yes on confirmation message
             groupsPage.PressLeaveGroupWindowYesBtn();
@@ -2020,7 +2020,7 @@ namespace RallyTeam.TestScripts
             Thread.Sleep(2000);
         }
 
-        [Test]
+        /*[Test]
         public void Groups_006_VerifyUploadPhoto()
         {
             Global.MethodName = "Groups_006_VerifyUploadPhoto";
@@ -2059,7 +2059,7 @@ namespace RallyTeam.TestScripts
             //Cancel Group creation
             Thread.Sleep(2000);
             groupsPage.ClickOnCancelButton();
-        }
+        }*/
 
 
 

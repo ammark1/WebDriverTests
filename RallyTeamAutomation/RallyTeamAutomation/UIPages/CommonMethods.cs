@@ -44,6 +44,12 @@ namespace RallyTeam.UIPages
             _driver.PressKeyBoardEnter();
         }
 
+        //Press Tab Key
+        public void PressTabKey()
+        {
+            _driver.PressKeyBoardTab();
+        }
+
         //Get Highlighted Text (Not working for now)
         public void GetHighlightedText()
         {

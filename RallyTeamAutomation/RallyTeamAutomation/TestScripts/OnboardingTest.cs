@@ -35,7 +35,7 @@ namespace RallyTeam.TestScripts
             Thread.Sleep(2000);
 
             builder = new StringBuilder();
-            builder.Append(RandomString(6));
+            builder.Append(RandomString(6));                        
 
             //Enter First Name on the screen
             registrationPage.EnterFirstName(builder.ToString());
@@ -48,7 +48,7 @@ namespace RallyTeam.TestScripts
             Thread.Sleep(2000);
 
             //Enter Work Email on the screen
-            workEmail = builder + "@mailinator.com";
+            workEmail = builder.ToString().ToLower() + "@harakirimail.com";
             registrationPage.EnterWorkEmail(workEmail);
             log.Info("Enter Work Email on the screen.");
             Thread.Sleep(4000);
@@ -69,59 +69,63 @@ namespace RallyTeam.TestScripts
             Thread.Sleep(2000);
 
             //Click Next Button on the screen
-            registrationPage.ClickNextBtn();
+            registrationPage.ClickAllDoneBtn();
             log.Info("Click Next button on the screen.");
             Thread.Sleep(10000);
         }
 
-        public void MoveToWelcomePage()
+        public void GetConfirmationCode()
         {
             //Navigate to the user inbox
-            commonPage.NavigateToUrl("https://www.mailinator.com/");
+            commonPage.NavigateToUrl("https://harakirimail.com/");
             log.Info("Navigate to the mailinator site.");
             Thread.Sleep(5000);
 
-            //Enter Mailinator Email address
+            //Enter Harakirimail Email address
             onboardingPage.EnterMailinatorEmail(workEmail);
             log.Info("Enter email address.");
             Thread.Sleep(2000);
 
-            //Click on Go button
-            onboardingPage.ClickGoBtn();
-            log.Info("Click Go button.");
+            //Press Enter key
+            commonPage.PressEnterKey();
             Thread.Sleep(5000);
 
-            //Click the Email Sender
-            onboardingPage.ClickEmailSender();
-            log.Info("Click the Email Sender.");
+            //Click the Email Subject
+            onboardingPage.ClickEmailSubject();
+            log.Info("Click the Email Subject.");
             Thread.Sleep(5000);
 
-            //Switch to Iframe
-            onboardingPage.SwitchIframe();
+            //Get the Confirmation Code
+            commonPage.ScrollDown();
+            Thread.Sleep(2000);
+            String confirmationCode = onboardingPage.GetConfirmationCode();
+            Console.WriteLine("Code: " + confirmationCode);
+            char[] codeArray = confirmationCode.ToCharArray();
+            log.Info("Get Confirmation Code.");
             Thread.Sleep(2000);
 
-            //Get the Email Link and navigate
-            String emailLink = onboardingPage.GetEmailLink();
-            Console.WriteLine("EMAIL: " + emailLink);
-            commonPage.NavigateToUrl(emailLink);
-            log.Info("Navigate to the Email Link.");
-            Thread.Sleep(5000);
-
-            //Enter the registered Work Email
-            Thread.Sleep(2000);
-            authenticationPage.SetUserName(workEmail);
-            log.Info("Enter registered work email.");
-            Thread.Sleep(2000);
-
-            //Enter valid password
-            authenticationPage.SetPassword("Logica360");
-            log.Info("Enter valid password.");
-            Thread.Sleep(2000);
-
-            //Click the Let's Go button            
-            onboardingPage.ClickLetsGoBtn();
-            log.Info("Click Let's Go button.");
+            commonPage.NavigateToUrl("https://360logicaext.rallyteam.com/#/wizard/verify");
             Thread.Sleep(7000);
+
+            //Enter Confirmation Code
+            Console.WriteLine(codeArray[0].ToString());
+            onboardingPage.test();
+            Thread.Sleep(2000);
+            onboardingPage.EnterCodeOne(codeArray[0].ToString());
+            Thread.Sleep(1000);
+            onboardingPage.EnterCodeTwo(codeArray[1].ToString());
+            Thread.Sleep(1000);
+            onboardingPage.EnterCodeThree(codeArray[2].ToString());
+            Thread.Sleep(1000);
+            onboardingPage.EnterCodeFour(codeArray[4].ToString());
+            Thread.Sleep(1000);
+            onboardingPage.EnterCodeFive(codeArray[5].ToString());
+            Thread.Sleep(1000);
+            onboardingPage.EnterCodeSix(codeArray[6].ToString());
+            Thread.Sleep(2000);
+            onboardingPage.testtwo();
+            Thread.Sleep(2000);
+
         }
 
         [Test]
@@ -131,25 +135,82 @@ namespace RallyTeam.TestScripts
             SignUpNewUser();
             Thread.Sleep(2000);
 
-            //Verify the We Just Sent You An Email message
-            onboardingPage.VerifyWeJustSentYouAnEmailMsg();
-            log.Info("Verify the We Just Sent You An Email message.");
+            //Verify the Welcome RallyTeam message
+            onboardingPage.VerifyWelcomeRallyTeamMsg();
+            log.Info("Verify the Welcome RallyTeam message.");
             Thread.Sleep(1000);
 
-            //Verify Resend Email button
-            onboardingPage.VerifyResendEmailbtn();
-            log.Info("Verify Resend Email button.");
+            //Verify the Get Started button
+            onboardingPage.VerifyGetStartedBtn();
+            log.Info("Verify Get Started button.");
+
+            //Click Get Started button
+            onboardingPage.ClickGetStartedBtn();
+            log.Info("Click Get Staerted button.");
+            Thread.Sleep(5000);
+
+            //Click Linkedin Next button
+            onboardingPage.ClickNextLinkedIn();
+            log.Info("Click Next button on LinkedIn Page.");
+            Thread.Sleep(5000);
+
+            //Select Expertise
+            onboardingPage.SelectExpertiseDropDown("Information Technology");
+            log.Info("Select Expertise.");
             Thread.Sleep(2000);
+
+            //Click Expertise Continue button
+            onboardingPage.ClickExpertiseContinueBtn();
+            log.Info("Click Expertise Continue button.");
+            Thread.Sleep(5000);
+
+            //Enter Skills
+            onboardingPage.EnterSkills("Android");
+            Thread.Sleep(2000);
+            commonPage.PressEnterKey();
+            Thread.Sleep(2000);
+            onboardingPage.EnterSkills("Computer science");
+            Thread.Sleep(2000);
+            commonPage.PressEnterKey();
+            Thread.Sleep(2000);
+
+            //Click View My Profile button
+            onboardingPage.ClickViewMyProfileBtn();
+            log.Info("Click View My Profile button.");
+            Thread.Sleep(5000);
+
+            //Assert Skills entered are populated in the Profile
+            onboardingPage.AssertSkillOne("Android");
+            log.Info("Assert Skill One.");
+            Thread.Sleep(1000);
+            onboardingPage.AssertSkillTwo("Computer science");
+            log.Info("Assert Skill Two.");
+            Thread.Sleep(1000);
+
+            //Click Done button on Profile
+            commonPage.ScrollUp();
+            Thread.Sleep(2000);
+            onboardingPage.ClickDoneBtn();
+            log.Info("Click Done button.");
+            Thread.Sleep(5000);
+
+            GetConfirmationCode();
+            Thread.Sleep(5000);
+
+            //Click Lets Rally button
+            onboardingPage.ClickLetsRallyBtn();
+            log.Info("Click Lets Rally button.");
+            Thread.Sleep(5000);
         }
 
-        [Test]
+        /*[Test]
         public void Onboarding_002_VerifyEmailReceived()
         {
             Global.MethodName = "Onboarding_002_VerifyEmailReceived";
             SignUpNewUser();
 
             //Navigate to the user inbox
-            commonPage.NavigateToUrl("https://www.mailinator.com/");
+            commonPage.NavigateToUrl("https://harakirimail.com/");
             log.Info("Navigate to the mailinator site.");
             Thread.Sleep(5000);
 
@@ -178,7 +239,7 @@ namespace RallyTeam.TestScripts
             Thread.Sleep(2000);
 
             //Click the Email Sender
-            onboardingPage.ClickEmailSender();
+            onboardingPage.ClickEmailSubject();
             log.Info("Click the Email Sender.");
             Thread.Sleep(5000);
 
@@ -201,16 +262,16 @@ namespace RallyTeam.TestScripts
             //Login page should be displayed
             authenticationPage.VerifyLoginPage();
             log.Info("Verify Login Url Page");            
-        }
+        }*/
 
         [Test]
         public void Onboarding_003_LoginAndVerifyWelcomePage()
         {
             Global.MethodName = "Onboarding_003_LoginAndVerifyWelcomePage";
             SignUpNewUser();
-            MoveToWelcomePage();
+            //MoveToWelcomePage();
 
-            //Verify the Welcome User Message
+            /*//Verify the Welcome User Message
             onboardingPage.VerifyWelcomeUserMsg(builder.ToString());
             log.Info("Verify the Welcome User Message.");
             Thread.Sleep(1000);
@@ -222,7 +283,7 @@ namespace RallyTeam.TestScripts
 
             //Verify the Get Started button
             onboardingPage.VerifyGetStartedBtn();
-            log.Info("Verify Get Started button.");
+            log.Info("Verify Get Started button.");*/
         }
 
         [Test]
@@ -230,7 +291,7 @@ namespace RallyTeam.TestScripts
         {
             Global.MethodName = "Onboarding_004_VerifyLinkedInPage";
             SignUpNewUser();
-            MoveToWelcomePage();
+            //MoveToWelcomePage();
 
             //Click Get Started Button
             onboardingPage.ClickGetStartedBtn();
@@ -257,7 +318,7 @@ namespace RallyTeam.TestScripts
         {
             Global.MethodName = "Onboarding_005_VerifyUploadResumePage";
             SignUpNewUser();
-            MoveToWelcomePage();
+            //MoveToWelcomePage();
 
             //Click Get Started Button
             onboardingPage.ClickGetStartedBtn();
@@ -289,7 +350,7 @@ namespace RallyTeam.TestScripts
         {
             Global.MethodName = "Onboarding_006_VerifyWorkPage";
             SignUpNewUser();
-            MoveToWelcomePage();
+            //MoveToWelcomePage();
 
             //Click Get Started Button
             onboardingPage.ClickGetStartedBtn();
@@ -306,19 +367,7 @@ namespace RallyTeam.TestScripts
             log.Info("Click Skip Upload Resume option.");
             Thread.Sleep(5000);
 
-            //Verify the What Do You Work In message
-            onboardingPage.VerifyWhatDoYouWorkInMsg();
-            log.Info("Verify the What Do You Work In message.");
-            Thread.Sleep(1000);
-
-            //Verify the Work Drop-Down
-            onboardingPage.VerifyWorkDropDown();
-            log.Info("Verify the Work Drop-Down.");
-            Thread.Sleep(1000);
-
-            //Verify the Continue button
-            onboardingPage.VerifyContinueBtn();
-            log.Info("Verify Continue button.");
+            
         }
 
         [Test]
@@ -326,7 +375,7 @@ namespace RallyTeam.TestScripts
         {
             Global.MethodName = "Onboarding_007_SelectWorkAndVerifySkillsPage";
             SignUpNewUser();
-            MoveToWelcomePage();
+            //MoveToWelcomePage();
             
             //Click Get Started Button
             onboardingPage.ClickGetStartedBtn();
@@ -343,34 +392,9 @@ namespace RallyTeam.TestScripts
             log.Info("Click Skip Upload Resume option.");
             Thread.Sleep(5000);
 
-            //Select Work
-            onboardingPage.SelectWorkDropDown("Information Technology");
-            log.Info("Select Work drop-down option.");
-            Thread.Sleep(2000);
+            
 
-            //Click Continue button
-            onboardingPage.ClickContinueBtn();
-            log.Info("Click Continue button.");
-            Thread.Sleep(3000);
-
-            //Verify the Are these your top three skills? message
-            onboardingPage.VerifyAreTheseYourTopSkillsMsg();
-            log.Info("Verify the Are these your top three skills? message.");
-            Thread.Sleep(1000);
-
-            //Verify the Skills Div
-            onboardingPage.VerifySkillsDiv();
-            log.Info("Verify the Skills Div.");
-            Thread.Sleep(1000);
-
-            //Count the Number of Skills and fail if more than 3
-            onboardingPage.CountSkillsAndFailIfMoreThanThree();
-            log.Info("Count the number of skills and fail if more than 3.");
-            Thread.Sleep(1000);
-
-            //Verify the Continue Skills button
-            onboardingPage.VerifyContinueSkillsBtn();
-            log.Info("Verify Continue Skills button.");
+            
         }
 
         [Test]
@@ -378,7 +402,7 @@ namespace RallyTeam.TestScripts
         {
             Global.MethodName = "Onboarding_008_VerifyInterestsPage";
             SignUpNewUser();
-            MoveToWelcomePage();
+            //MoveToWelcomePage();
 
             //Click Get Started Button
             onboardingPage.ClickGetStartedBtn();
@@ -395,29 +419,8 @@ namespace RallyTeam.TestScripts
             log.Info("Click Skip Upload Resume option.");
             Thread.Sleep(5000);
 
-            //Click Continue button
-            onboardingPage.ClickContinueBtn();
-            log.Info("Click Continue button.");
-            Thread.Sleep(3000);
-
-            //Click Continue Skills button
-            onboardingPage.ClickContinueSkillsBtn();
-            log.Info("Click Continue Skills button.");
-            Thread.Sleep(3000);
-
-            //Verify the What are you interested in? message
-            onboardingPage.VerifyWhatAreYouInterestedInMsg();
-            log.Info("Verify the What are you interested in? message.");
-            Thread.Sleep(1000);
-
-            //Verify the Interests Div
-            onboardingPage.VerifyInterestsDiv();
-            log.Info("Verify the Interests Div.");
-            Thread.Sleep(1000);
-
-            //Verify the Lets Get You Matched button
-            onboardingPage.VerifyLetsGetYouMatchedBtn();
-            log.Info("Verify Lets Get You Matched button.");
+            
+            
         }
 
         [Test]
@@ -425,7 +428,7 @@ namespace RallyTeam.TestScripts
         {
             Global.MethodName = "Onboarding_009_ClickLetsGetMatchedAndVerify";
             SignUpNewUser();
-            MoveToWelcomePage();
+            //MoveToWelcomePage();
 
             //Click Get Started Button
             onboardingPage.ClickGetStartedBtn();
@@ -442,29 +445,8 @@ namespace RallyTeam.TestScripts
             log.Info("Click Skip Upload Resume option.");
             Thread.Sleep(5000);
 
-            //Click Continue button
-            onboardingPage.ClickContinueBtn();
-            log.Info("Click Continue button.");
-            Thread.Sleep(3000);
-
-            //Click Continue Skills button
-            onboardingPage.ClickContinueSkillsBtn();
-            log.Info("Click Continue Skills button.");
-            Thread.Sleep(3000);
-
-            //Enter Interests Input
-            onboardingPage.EnterInterests("ILikeIt");
-            log.Info("Enter Interests Input");
-            Thread.Sleep(2000);                    
-
-            //Click Lets Get You Matched button
-            onboardingPage.ClickLetsGetYouMatchedBtn();
-            log.Info("Click Lets Get You Matched button.");
-            Thread.Sleep(5000);
-
-            //Verify the Marketplace tab
-            onboardingPage.VerifyMarketplaceTab();
-            log.Info("Verify Marketplace tab.");
+            
+            
         }
 
         [Test]
@@ -472,7 +454,7 @@ namespace RallyTeam.TestScripts
         {
             Global.MethodName = "Onboarding_010_UploadResumeAndVerifySkills";
             SignUpNewUser();
-            MoveToWelcomePage();
+            //MoveToWelcomePage();
 
             //Click Get Started Button
             onboardingPage.ClickGetStartedBtn();

@@ -48,7 +48,7 @@ namespace RallyTeam.UIPages
         //Click User Profile Icon
         public void ClickUserProfileIcon()
         {
-            _driver.SafeClick(DashboardUI.userIcon);
+            _driver.ClickElementUsingAction(DashboardUI.userIcon);
         }
 
         //Assert User Profile option
@@ -327,10 +327,16 @@ namespace RallyTeam.UIPages
             _assertHelper.AssertElementDisplayed(UserProfileUI.featuresTab);
         }
 
-        //Assert Manage Users tab
+        //Assert Users tab
         public void VerifyManageUsersTab()
         {
             _assertHelper.AssertElementDisplayed(UserProfileUI.manageUsersTab);
+        }
+
+        //Assert Groups tab
+        public void VerifyGroupsTab()
+        {
+            _assertHelper.AssertElementDisplayed(UserProfileUI.groupsTab);
         }
 
         //Click Manage Users tab
@@ -339,10 +345,10 @@ namespace RallyTeam.UIPages
             _driver.SafeClick(UserProfileUI.manageUsersTab);
         }
 
-        //Assert Admin column
-        public void VerifyAdminColumn()
+        //Assert Group column
+        public void VerifyGroupColumn()
         {
-            _assertHelper.AssertElementDisplayed(UserProfileUI.adminColumn);
+            _assertHelper.AssertElementDisplayed(UserProfileUI.groupColumn);
         }
 
         //Assert Notes column

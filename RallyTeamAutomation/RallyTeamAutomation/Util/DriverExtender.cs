@@ -19,6 +19,8 @@ using System.Reflection;
 using System.Diagnostics;
 using OpenQA.Selenium.Interactions;
 using System.Collections.Generic;
+using System.Configuration;
+
 
 namespace RallyTeam.Util
 {
@@ -26,6 +28,7 @@ namespace RallyTeam.Util
     {
         private static readonly ILog Log = LogManager.GetLogger(MethodBase.GetCurrentMethod().DeclaringType);
         private static int timeout;
+        public static string _browser = ConfigurationSettings.AppSettings["Browser"].ToLower();
 
         public static void setTimeOut(this IWebDriver driver, int timeOutValue)
         {
@@ -60,7 +63,16 @@ namespace RallyTeam.Util
             wait.IgnoreExceptionTypes(typeof(NoSuchElementException));
             try
             {
-                new SelectElement(_driver.FindElement(locator)).SelectByText(option);
+                if (_browser == "ie")
+                {
+                    IWebElement select = _driver.FindElement(locator);
+                    IJavaScriptExecutor js = (IJavaScriptExecutor)_driver;
+                    js.ExecuteScript("var select = arguments[0]; for (var i = 0; i < select.options.length; i++) { if (select.options[i].text == arguments[1]) { select.options[i].selected = true; } }", select, "Completed");
+                }
+                else
+                {
+                    new SelectElement(_driver.FindElement(locator)).SelectByText(option);
+                }
             }
             catch (Exception error)
             {
@@ -71,7 +83,14 @@ namespace RallyTeam.Util
                 throw new Exception(e);
             }
         }
-    
+
+        //Move to particular element using Action Class
+        public static void RightClickElementUsingAction(this IWebDriver _driver, By locator)
+        {
+            //IWebElement element = _driver.FindElement(locator);
+            Actions action = new Actions(_driver).ContextClick(_driver.FindElement(locator));
+            action.Build().Perform();
+        }
 
         //Move to particular element using Action Class
         public static void MoveToElementUsingAction(this IWebDriver _driver, By locator)
@@ -182,9 +201,11 @@ namespace RallyTeam.Util
             {
                 return wait.Until<IWebElement>(ExpectedConditionsExtender.ElementIsVisible(locator)).Text;                
             }
-            catch (WebDriverTimeoutException)
+            catch (Exception error)
             {
-                return null;
+                String e = error.ToString();
+                Log.Error(e);
+                throw new Exception(e);
             }
         }
 
@@ -198,9 +219,11 @@ namespace RallyTeam.Util
             {
                 return wait.Until<IWebElement>(ExpectedConditionsExtender.ElementIsVisible(locator)).GetAttribute(attribute);
             }
-            catch (WebDriverTimeoutException)
+            catch (Exception error)
             {
-                return null;
+                String e = error.ToString();
+                Log.Error(e);
+                throw new Exception(e); 
             }
         }
 
@@ -341,6 +364,8 @@ namespace RallyTeam.Util
             }
         }
 
+       
+
         //Attempts to enter text into an element until the timeout is reached and only throws an exception if the element is unable to be used before timing out.
         public static void SafeEnterText(this IWebDriver driver, By locator, string text)
         {
@@ -357,6 +382,54 @@ namespace RallyTeam.Util
                 Log.Error(error);
                 throw new Exception(error);
             }
+        }
+
+        //Attempts to enter text into an element until the timeout is reached and only throws an exception if the element is unable to be used before timing out.
+        public static void EnterTextByKeyPress(this IWebDriver driver, By locator, string text)
+        {
+            DefaultWait<IWebDriver> wait = new DefaultWait<IWebDriver>(driver);
+            wait.Timeout = TimeSpan.FromSeconds(timeout);
+            try
+            {
+                wait.Until<bool>(ExpectedConditionsExtender.TextEnteredInElement(locator, text, timeout));
+
+                driver.FindElement(locator).SendKeys(Keys.NumberPad2);
+
+            }
+            catch (WebDriverTimeoutException)
+            {
+                UtilityHelper.TakeScreenshot(driver);
+                String error = "Unable to send text to element: {\"method\":\"" + locator.GetMethod() + "\",\"selector\":\"" + locator.GetSelector() + "\"}";
+                Log.Error(error);
+                throw new Exception(error);
+            }
+        }
+
+        //Enter text using Action class
+        public static void EnterTextUsingAction(this IWebDriver driver, By locator, string text)
+        {
+            IWebElement element = driver.FindElement(locator);
+            Actions action = new Actions(driver);
+            Actions seriesOfActions = action.MoveToElement(element).Click().SendKeys(element, text);
+            seriesOfActions.Perform();
+        }
+
+        //Enter text using Action class
+        public static void Test(this IWebDriver driver, By locator, string text)
+        {
+            IWebElement element = driver.FindElement(locator);
+            Actions action = new Actions(driver);
+            action.SendKeys(text).Perform();
+        }
+
+        //Enter text using JS
+        public static void EnterTextUsingJS(this IWebDriver driver, By locator, string text)
+        {
+            IWebElement element = driver.FindElement(locator);
+            IJavaScriptExecutor js = (IJavaScriptExecutor)driver;
+            //js.ExecuteScript("document."+ driver.FindElement(locator) + ".value = 'R';");
+            
+            js.ExecuteScript("arguments[0].value= '"+ text + "';", driver.FindElement(locator));
         }
 
         //Attempts to enter text into an element until the timeout is reached and only throws an exception if the element is unable to be used before timing out.
@@ -395,6 +468,23 @@ namespace RallyTeam.Util
                 String e = error.ToString();
                 Log.Error(e);
                 throw new Exception(e);
+            }
+            DriverExtender._waitForJStoLoad(driver);
+        }
+
+        //Attempts to click an element until the timeout is reached and only throws an exception if the element is unable to be clicked before timing out
+        public static void ClickUsingSendKeys(this IWebDriver driver, By locator)
+        {
+            DefaultWait<IWebDriver> wait = new DefaultWait<IWebDriver>(driver);
+            wait.Timeout = TimeSpan.FromSeconds(timeout);
+            wait.IgnoreExceptionTypes(typeof(NoSuchElementException));
+            try
+            {
+                driver.FindElement(locator).SendKeys(Keys.Enter);
+            }
+            catch (Exception error)
+            {
+                
             }
             DriverExtender._waitForJStoLoad(driver);
         }
@@ -571,6 +661,44 @@ namespace RallyTeam.Util
         {
             return ((IJavaScriptExecutor)driver).ExecuteScript("return arguments[0].innerHTML", driver.SafeFindHiddenElement(locator)).ToString();
         }
+
+        //Clicks Element using Javascript
+        public static void ClickElementUsingJS(this IWebDriver driver, By locator)
+        {            
+            DefaultWait<IWebDriver> wait = new DefaultWait<IWebDriver>(driver);
+            wait.Timeout = TimeSpan.FromSeconds(timeout);
+            wait.IgnoreExceptionTypes(typeof(NoSuchElementException));
+            try
+            {
+                IJavaScriptExecutor js = (IJavaScriptExecutor)driver;
+                js.ExecuteScript("arguments[0].click();", driver.FindElement(locator));                
+            }
+            catch (Exception error)
+            {
+
+            }
+            DriverExtender._waitForJStoLoad(driver);
+        }
+
+        //Clicks Element using Javascript
+        public static void FocusAndBlurUsingJS(this IWebDriver driver, By locator)
+        {
+            DefaultWait<IWebDriver> wait = new DefaultWait<IWebDriver>(driver);
+            wait.Timeout = TimeSpan.FromSeconds(timeout);
+            wait.IgnoreExceptionTypes(typeof(NoSuchElementException));
+            try
+            {
+                IJavaScriptExecutor js = (IJavaScriptExecutor)driver;
+                js.ExecuteScript("arguments[0].focus(); arguments[0].blur(); return true", driver.FindElement(locator));
+            }
+            catch (Exception error)
+            {
+
+            }
+            DriverExtender._waitForJStoLoad(driver);
+        }
+
+
 
         //Gets the text value of a hidden element using an already found element.
         public static string GetHiddenElementText(this IWebDriver driver, IWebElement element)

@@ -52,7 +52,6 @@ namespace RallyTeam.TestScripts
         protected ActivitiesPage activitiesPage;
         protected SearchPage searchPage;
         protected PeoplePage peoplePage;
-        protected MessagesPage messagesPage;
         protected InviteUsersPage inviteUsersPage;
         protected OnboardingPage onboardingPage;
         protected RegistrationPage registrationPage;
@@ -70,7 +69,6 @@ namespace RallyTeam.TestScripts
             activitiesPage = new ActivitiesPage(_driver, _pageLoadTimeout);
             searchPage = new SearchPage(_driver, _pageLoadTimeout);
             peoplePage = new PeoplePage(_driver, _pageLoadTimeout);
-            messagesPage = new MessagesPage(_driver, _pageLoadTimeout);
             inviteUsersPage = new InviteUsersPage(_driver, _pageLoadTimeout);
             onboardingPage = new OnboardingPage(_driver, _pageLoadTimeout);
             registrationPage = new RegistrationPage(_driver, _pageLoadTimeout);
@@ -96,7 +94,7 @@ namespace RallyTeam.TestScripts
             authenticationPage.SetUserName(_workEmail);
             authenticationPage.SetPassword(_password);
             authenticationPage.ClickOnLoginButton();
-            Thread.Sleep(3000);
+            Thread.Sleep(5000);
             authenticationPage.VerifyHomeScreen();
 
         }
@@ -132,6 +130,8 @@ namespace RallyTeam.TestScripts
             {
                 case "chrome":
                     System.Environment.SetEnvironmentVariable("webdriver.chrome.driver", "chromedriver.exe");
+                    var options = new ChromeOptions();
+                    options.AddArgument("no-sandbox");
                     return new ChromeDriver();
                 case "firefox":
                     return new FirefoxDriver();

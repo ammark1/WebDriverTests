@@ -111,6 +111,12 @@ namespace RallyTeam.UIPages
             _driver.SafeClick(RegistrationUI.signUpButton);
         }
 
+        //Verify disabled SignUp button
+        public void VerifyDisabledSignUpBtn()
+        {
+            _driver.SafeClick(RegistrationUI.disabledSignUpButton);
+        }
+
         //Assert the Duplicate Work Email Error message
         public void DuplicateEmailErrorMessage()
         {
@@ -178,15 +184,15 @@ namespace RallyTeam.UIPages
         }
 
         //Assert Next Button
-        public void VerifyNextBtn()
+        public void VerifyAllDoneBtn()
         {
-            _assertHelper.AssertElementDisplayed(RegistrationUI.nextButton);
+            _assertHelper.AssertElementDisplayed(RegistrationUI.allDoneButton);
         }
 
         //Click Next Button
-        public void ClickNextBtn()
+        public void ClickAllDoneBtn()
         {
-            _driver.SafeClick(RegistrationUI.nextButton);
+            _driver.SafeClick(RegistrationUI.allDoneButton);
         }
 
         //Click Not You Link

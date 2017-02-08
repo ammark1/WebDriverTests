@@ -11,6 +11,8 @@ using System.Windows.Forms;
 
 namespace RallyTeam.TestScripts
 {
+    [TestFixture]
+    [Category("Registration")]
     public class RegistrationTest : BaseTestWithoutLogin
     {
         static ReadData readRegistration = new ReadData("Registration");
@@ -64,7 +66,6 @@ namespace RallyTeam.TestScripts
             //Verify Privacy Policy on the screen
             registrationPage.VerifyPrivacyPolicy();
             log.Info("Verify Privacy Policy on the screen.");
-            Thread.Sleep(2000);
         }
 
         [Test]
@@ -103,7 +104,7 @@ namespace RallyTeam.TestScripts
             //Click SignUp button on the screen
             registrationPage.ClickSignUpBtn();
             log.Info("Click SignUp button on the screen.");
-            Thread.Sleep(2000);
+            Thread.Sleep(5000);
 
             //Verify Create a Password field on the screen
             registrationPage.VerifyCreatePwdFields();
@@ -116,12 +117,11 @@ namespace RallyTeam.TestScripts
             Thread.Sleep(2000);
 
             //Verify Next button on the screen
-            registrationPage.VerifyNextBtn();
+            registrationPage.VerifyAllDoneBtn();
             log.Info("Verify Next button on the screen.");
-            Thread.Sleep(2000);
         }
 
-        [Test]
+        /*[Test]
         public void Register_User_006_VerifyNotYouLinkFunctionality()
         {
             Global.MethodName = "Register_User_006_VerifyNotYouLinkFunctionality";
@@ -156,7 +156,7 @@ namespace RallyTeam.TestScripts
             //Click SignUp button on the screen
             registrationPage.ClickSignUpBtn();
             log.Info("Click SignUp button on the screen.");
-            Thread.Sleep(2000);
+            Thread.Sleep(5000);
 
             //Enter Create a Password field on the screen
             String createPwd = readRegistration.GetValue("Credentials", "createPwd");
@@ -171,20 +171,19 @@ namespace RallyTeam.TestScripts
             Thread.Sleep(2000);
 
             //Click Next Button on the screen
-            registrationPage.ClickNextBtn();
+            registrationPage.ClickAllDoneBtn();
             log.Info("Click Next button on the screen.");
             Thread.Sleep(2000);
 
             //Click Not you Link on the screen
             registrationPage.ClickNotYouLink();
             log.Info("Click Not You Link on the screen.");
-            Thread.Sleep(2000);
+            Thread.Sleep(5000);
 
             //Verify SignUp button on the screen
             registrationPage.VerifySignUpBtn();
             log.Info("Verify SignUp button on the screen.");
-            Thread.Sleep(2000);
-        }
+        }*/
 
         [Test]
         public void Register_User_007_EnterDuplicateEmailAndVerify()
@@ -218,12 +217,11 @@ namespace RallyTeam.TestScripts
             //Click SignUp button on the screen
             registrationPage.ClickSignUpBtn();
             log.Info("Click SignUp button on the screen.");
-            Thread.Sleep(2000);
+            Thread.Sleep(5000);
 
             //Verify Duplicate Error Message on the screen
             registrationPage.DuplicateEmailErrorMessage();
             log.Info("Verify Duplicate error message on the screen.");
-            Thread.Sleep(2000);
         }
 
         [Test]
@@ -249,15 +247,14 @@ namespace RallyTeam.TestScripts
             log.Info("Enter Last Name on the screen.");
             Thread.Sleep(2000);
 
-            //Click SignUp button on the screen
-            registrationPage.ClickSignUpBtn();
-            log.Info("Click SignUp button on the screen.");
-            Thread.Sleep(2000);
+            //Verify disabled SignUp button on the screen
+            registrationPage.VerifyDisabledSignUpBtn();
+            log.Info("Verify disabled  SignUp button on the screen.");
+            Thread.Sleep(5000);
 
-            //Verify Error Message on the screen
+            /*//Verify Error Message on the screen
             registrationPage.ErrorMessage();
-            log.Info("Verify error message on the screen.");
-            Thread.Sleep(2000);
+            log.Info("Verify error message on the screen.");*/
         }
 
         [Test]
@@ -295,7 +292,7 @@ namespace RallyTeam.TestScripts
             //Click SignUp button on the screen
             registrationPage.ClickSignUpBtn();
             log.Info("Click SignUp button on the screen.");
-            Thread.Sleep(2000);
+            Thread.Sleep(5000);
 
             //Enter Confirm Password field on the screen
             String confirmPwd = readRegistration.GetValue("Credentials", "confirmPwd");
@@ -304,14 +301,13 @@ namespace RallyTeam.TestScripts
             Thread.Sleep(2000);
 
             //Click Next Button on the screen
-            registrationPage.ClickNextBtn();
+            registrationPage.ClickAllDoneBtn();
             log.Info("Click Next button on the screen.");
-            Thread.Sleep(2000);
+            Thread.Sleep(5000);
 
             //Verify Error Message on the screen
             registrationPage.CreatePwdEmpty();
             log.Info("Verify error message on the screen.");
-            Thread.Sleep(2000);
         }
 
         [Test]
@@ -349,7 +345,7 @@ namespace RallyTeam.TestScripts
             //Click SignUp button on the screen
             registrationPage.ClickSignUpBtn();
             log.Info("Click SignUp button on the screen.");
-            Thread.Sleep(2000);
+            Thread.Sleep(5000);
 
             //Enter Create a Password field on the screen
             String createPwd = readRegistration.GetValue("Credentials", "createPwd");
@@ -358,14 +354,13 @@ namespace RallyTeam.TestScripts
             Thread.Sleep(2000);
 
             //Click Next Button on the screen
-            registrationPage.ClickNextBtn();
+            registrationPage.ClickAllDoneBtn();
             log.Info("Click Next button on the screen.");
-            Thread.Sleep(2000);
+            Thread.Sleep(5000);
 
             //Verify Error Message on the screen
             registrationPage.ConfirmPwdEmpty();
             log.Info("Verify error message on the screen.");
-            Thread.Sleep(2000);
         }
 
         [Test]
@@ -416,9 +411,9 @@ namespace RallyTeam.TestScripts
             Thread.Sleep(2000);
 
             //Click Next Button on the screen
-            registrationPage.ClickNextBtn();
+            registrationPage.ClickAllDoneBtn();
             log.Info("Click Next button on the screen.");
-            Thread.Sleep(2000);
+            Thread.Sleep(5000);
 
             //Verify Error Message on the screen
             registrationPage.DifferentPwdError();
@@ -461,7 +456,7 @@ namespace RallyTeam.TestScripts
             //Click SignUp button on the screen
             registrationPage.ClickSignUpBtn();
             log.Info("Click SignUp button on the screen.");
-            Thread.Sleep(2000);
+            Thread.Sleep(5000);
 
             //Enter Create a Password field on the screen
             String invalidPwd = readRegistration.GetValue("Credentials", "invalidPwd");
@@ -475,9 +470,9 @@ namespace RallyTeam.TestScripts
             Thread.Sleep(2000);
 
             //Click Next Button on the screen
-            registrationPage.ClickNextBtn();
+            registrationPage.ClickAllDoneBtn();
             log.Info("Click Next button on the screen.");
-            Thread.Sleep(2000);
+            Thread.Sleep(5000);
 
             //Verify Error Message on the screen
             registrationPage.ShortPwdError();
@@ -517,7 +512,7 @@ namespace RallyTeam.TestScripts
             //Click SignUp button on the screen
             registrationPage.ClickSignUpBtn();
             log.Info("Click SignUp button on the screen.");
-            Thread.Sleep(2000);
+            Thread.Sleep(5000);
 
             //Verify Invalid Email Error Message on the screen
             registrationPage.InvalidEmailErrorMessage();
@@ -539,7 +534,7 @@ namespace RallyTeam.TestScripts
             //Click the Login Button field at Registration page
             authenticationPage.ClickRegistrationLoginBtn();
             log.Info("Click Login Button on Registration page.");
-            Thread.Sleep(2000);
+            Thread.Sleep(5000);
 
             //Verify the login page is displayed
             authenticationPage.VerifyLoginPage();

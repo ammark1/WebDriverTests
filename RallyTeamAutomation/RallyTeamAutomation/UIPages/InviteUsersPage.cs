@@ -114,19 +114,19 @@ namespace RallyTeam.UIPages
         //Assert the email sender
         public void VerifyEmailSender()
         {
-            _assertHelper.AssertElementDisplayed(RegistrationUI.emailSender);
+            _assertHelper.AssertElementDisplayed(OnboardingUI.emailSender);
         }
 
         //Click the email sender
         public void ClickEmailSender()
         {
-            _driver.ClickElementUsingAction(RegistrationUI.emailSender);
+            _driver.ClickElementUsingAction(OnboardingUI.emailSender);
         }
 
         //Assert the email subject
         public void VerifyEmailSubject()
         {
-            _assertHelper.AssertElementDisplayed(RegistrationUI.emailSender);
+            _assertHelper.AssertElementDisplayed(OnboardingUI.emailSender);
         }
 
         //Assert the Let's Rally Button
@@ -138,7 +138,7 @@ namespace RallyTeam.UIPages
         //Get the email link
         public String GetEmailLink()
         {
-            return _driver.GetElementAttributeValue(RegistrationUI.verifyYourEmailBtn, "href");
+            return _driver.GetElementAttributeValue(OnboardingUI.verifyYourEmailBtn, "href");
         }
 
     }

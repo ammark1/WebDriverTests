@@ -69,7 +69,7 @@ namespace RallyTeam.TestScripts
             //Click Events menu option
             eventsPage.ClickEventsMenu();
             log.Info("Click the Events menu option.");
-            Thread.Sleep(5000);
+            Thread.Sleep(8000);
 
             //Click the All Events Dropdown option
             eventsPage.ClickAllEventsDropDown();
@@ -79,12 +79,12 @@ namespace RallyTeam.TestScripts
             //Select My Events option
             eventsPage.ClickMyEventsDropDownOption();
             log.Info("Click the My Events dropdown option.");
-            Thread.Sleep(2000);
+            Thread.Sleep(5000);
 
             //Click the Event created
             eventsPage.ClickEventOnEventPage("Event for Activity");
             log.Info("Click the Event Name on Events Page.");
-            Thread.Sleep(2000);
+            Thread.Sleep(5000);
 
             //Click Settings option
             commonPage.ScrollUp();
@@ -138,7 +138,7 @@ namespace RallyTeam.TestScripts
             //Click on the side navigation link 'Groups' 
             groupsPage.clickGroupsMenu();
             log.Info("Click on the side navigation link 'Groups'");
-            Thread.Sleep(3000);
+            Thread.Sleep(5000);
 
             //Click the All Groups Dropdown option
             groupsPage.ClickAllGroupsDropDown();
@@ -153,7 +153,7 @@ namespace RallyTeam.TestScripts
             //Click the Group created
             groupsPage.ClickGroupOnGroupPage(groupName);
             log.Info("Click the Group Name on Groups Page.");
-            Thread.Sleep(2000);
+            Thread.Sleep(5000);
 
             //Click Settings option
             commonPage.ScrollUp();
@@ -218,12 +218,12 @@ namespace RallyTeam.TestScripts
             //Select I've Posted option from All Projects Dropdown
             projectsPage.SelectAllProjectsIvePosted();
             log.Info("Select I've Posted option from the All Projects dropdown.");
-            Thread.Sleep(2000);
+            Thread.Sleep(5000);
 
             //Click the created project
             projectsPage.ClickProjectNameOnPage(projectName);
             log.Info("Click the Project Name on the Projects Page.");
-            Thread.Sleep(3000);
+            Thread.Sleep(5000);
 
             //Click Delete Project Icon
             commonPage.ScrollUp();
@@ -525,7 +525,7 @@ namespace RallyTeam.TestScripts
             CreateGroup(groupName);
 
             //Signout of the application
-            Thread.Sleep(5000);
+            Thread.Sleep(7000);
             authenticationPage.SignOut();
             log.Info("Click on the Signout button.");
 
@@ -614,7 +614,7 @@ namespace RallyTeam.TestScripts
             DeleteProject(projectName);
         }
 
-        [Test]
+        /*[Test]
         public void Activities_018_VerifyProjectAddMemberActivity()
         {
             Global.MethodName = "Activities_018_VerifyProjectAddMemberActivity";
@@ -669,9 +669,9 @@ namespace RallyTeam.TestScripts
 
             //Delete Project
             DeleteProject(projectName);
-        }
+        }*/
 
-        [Test]
+        /*[Test]
         public void Activities_019_VerifyProjectJoinActivity()
         {
             Global.MethodName = "Activities_019_VerifyProjectJoinActivity";
@@ -780,7 +780,7 @@ namespace RallyTeam.TestScripts
 
             //Delete Project
             DeleteProject(projectName);
-        }
+        }*/
 
         [Test]
         public void Activities_020_VerifyProjectCompleteActivity()
@@ -835,7 +835,7 @@ namespace RallyTeam.TestScripts
             //Select Completed Posted option from All Projects Dropdown
             projectsPage.SelectAllProjectsCompleted();
             log.Info("Select Completed option from the All Projects dropdown.");
-            Thread.Sleep(2000);
+            Thread.Sleep(5000);
 
             //Click the created project
             projectsPage.ClickProjectNameOnPage(projectName);

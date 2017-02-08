@@ -41,22 +41,21 @@ namespace RallyTeam.TestScripts
             //Verify the Password field
             authenticationPage.VerifyPassword();
             log.Info("Verify Password");
-            Thread.Sleep(2000);
+            Thread.Sleep(1000);
 
             //Verify the Login Button field
             authenticationPage.VerifyLoginBtn();
             log.Info("Verify Login Button");
-            Thread.Sleep(2000);
+            Thread.Sleep(1000);
 
             //Verify the Forgot Password field
             authenticationPage.VerifyForgotPwd();
             log.Info("Verify Forgot Password");
-            Thread.Sleep(2000);
+            Thread.Sleep(1000);
 
             //Verify the SignUp field
             authenticationPage.VerifySignUp();
             log.Info("Verify SignUp");
-            Thread.Sleep(2000);
         }
 
         [Test]
@@ -68,17 +67,16 @@ namespace RallyTeam.TestScripts
             Thread.Sleep(2000);
             authenticationPage.ClickOnSignUpLink();
             log.Info("Click SignUp link.");
-            Thread.Sleep(2000);
+            Thread.Sleep(5000);
 
             //Click the Login Button field at Registration page
             authenticationPage.ClickRegistrationLoginBtn();
             log.Info("Click Login Button on Registration page.");
-            Thread.Sleep(2000);
+            Thread.Sleep(5000);
 
             //Verify the login page is displayed
             authenticationPage.VerifyLoginPage();
             log.Info("Verify Login Url Page");
-            Thread.Sleep(2000);
         }
 
         [Test]
@@ -95,7 +93,6 @@ namespace RallyTeam.TestScripts
             //Verify the error Message displayed
             authenticationPage.ErrorMessage();
             log.Info("Verify the error message for empty fields.");
-            Thread.Sleep(2000);
         }
 
         [Test]
@@ -107,17 +104,17 @@ namespace RallyTeam.TestScripts
             Thread.Sleep(2000);
             authenticationPage.SetUserName("InvalidWorkEmail.com");
             log.Info("Enter invalid work email.");
-            Thread.Sleep(2000);
+            Thread.Sleep(1000);
 
             //Enter invalid password
             authenticationPage.SetPassword("invalid");
             log.Info("Enter invalid password.");
-            Thread.Sleep(2000);
+            Thread.Sleep(1000);
 
             //Click the Login button            
             authenticationPage.ClickOnLoginButton();
             log.Info("Click SignUp link.");
-            Thread.Sleep(2000);
+            Thread.Sleep(5000);
 
             //Verify the error Message displayed
             authenticationPage.ErrorMessage();
@@ -135,18 +132,18 @@ namespace RallyTeam.TestScripts
             String workEmail = readAuthentication.GetValue("Credentials", "workEmail");
             authenticationPage.SetUserName(workEmail);
             log.Info("Enter valid work email.");
-            Thread.Sleep(2000);
+            Thread.Sleep(1000);
 
             //Enter valid password
             String password = readAuthentication.GetValue("Credentials", "password");
             authenticationPage.SetPassword(password);
             log.Info("Enter valid password.");
-            Thread.Sleep(2000);
+            Thread.Sleep(1000);
 
             //Click the Login button            
             authenticationPage.ClickOnLoginButton();
             log.Info("Click SignUp link.");
-            Thread.Sleep(2000);
+            Thread.Sleep(5000);
 
             //Verify the Dashboard page
             dashboardPage.VerifyUserLoginSuccess();
@@ -164,28 +161,27 @@ namespace RallyTeam.TestScripts
             String workEmail = readAuthentication.GetValue("Credentials", "workEmail");
             authenticationPage.SetUserName(workEmail);
             log.Info("Enter valid work email.");
-            Thread.Sleep(2000);
+            Thread.Sleep(1000);
 
             //Enter valid password
             String password = readAuthentication.GetValue("Credentials", "password");
             authenticationPage.SetPassword(password);
             log.Info("Enter valid password.");
-            Thread.Sleep(2000);
+            Thread.Sleep(1000);
 
             //Click the Login button            
             authenticationPage.ClickOnLoginButton();
             log.Info("Click SignUp link.");
-            Thread.Sleep(2000);
+            Thread.Sleep(6000);
 
             //Signout of the application
             authenticationPage.SignOut();
             log.Info("Signout of the application.");
-            Thread.Sleep(2000);
+            Thread.Sleep(5000);
 
             //Verify the login page is displayed
             authenticationPage.VerifyLoginPage();
             log.Info("Verify Login Url Page");
-            Thread.Sleep(2000);
         }
 
         [Test]
@@ -197,12 +193,11 @@ namespace RallyTeam.TestScripts
             Thread.Sleep(2000);
             authenticationPage.ClickForgotPwd();
             log.Info("Click Forgot Password link.");
-            Thread.Sleep(2000);
+            Thread.Sleep(5000);
 
             //Verify the Forgot Password page is displayed
             authenticationPage.VerifyForgotPwdPage();
             log.Info("Verify Forgot Password Page is displayed.");
-            Thread.Sleep(2000);
         }
 
         [Test]
@@ -214,22 +209,21 @@ namespace RallyTeam.TestScripts
             Thread.Sleep(2000);
             authenticationPage.ClickForgotPwd();
             log.Info("Click Forgot Password link.");
-            Thread.Sleep(2000);
+            Thread.Sleep(5000);
 
             //Verify the Work Email field
             authenticationPage.VerifyWorkEmail();
             log.Info("Verify Work Email.");
-            Thread.Sleep(2000);
+            Thread.Sleep(1000);
 
             //Verify the Submit button
             authenticationPage.VerifyForgotPwdSubmitBtn();
             log.Info("Verify Submit button.");
-            Thread.Sleep(2000);
+            Thread.Sleep(1000);
 
             //Verify the Go Back Link
             authenticationPage.VerifyForgotPwdGoBackLink();
             log.Info("Verify Go Back Link.");
-            Thread.Sleep(2000);
         }
 
         [Test]
@@ -241,17 +235,16 @@ namespace RallyTeam.TestScripts
             Thread.Sleep(2000);
             authenticationPage.ClickForgotPwd();
             log.Info("Click Forgot Password link.");
-            Thread.Sleep(2000);
+            Thread.Sleep(5000);
 
             //Click the Submit button
             authenticationPage.ClickForgotPwdSubmitBtn();
             log.Info("Click Submit button.");
-            Thread.Sleep(2000);
+            Thread.Sleep(5000);
 
             //Verify the errorMessage
             authenticationPage.ErrorMessage();
             log.Info("Verify the error message displayed.");
-            Thread.Sleep(2000);
         }
 
         [Test]
@@ -268,17 +261,16 @@ namespace RallyTeam.TestScripts
             //Click the Forgot Password       
             authenticationPage.ClickForgotPwd();
             log.Info("Click Forgot Password link.");
-            Thread.Sleep(2000);
+            Thread.Sleep(5000);
 
             //Click the Submit button
             authenticationPage.ClickForgotPwdSubmitBtn();
             log.Info("Click Submit button.");
-            Thread.Sleep(2000);
+            Thread.Sleep(5000);
 
             //Verify the errorMessage
             authenticationPage.ErrorMessage();
             log.Info("Verify the error message displayed.");
-            Thread.Sleep(2000);
         }
 
         [Test]
@@ -290,23 +282,22 @@ namespace RallyTeam.TestScripts
             Thread.Sleep(2000);
             authenticationPage.ClickForgotPwd();
             log.Info("Click Forgot Password link.");
-            Thread.Sleep(2000);
+            Thread.Sleep(5000);
 
             //Enter valid Work Email
             String workEmail = readAuthentication.GetValue("Credentials", "workEmail");
             authenticationPage.SetUserName(workEmail);
             log.Info("Enter valid work email.");
-            Thread.Sleep(2000);
+            Thread.Sleep(1000);
 
             //Click the Submit button
             authenticationPage.ClickForgotPwdSubmitBtn();
             log.Info("Click Submit button.");
-            Thread.Sleep(2000);
+            Thread.Sleep(5000);
 
             //Verify the Resend Email button
             authenticationPage.VerifyResendEmailBtn();
             log.Info("Verify the Resend Email button is displayed.");
-            Thread.Sleep(2000);
         }
     }
 }

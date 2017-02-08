@@ -47,10 +47,10 @@ namespace RallyTeam.TestScripts
             log.Info("Click User Profile option 'Admin'.");
             Thread.Sleep(5000);
 
-            //Click Manage Users tab
+           /* //Click Manage Users tab
             userProfilePage.ClickManageUsersTab();
             log.Info("Click Manage Users tab.");
-            Thread.Sleep(2000);
+            Thread.Sleep(2000);*/
 
             //Click Invite Users button
             inviteUsersPage.ClickInviteUsersBtn();
@@ -308,7 +308,7 @@ namespace RallyTeam.TestScripts
             Thread.Sleep(2000);
 
             //Click Next Button on the screen
-            registrationPage.ClickNextBtn();
+            registrationPage.ClickAllDoneBtn();
             log.Info("Click Next button on the screen.");
             Thread.Sleep(5000);
 

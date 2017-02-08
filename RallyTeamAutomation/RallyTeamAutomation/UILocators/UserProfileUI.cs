@@ -70,19 +70,23 @@ namespace RallyTeam.UILocators
 
 
         //Profile Builder
-        public readonly static By profileBuilderWindow = By.XPath("//h4[text()= 'Profile Builder']"); 
-        public readonly static By profileBuilderConnectLinkedInBtn = By.XPath("//button[@class= 'btn btn-block linkedinsso']");
-        public readonly static By profileBuilderUploadResumeBtn = By.XPath("//button[@class= 'btn btn-block resume']");
+        public readonly static By profileBuilderWindow = By.XPath("//div[@class= 'modal-content']"); 
+        public readonly static By profileBuilderConnectLinkedInBtn = By.XPath("//button[contains(@class, 'rt-btn--linkedin')]");
+        public readonly static By profileBuilderUploadResumeBtn = By.XPath("//button[contains(@class, 'rt-btn--primary')]");
         public readonly static By profileBuilderCloseBtn = By.XPath("//button[text()= 'Close']");
 
 
         //Admin
+        public readonly static By deactivate = By.XPath("//input[@class= 'ng-untouched ng-valid ng-dirty ng-valid-parse']");
+        public readonly static By activate = By.XPath("//input[@class= 'ng-pristine ng-untouched ng-valid']");
+        public readonly static By toggle = By.XPath("//label[@class= 'switch']//i");
         public readonly static By featuresTab = By.XPath("//a[text()='Features']");
-        public readonly static By manageUsersTab = By.XPath("//a[text()='Manage Users']");
-        public readonly static By adminColumn = By.XPath("//table[@class='table table-hover']//thead/tr//strong[text()= 'Admin']");
-        public readonly static By notesColumn = By.XPath("//table[@class='table table-hover']//thead/tr//strong[text()= 'Notes']");
-        public readonly static By adminCheckBox = By.XPath("//table[@class='table table-hover']//tbody/tr[1]/td[5]//input");
-        public readonly static By viewNotesLink = By.XPath("//table[@class='table table-hover']//tbody/tr[1]/td[8]//a");
+        public readonly static By manageUsersTab = By.XPath("//a[text()='Users']");
+        public readonly static By groupsTab = By.XPath("//a[text()='Groups']");
+        public readonly static By groupColumn = By.XPath("//table[contains(@class, 'table table-hover')]//thead/tr//strong[text()= 'Group']");
+        public readonly static By notesColumn = By.XPath("//table[contains(@class, 'table table-hover')]//thead/tr//strong[text()= 'Notes']");
+        public readonly static By adminCheckBox = By.XPath("//table[contains(@class, 'table table-hover')]//tbody/tr[1]/td[5]//input");
+        public readonly static By viewNotesLink = By.XPath("//table[contains(@class, 'table table-hover')]//tbody/tr[1]/td[6]//a");
         public readonly static By searchUser = By.XPath("//input[@placeholder= 'Search']");
         public readonly static By viewNotesWindow = By.XPath("//div[contains(text(), 'Notes on')]");
         public readonly static By addNoteTextArea = By.XPath("//textarea[@name= 'body']");

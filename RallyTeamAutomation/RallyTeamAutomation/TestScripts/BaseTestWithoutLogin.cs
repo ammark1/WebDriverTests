@@ -83,6 +83,8 @@ namespace RallyTeam.TestScripts
             {
                 case "chrome":
                     System.Environment.SetEnvironmentVariable("webdriver.chrome.driver", "chromedriver.exe");
+                    var options = new ChromeOptions();
+                    options.AddArgument("no-sandbox");
                     return new ChromeDriver();
                 case "firefox":
                     return new FirefoxDriver();

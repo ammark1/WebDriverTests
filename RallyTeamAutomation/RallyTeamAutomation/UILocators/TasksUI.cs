@@ -39,9 +39,9 @@ namespace RallyTeam.UILocators
         public readonly static By AllCompletedTasks = By.XPath("//div[@ng-show='!vm.isActiveShown()']//ul[contains(@class, 'rt-tasklist')]");
 
         public readonly static By deleteThisTask = By.XPath("//a[text()='Delete this task']");
-        public readonly static By deleteTaskWindow = By.XPath("//div[contains(@class, 'modal-dialog')]//h1[contains(text(),'Are you sure you want to delete this task?')]");
-        public readonly static By deleteTaskWindowNoBtn = By.XPath("//div[contains(@class, 'modal-dialog')]//button[contains(text(),'No')]");
-        public readonly static By deleteTaskWindowYesBtn = By.XPath("//div[contains(@class, 'modal-dialog')]//button[contains(text(),'Yes')]");
+        public readonly static By deleteTaskWindow = By.XPath("//div[contains(@class, 'modal-dialog')]//div[contains(text(),'Are you sure you want to delete this task?')]");
+        public readonly static By deleteTaskWindowNoBtn = By.XPath("//div[contains(@class, 'modal-dialog')]//a[contains(text(),'No')]");
+        public readonly static By deleteTaskWindowYesBtn = By.XPath("//div[contains(@class, 'modal-dialog')]//a[contains(text(),'Yes')]");
 
         /* Task Details Section */
         public readonly static By addDueDate = By.XPath("//input[@name='duedate']");

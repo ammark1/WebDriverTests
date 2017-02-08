@@ -30,7 +30,7 @@ namespace RallyTeam.UIPages
         //Assert the Please check your inbox message
         public void VerifyWeJustSentYouAnEmailMsg()
         {
-            _assertHelper.AssertElementDisplayed(RegistrationUI.weJustSentYouAnEmail);
+            _assertHelper.AssertElementDisplayed(OnboardingUI.weJustSentYouAnEmail);
         }
 
         //Assert Resend Email button
@@ -42,43 +42,43 @@ namespace RallyTeam.UIPages
         //Enter Mailinator Inout Email Address
         public void EnterMailinatorEmail(String email)
         {
-            _driver.SafeEnterText(RegistrationUI.mailinatorInputEmail, email);
+            _driver.SafeEnterText(OnboardingUI.harakiriInputEmail, email);
         }
 
         //Click Mailinator Go button
         public void ClickGoBtn()
         {
-            _driver.SafeClick(RegistrationUI.goButton);
+            _driver.SafeClick(OnboardingUI.goButton);
         }
 
         //Assert the email sender
         public void VerifyEmailSender()
         {
-            _assertHelper.AssertElementDisplayed(RegistrationUI.emailSender);
+            _assertHelper.AssertElementDisplayed(OnboardingUI.emailSender);
         }
 
-        //Click the email sender
-        public void ClickEmailSender()
+        //Click the email Subject
+        public void ClickEmailSubject()
         {
-            _driver.ClickElementUsingAction(RegistrationUI.emailSender);
+            _driver.ClickElementUsingAction(OnboardingUI.harakiriConfirmEmailSubject);
         }
 
         //Assert the email subject
         public void VerifyEmailSubject()
         {
-            _assertHelper.AssertElementDisplayed(RegistrationUI.emailSender);
+            _assertHelper.AssertElementDisplayed(OnboardingUI.emailSender);
         }
 
         //Assert the Verify Your Email button
         public void VerifyYourEmailBtn()
         {
-            _assertHelper.AssertElementDisplayed(RegistrationUI.verifyYourEmailBtn);
+            _assertHelper.AssertElementDisplayed(OnboardingUI.verifyYourEmailBtn);
         }
 
         //Get the email link
         public String GetEmailLink()
         {
-            return _driver.GetElementAttributeValue(InviteUsersUI.letsRallyBtn, "href");
+            return _driver.GetElementAttributeValue(OnboardingUI.harakiriVerifyYourEmailBtn, "href");
         }
 
         //Switch to iframe
@@ -90,150 +90,154 @@ namespace RallyTeam.UIPages
         //Click Let's Go button
         public void ClickLetsGoBtn()
         {
-            _driver.SafeClick(RegistrationUI.LetsGoBtn);
+            _driver.SafeClick(OnboardingUI.LetsGoBtn);
         }
 
         //Assert Welcome User message
         public void VerifyWelcomeUserMsg(String userFirstName)
         {
-            _assertHelper.AssertElementDisplayed(RegistrationUI.WelcomeUser(userFirstName));
+            _assertHelper.AssertElementDisplayed(OnboardingUI.WelcomeUser(userFirstName));
         }
 
-        //Assert Welcome RallyTeam Description message
-        public void VerifyWelcomeRallyTeamDescriptionMsg()
+        //Assert Welcome RallyTeam message
+        public void VerifyWelcomeRallyTeamMsg()
         {
-            _assertHelper.AssertElementDisplayed(RegistrationUI.RallyTeamDescription);
+            _assertHelper.AssertElementDisplayed(OnboardingUI.welcomeRallyTeam);
         }
 
         //Assert Get Started button
         public void VerifyGetStartedBtn()
         {
-            _assertHelper.AssertElementDisplayed(RegistrationUI.getStartedBtn);
+            _assertHelper.AssertElementDisplayed(OnboardingUI.getStartedBtn);
         }
 
         //Click Get Started button
         public void ClickGetStartedBtn()
         {
-            _driver.WaitForElementAvailableAtDOM(RegistrationUI.getStartedBtn, 1);
-            _driver.SafeClick(RegistrationUI.getStartedBtn);
+            _driver.WaitForElementAvailableAtDOM(OnboardingUI.getStartedBtn, 1);
+            _driver.SafeClick(OnboardingUI.getStartedBtn);
         }
 
         //Assert LinkeDin Confirmation message
         public void VerifyLinkedInConfirmationMsg()
         {
-            _assertHelper.AssertElementDisplayed(RegistrationUI.linkedInConfirmationMsg);
+            _assertHelper.AssertElementDisplayed(OnboardingUI.linkedInConfirmationMsg);
         }
 
         //Assert Connect with LinkedIn button
         public void VerifyConnectWithLinkedInbtn()
         {
-            _assertHelper.AssertElementDisplayed(RegistrationUI.linkedInBtn);
+            _assertHelper.AssertElementDisplayed(OnboardingUI.linkedInBtn);
         }
 
         //Assert Skip LinkedIn Option
         public void VerifySkipLinkedIn()
         {
-            _assertHelper.AssertElementDisplayed(RegistrationUI.skipLinedIn);
+            _assertHelper.AssertElementDisplayed(OnboardingUI.skipLinedIn);
         }
         
         //Click Skip LinkedIn Option
         public void ClickSkipLinkedIn()
         {
-            _driver.WaitForElementAvailableAtDOM(RegistrationUI.skipLinedIn, 1);
-            _driver.SafeClick(RegistrationUI.skipLinedIn);
+            _driver.WaitForElementAvailableAtDOM(OnboardingUI.skipLinedIn, 1);
+            _driver.SafeClick(OnboardingUI.skipLinedIn);
+        }
+
+        //Click Next LinkedIn Option
+        public void ClickNextLinkedIn()
+        {
+            _driver.SafeClick(OnboardingUI.linkedInNextBtn);
         }
 
         //Assert Upload Your Resume message
         public void VerifyUploadResumeMsg()
         {
-            _assertHelper.AssertElementDisplayed(RegistrationUI.uploadResumeMsg);
+            _assertHelper.AssertElementDisplayed(OnboardingUI.uploadResumeMsg);
         }
 
         //Assert Upload Your Resume button
         public void VerifyUploadYourResumeBtn()
         {
-            _assertHelper.AssertElementDisplayed(RegistrationUI.uploadResumeBtn);
+            _assertHelper.AssertElementDisplayed(OnboardingUI.uploadResumeBtn);
         }
 
         //Click Upload Your Resume button
         public void ClickUploadYourResumeBtn()
         {
-            _assertHelper.AssertElementDisplayed(RegistrationUI.uploadResumeBtn);
+            _assertHelper.AssertElementDisplayed(OnboardingUI.uploadResumeBtn);
         }
 
         //Assert Skip Upload Resume Option
         public void VerifySkipUploadResume()
         {
-            _assertHelper.AssertElementDisplayed(RegistrationUI.skipUploadResume);
+            _assertHelper.AssertElementDisplayed(OnboardingUI.skipUploadResume);
         }
 
         //Click Skip Upload Resume Option
         public void ClickSkipUploadResume()
         {
-            _driver.WaitForElementAvailableAtDOM(RegistrationUI.skipUploadResume, 1);
-            _driver.SafeClick(RegistrationUI.skipUploadResume);
+            _driver.WaitForElementAvailableAtDOM(OnboardingUI.skipUploadResume, 1);
+            _driver.SafeClick(OnboardingUI.skipUploadResume);
         }
-
-        //Assert What Do You Work In message
-        public void VerifyWhatDoYouWorkInMsg()
+        
+        //Assert Expertise Drop-Down
+        public void VerifyExpertiseDropDown()
         {
-            _assertHelper.AssertElementDisplayed(RegistrationUI.whatDoYouWorkIn);
+            _assertHelper.AssertElementDisplayed(OnboardingUI.expertiseDropDown);
         }
 
-        //Assert Work Drop-Down
-        public void VerifyWorkDropDown()
+        //Select Expertise Drop-Down
+        public void SelectExpertiseDropDown(String expertise)
         {
-            _assertHelper.AssertElementDisplayed(RegistrationUI.workDropDown);
+            _driver.SelectDropDownOption(expertise, OnboardingUI.expertiseDropDown);
         }
 
-        //Select Work Drop-Down
-        public void SelectWorkDropDown(String work)
+        //Click Expertise Continue button
+        public void ClickExpertiseContinueBtn()
         {
-            _driver.SelectDropDownOption(work, RegistrationUI.workDropDown);
+            _driver.SafeClick(OnboardingUI.continueExpertiseBtn);
         }
 
-        //Assert Continue button
-        public void VerifyContinueBtn()
+        //Enter Skills
+        public void EnterSkills(string skill)
         {
-            _assertHelper.AssertElementDisplayed(RegistrationUI.continueBtn);
+            _driver.SafeEnterText(OnboardingUI.inputSkills, skill);
         }
 
-        //Click Continue button
-        public void ClickContinueBtn()
+        //Assert ViewMyProfile button
+        public void VerifyViewMyProfileBtn()
         {
-            _driver.WaitForElementAvailableAtDOM(RegistrationUI.continueBtn, 1);
-            _driver.SafeClick(RegistrationUI.continueBtn);
+            _assertHelper.AssertElementDisplayed(OnboardingUI.viewMyProfileBtn);
         }
 
-        //Assert Are these your top three skills? message
-        public void VerifyAreTheseYourTopSkillsMsg()
+        //Click ViewMyProfile button
+        public void ClickViewMyProfileBtn()
         {
-            _assertHelper.AssertElementDisplayed(RegistrationUI.areTheseYourTopSkills);
+            _driver.SafeClick(OnboardingUI.viewMyProfileBtn);
         }
 
-        //Assert Skills Div
-        public void VerifySkillsDiv()
+        //Assert SkillOne
+        public void AssertSkillOne(string skill)
         {
-            _assertHelper.AssertElementDisplayed(RegistrationUI.skillsDiv);
+            _driver.SafeClick(OnboardingUI.skillOne(skill));
         }
 
-        //Assert Continue Skills button
-        public void VerifyContinueSkillsBtn()
+        //Assert SkillTwo
+        public void AssertSkillTwo(string skill)
         {
-            _assertHelper.AssertElementDisplayed(RegistrationUI.continueSkillsBtn);
+            _driver.SafeClick(OnboardingUI.skillTwo(skill));
         }
 
-        //Click Continue Skills button
-        public void ClickContinueSkillsBtn()
+        //Click Done button on Profile
+        public void ClickDoneBtn()
         {
-            _driver.WaitForElementAvailableAtDOM(RegistrationUI.continueSkillsBtn, 1);
-            _driver.SafeClick(RegistrationUI.continueSkillsBtn);
+            _driver.ClickElementUsingAction(OnboardingUI.doneBtn);
         }
 
-        //Count the number of skills and fail if more than 3
+        /*//Count the number of skills and fail if more than 3
         public void CountSkillsAndFailIfMoreThanThree()
         {
-            IWebElement ulItems = _driver.FindElement(RegistrationUI.AllSkills);
+            IWebElement ulItems = _driver.FindElement(OnboardingUI.AllSkills);
             IList<IWebElement> liItems = ulItems.FindElements(By.TagName("li"));
             int count = liItems.Count;
             Console.WriteLine("No Of Li items: " + count);
@@ -241,54 +245,70 @@ namespace RallyTeam.UIPages
             {
                 _assertHelper.AssertFailTestCase();
             }
-        }
+        }*/
 
-        //Assert What are you interested in? message
-        public void VerifyWhatAreYouInterestedInMsg()
+        //Get the Confirmation Code from Email
+        public string GetConfirmationCode()
         {
-            _assertHelper.AssertElementDisplayed(RegistrationUI.whatAreYouInterestedInMsg);
+            return _driver.GetElementText(OnboardingUI.confirmationCode);
         }
-
-        //Assert Interests Div
-        public void VerifyInterestsDiv()
+        
+        //test
+        public void test()
         {
-            _assertHelper.AssertElementDisplayed(RegistrationUI.interestsDiv);
+            _driver.SafeClick(OnboardingUI.inputCodeOne);
         }
 
-        //Assert Lets Get You Matched button
-        public void VerifyLetsGetYouMatchedBtn()
+        //test
+        public void testtwo()
         {
-            _assertHelper.AssertElementDisplayed(RegistrationUI.letsGetYouMatchedBtn);
+            _driver.FocusAndBlurUsingJS(OnboardingUI.inputCodeSix);
         }
 
-        //Click Lets Get You Matched button
-        public void ClickLetsGetYouMatchedBtn()
+        //Enter Code1
+        public void EnterCodeOne(string codeOne)
         {
-            _driver.WaitForElementAvailableAtDOM(RegistrationUI.letsGetYouMatchedBtn, 1);
-            _driver.SafeClick(RegistrationUI.letsGetYouMatchedBtn);
-        }
+            _driver.EnterTextUsingAction(OnboardingUI.inputCodeOne, codeOne);
 
-        //Enter Interests Input
-        public void EnterInterests(String interest)
+        }        
+
+        //Enter Code2
+        public void EnterCodeTwo(string codeTwo)
         {
-            _driver.SafeEnterText(RegistrationUI.interestsInput, interest);
+            _driver.EnterTextUsingAction(OnboardingUI.inputCodeTwo, codeTwo);
         }
 
-        //Assert Marketplace tab
-        public void VerifyMarketplaceTab()
+        //Enter Code3
+        public void EnterCodeThree(string codeThree)
         {
-            _assertHelper.AssertElementDisplayed(RegistrationUI.marketplace);
+            _driver.EnterTextUsingAction(OnboardingUI.inputCodeThree, codeThree);
         }
 
+        //Enter Code4
+        public void EnterCodeFour(string codeFour)
+        {
+            _driver.EnterTextUsingAction(OnboardingUI.inputCodeFour, codeFour);
+        }
 
+        //Enter Code
+        public void EnterCodeFive(string codeFive)
+        {
+            _driver.EnterTextUsingAction(OnboardingUI.inputCodeFive, codeFive);
+        }
 
+        //Enter Code
+        public void EnterCodeSix(string codeSix)
+        {
+            _driver.EnterTextUsingAction(OnboardingUI.inputCodeSix, codeSix);
+        }        
 
+        //Click Lets Rally button
+        public void ClickLetsRallyBtn()
+        {
+            _driver.ClickElementUsingJS(OnboardingUI.letsRallyBtn);
+        }
 
-
-
-
-
-
+        
 
 
 

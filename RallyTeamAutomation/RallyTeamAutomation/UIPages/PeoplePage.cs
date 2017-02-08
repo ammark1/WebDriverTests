@@ -45,6 +45,12 @@ namespace RallyTeam.UIPages
             _driver.SafeClick(DashboardUI.sideNavBar("People"));
         }
 
+        //Click on People tab(ES)
+        public void ClickPeopleTab()
+        {
+            _driver.SafeClick(PeopleUI.peopleTab);
+        }
+
         //Assert Search text box
         public void VerifySearchBox()
         {
@@ -62,6 +68,19 @@ namespace RallyTeam.UIPages
         {
             _driver.WaitForElementAvailableAtDOM(PeopleUI.searchBox, 1);
             _driver.SafeEnterText(PeopleUI.searchBox, search);
+        }
+
+        //Enter Browse Search 
+        public void EnterBrowseSearch(String search)
+        {
+            _driver.WaitForElementAvailableAtDOM(PeopleUI.browseSearch, 1);
+            _driver.SafeEnterText(PeopleUI.browseSearch, search);
+        }
+
+        //Click Span Search button
+        public void ClickSpanSearch()
+        {
+            _driver.SafeClick(PeopleUI.spanSearchBtn);
         }
 
         //Assert the user container displayed
@@ -184,10 +203,16 @@ namespace RallyTeam.UIPages
             _assertHelper.AssertElementDisplayed(PeopleUI.projects);
         }
 
-        //Assert Adcance search link text box
+        //Click Adcance search link
         public void ClickAdvanceSearchLink()
         {
             _driver.SafeClick(PeopleUI.advanceLink);
+        }
+
+        //Click Adcance search link on the main page
+        public void ClickAdvanceSearchMainPage()
+        {
+            _driver.SafeClick(PeopleUI.browseAdvanceLink);
         }
 
         //Assert the Advance Search Name
@@ -261,5 +286,129 @@ namespace RallyTeam.UIPages
         {
             _driver.SafeClick(PeopleUI.searchBtn);
         }
+
+        //Get Endorsement Count
+        public String GetEndorsementCount()
+        {
+            return _driver.GetElementText(PeopleUI.endorsementCount);
+        }
+
+        //Click the Endorse button
+        public void ClickEndorseBtn()
+        {
+            _driver.SafeClick(PeopleUI.endorseBtn);
+        }
+
+        //Enter the Project Title
+        public void EnterProjectTitle(String projectTitle)
+        {
+            _driver.SafeEnterText(PeopleUI.projectTitle, projectTitle);
+        }
+
+        //Enter the Project Description
+        public void EnterProjectDescription(String projectDesc)
+        {
+            _driver.SafeEnterText(PeopleUI.projectDesc, projectDesc);
+        }
+
+        //Click the Awesome rating
+        public void ClickAwesomeRating()
+        {
+            _driver.SafeClick(PeopleUI.awesome);
+        }
+
+        //Click the Goog rating
+        public void ClickGoodRating()
+        {
+            _driver.SafeClick(PeopleUI.good);
+        }
+
+        //Click the Not Good rating
+        public void ClickNotGoodRating()
+        {
+            _driver.SafeClick(PeopleUI.notGood);
+        }
+
+        //Enter Feedback
+        public void EnterFeedback(String feedback)
+        {
+            _driver.SafeEnterText(PeopleUI.projectFeedback, feedback);
+        }
+
+        //Enter Skills Endorsed
+        public void EnterSkills(String skillName)
+        {
+            _driver.SafeEnterText(PeopleUI.skills, skillName);
+        }
+
+        //Click the Endorse User button
+        public void ClickEndorseUserBtn()
+        {
+            _driver.SafeClick(PeopleUI.endorseUserBtn);
+        }
+
+        //Get Top Skill Name
+        public String GetTopSkillName()
+        {
+            String a = _driver.GetElementText(PeopleUI.topSkillName);
+            return a;
+        }
+
+        //Get Top Skill Count
+        public String GetTopSkillCount()
+        {
+            String a = _driver.GetElementText(PeopleUI.topSkillCount);
+            return a;
+        }
+
+        //Verify the Increased Top Skill Value
+        public void VerifyIncreasedTopSkillCount(string counter)
+        {
+            _assertHelper.AssertElementDisplayed(PeopleUI.increasedTopSkillCount(counter));
+        }
+
+        //Click User Profile Icon
+        public void ClickUserProfileIcon()
+        {
+            _driver.ClickElementUsingAction(DashboardUI.userIcon);
+        }
+
+        //Click User Profile option
+        public void ClickUserProfileOptions(String variable)
+        {
+            _driver.SafeClick(DashboardUI.UserIconOptions(variable));
+        }
+
+        //Click Request Feedback button
+        public void ClickRequestFeedbackBtn()
+        {
+            _driver.SafeClick(PeopleUI.requestFeedbackBtn);
+        }
+
+        //Select Project
+        public void SelectProject(String projectName)
+        {
+            _driver.SafeSelectDropDownText(PeopleUI.projectDropDown, projectName);
+        }
+
+        //Enter Feedback From
+        public void EnterFeedbackFrom(String feedbackFrom)
+        {
+            _driver.SafeEnterText(PeopleUI.feedbackFrom, feedbackFrom);
+        }
+
+        //Enter Optional Message
+        public void EnterOptionalMessage(String message)
+        {
+            _driver.SafeEnterText(PeopleUI.optionalMessage, message);
+        }
+
+        //Click Send button
+        public void ClickSendBtnForFeedback()
+        {
+            _driver.SafeClick(PeopleUI.sendBtn);
+        }
+
+
     }
 }

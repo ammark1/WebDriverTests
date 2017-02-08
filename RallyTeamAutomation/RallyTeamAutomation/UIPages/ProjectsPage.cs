@@ -85,7 +85,6 @@ namespace RallyTeam.UIPages
         //Select Recruiting option from All Projects Dropdown
         public void SelectAllProjectsRecruiting()
         {
-            _driver.WaitForElementAvailableAtDOM(ProjectsUI.ProjTypeRecruiting, 1);
             _driver.ClickElementUsingAction(ProjectsUI.ProjTypeRecruiting);
         }
 
@@ -201,14 +200,12 @@ namespace RallyTeam.UIPages
         //Press Request To Join button
         public void ClickRequestToJoinBtn()
         {
-            _driver.WaitForElementAvailableAtDOM(ProjectsUI.requestToJoinBtn, 1);
-            _driver.SafeClick(ProjectsUI.requestToJoinBtn);
+            _driver.ClickUsingSendKeys(ProjectsUI.requestToJoinBtn);
         }
 
         //Verify Request Sent button
         public void AsssertRequestSentBtn()
         {
-            _driver.WaitForElementAvailableAtDOM(ProjectsUI.requestSentBtn, 1);
             _assertHelper.AssertElementDisplayed(ProjectsUI.requestSentBtn);
         }
 
@@ -231,6 +228,13 @@ namespace RallyTeam.UIPages
         {
             _driver.WaitForElementAvailableAtDOM(ProjectsUI.pendingWindowDeclineIcon, 1);
             _driver.SafeClick(ProjectsUI.pendingWindowDeclineIcon);
+        }
+
+        //Close Pending Window
+        public void ClosePendingMemberWindow()
+        {
+            _driver.WaitForElementAvailableAtDOM(ProjectsUI.pendingWindowAcceptIcon, 1);
+            _driver.SafeClick(ProjectsUI.pendingWindowCrossIcon);
         }
 
         //Verify Leave Project Icon
@@ -544,7 +548,7 @@ namespace RallyTeam.UIPages
         public void SelectOptionFromProjectOwner(String dropdwnoptn)
         {
             _driver.WaitForElementAvailableAtDOM(ProjectsUI.projectOwner, 1);
-            _driver.SafeSelectDropDownText(ProjectsUI.projectOwner, dropdwnoptn);
+            _driver.SelectDropDownOption(dropdwnoptn, ProjectsUI.projectOwner);
         }
 
         //Assert the Name Required message 
@@ -694,6 +698,17 @@ namespace RallyTeam.UIPages
             _assertHelper.AssertElementTextContains(ProjectsUI.VerifyTeamStatus, "Added");
         }
 
+        //Click Start Date field to open calendar
+        public void ClickStartDateField()
+        {
+            _driver.SafeClick(ProjectsUI.startDate);
+        }
+
+        //Click todays date from calendar
+        public void ClickTodaysDate()
+        {
+            _driver.SafeClick(ProjectsUI.todayDate);
+        }
 
 
     }

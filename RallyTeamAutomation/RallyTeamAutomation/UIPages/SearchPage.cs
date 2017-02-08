@@ -146,7 +146,7 @@ namespace RallyTeam.UIPages
         }
 
         //Assert Empty Sarch Message
-        public void VerifyEmptySEarchMsg()
+        public void VerifyEmptySearchMsg()
         {
             _assertHelper.AssertElementDisplayed(SearchUI.emptySearchMsg);
         }

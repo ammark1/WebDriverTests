@@ -42,7 +42,7 @@ namespace RallyTeam.UIPages
         public void ClickEventsMenu()
         {
             _driver.WaitForElementAvailableAtDOM(DashboardUI.sideNavBar("Events"), 1);
-            _driver.SafeClick(DashboardUI.sideNavBar("Events"));
+            _driver.ClickElementUsingAction(DashboardUI.sideNavBar("Events"));
         }
 
         //Press on Event's About tab

@@ -18,7 +18,8 @@ namespace RallyTeam.UILocators
         {
             return By.XPath("//div[@class='modal-content']//span[text()='" + variable + "']");
         }
-        public readonly static By allProjectDrpdwnLink = By.XPath("//a[@class='dropdown-toggle']//*[contains(text(), 'All Projects')]");
+        //public readonly static By allProjectDrpdwnLink = By.XPath("//a[@class='dropdown-toggle']//*[contains(text(), 'All Projects')]");
+        public readonly static By allProjectDrpdwnLink = By.XPath("//span[@class= 'caret']");
         public static By ProjTypeIvePosted = By.XPath("//ul[@class='dropdown-menu']/li[3]");
         public static By ProjTypeRecruiting = By.XPath("//ul[@class='dropdown-menu']/li[5]");
         public static By ProjTypeInProgress = By.XPath("//ul[@class='dropdown-menu']/li[6]");
@@ -30,8 +31,9 @@ namespace RallyTeam.UILocators
             return By.XPath("//span[contains(text(), '" + variable+"')]");
         }
 
-        public readonly static By statusDropDown = By.XPath("//div[contains(@class, 'rt-about-details__details-container')]//div[3]//dd[1]//select[contains(@class, 'form-control')]");
+        public readonly static By statusDropDown = By.XPath("//select[@title= 'opp-status']");
         public readonly static By startDate = By.XPath("//dd[2]/input");
+        public readonly static By todayDate = By.XPath("//table[contains(@class, 'table-condensed')]//td[@class= 'today day']");
         public readonly static By dueDate = By.XPath("//dd[3]/input");
         public readonly static By location = By.XPath("//dd[4]/input[@name='location']");
         public readonly static By group = By.XPath("//dd[5]/select");
@@ -41,20 +43,21 @@ namespace RallyTeam.UILocators
         public readonly static By gitHubRepo = By.XPath("//div[contains(@class, 'rt-github-repo')]/select");
         public readonly static By markCompleteBtn = By.XPath("//a[contains(text(), 'Mark Complete')]");
 
-        public readonly static By addMemberIcon = By.XPath("//li[1]/a/div/i");
-        public readonly static By shareProjectIcon = By.XPath("//li[2]/a/div/i");
-        public readonly static By deleteProjectIcon = By.XPath("//li[3]/a/div/i");
+        public readonly static By addMemberIcon = By.XPath("//i[@class= 'fa fa-user-plus']");
+        public readonly static By shareProjectIcon = By.XPath("//i[@class= 'fa fa-share']");
+        public readonly static By deleteProjectIcon = By.XPath("//i[@class= 'fa fa-trash-o']");
 
 
         public readonly static By discussionAddMemberIcon = By.XPath("//div[3]/div/div/ul/li/a/div/i");
         public readonly static By discussionShareProjectIcon = By.XPath("//div[3]/div/div/ul/li[2]/a/div/i");
         public readonly static By discussionDeleteProjectIcon = By.XPath("//div[3]/div/div/ul/li[3]/a/div/i");
 
-        public readonly static By deleteProjectWindow = By.XPath("//div[contains(@class, 'modal-content')]//h1[text()='Are you sure you want to delete this project?']");
-        public readonly static By deleteProjectWindowNoBtn = By.XPath("//div[contains(@class, 'modal-content')]//button[contains(text(),'No')]");
-        public readonly static By deleteProjectWindowYesBtn = By.XPath("//div[contains(@class, 'modal-content')]//button[contains(text(),'Yes')]");
+        public readonly static By deleteProjectWindow = By.XPath("//div[contains(@class, 'modal-content')]//div[text()='Are you sure you want to delete this project?']");
+        public readonly static By deleteProjectWindowNoBtn = By.XPath("//div[contains(@class, 'modal-content')]//a[contains(text(),'No')]");
+        public readonly static By deleteProjectWindowYesBtn = By.XPath("//div[contains(@class, 'modal-content')]//a[contains(text(),'Yes')]");
         //public static By deleteGroupConfirmationMsg = By.XPath("//div[contains(@class, 'cg-notify-message')]//div[contains(text(), 'Group has been deleted.')]");
-
+        
+        public readonly static By completeProjectWindow = By.XPath("//div[contains(text(), 'Complete Your Project')]");
         public readonly static By completeProjStarIcon = By.XPath("//*[contains(@class, 'rt-stars-container')]//i[5]");
         public readonly static By completeProjMarkComplete = By.XPath("//button[text()= 'Complete Project']");
 
@@ -63,10 +66,11 @@ namespace RallyTeam.UILocators
         public readonly static By addRequestedMember = By.XPath("//div[contains(@class, 'col-lg-12')]//div[3]//i[@class='fa fa-user']");
         public readonly static By pendingWindowAcceptIcon = By.XPath("//div[contains(@class, 'modal-content')]//a[@class='rt-user-row__approve']");
         public readonly static By pendingWindowDeclineIcon = By.XPath("//div[contains(@class, 'modal-content')]//a[@class='rt-user-row__decline']");
+        public readonly static By pendingWindowCrossIcon = By.XPath("//div[contains(@class, 'modal-content')]//i[@class='fa fa-times']");
 
         public readonly static By leaveProjectIcon = By.XPath("//div[contains(@class, 'rt-project-actions')]//i[@class='fa fa-sign-out']");
-        public readonly static By leaveProjectWindowNoBtn = By.XPath("//div[contains(@class, 'modal-content')]//button[contains(text(),'No')]");
-        public readonly static By leaveProjectWindowYesBtn = By.XPath("//div[contains(@class, 'modal-content')]//button[contains(text(),'Yes')]");
+        public readonly static By leaveProjectWindowNoBtn = By.XPath("//div[contains(@class, 'modal-content')]//a[contains(text(),'No')]");
+        public readonly static By leaveProjectWindowYesBtn = By.XPath("//div[contains(@class, 'modal-content')]//a[contains(text(),'Yes')]");
 
         public readonly static By projectCreatedMsg = By.XPath("//div[contains(@class, 'cg-notify-message')]//div[contains(text(), 'Project successfully created.')]");
 
@@ -94,10 +98,10 @@ namespace RallyTeam.UILocators
             return By.XPath("//ul[contains(@class, 'suggestion-list')]//span[contains(text(), '" + variable + "')]");
         }
         public readonly static By addMemberConfirmationMsg = By.XPath("//span[contains(text(), 'Your team is updated.')]");
-        public readonly static By addedMemberRemoveIcon = By.XPath("//div[3]/div/i");
-        public readonly static By removeMemberWindow = By.XPath("//div[contains(@class, 'inmodal')]//h1[contains(text(), 'Are you sure you want to remove')]");
-        public readonly static By removeMemberNoBtn = By.XPath("//div[contains(@class, 'inmodal')]//button[contains(text(),'No')]");
-        public readonly static By removeMemberYesBtn = By.XPath("//div[contains(@class, 'inmodal')]//button[contains(text(),'Yes')]");
+        public readonly static By addedMemberRemoveIcon = By.XPath("//div[@class= 'col-lg-12 rt-projects-members']//i[contains(@class, 'rt-member__remove-btn')]");
+        public readonly static By removeMemberWindow = By.XPath("//div[contains(@class, 'modal-content')]//div[contains(text(), 'Are you sure you want to remove')]");
+        public readonly static By removeMemberNoBtn = By.XPath("//div[contains(@class, 'modal-content')]//a[contains(text(),'No')]");
+        public readonly static By removeMemberYesBtn = By.XPath("//div[contains(@class, 'modal-content')]//a[contains(text(),'Yes')]");
         public static By VerifyProjectMemberName(String variable)
         {
             return By.XPath("//a[contains(text(),'" + variable + "')]");

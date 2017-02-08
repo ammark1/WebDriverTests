@@ -143,6 +143,26 @@ namespace RallyTeam.Util
             }
         }
 
+        //Verify an element present or not but does not throw exception if element not found
+        public Boolean AssertElementDisplayedNoError(By locator)
+        {
+            DefaultWait<IWebDriver> wait = new DefaultWait<IWebDriver>(_driver);
+            wait.Timeout = TimeSpan.FromSeconds(PageLoadTimeout);
+            try
+            {
+                Assert.IsTrue(_driver.FindElementFlexible(locator).Displayed);
+                return true;
+            }
+            catch (NoSuchElementException e)
+            {
+                return false;
+            }            
+            catch (Exception e)
+            {
+                return false;
+            }
+        }
+
         public void AssertElementDisplayed(By locator)
         {
             DefaultWait<IWebDriver> wait = new DefaultWait<IWebDriver>(_driver);

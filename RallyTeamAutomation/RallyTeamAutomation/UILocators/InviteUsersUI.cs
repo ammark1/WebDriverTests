@@ -23,7 +23,7 @@ namespace RallyTeam.UILocators
         public readonly static By finishBtn = By.XPath("//a[contains(text(), 'Finish')]");
         public readonly static By emailSender = By.XPath("//div[contains(text(), 'noreply@rallyteam.com')]");
         public readonly static By emailSubject = By.XPath("//div[contains(text(), 'Confirm your email address on Rallyteam')]");
-        public readonly static By letsRallyBtn = By.XPath("//a[contains(text(), 'Rally')]");
+        public readonly static By letsRallyBtn = By.XPath("//a[contains(text(), 'Verify')]");
 
         public readonly static By skipLinedIn = By.XPath("//a[contains(text(), 'SKIP')]");
         public readonly static By uploadResumeMsg = By.XPath("//div[contains(text(), 'Would you like to upload your resume?')]");

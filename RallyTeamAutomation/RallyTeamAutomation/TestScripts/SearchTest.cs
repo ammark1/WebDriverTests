@@ -11,6 +11,8 @@ using System.Windows.Forms;
 
 namespace RallyTeam.TestScripts
 {
+    [TestFixture]
+    [Category("Search")]
     public class SearchTest : BaseTest
     {
         static ReadData readSearch = new ReadData("Search");
@@ -38,10 +40,10 @@ namespace RallyTeam.TestScripts
         public void Search_002_SearchLoggedInUser()
         {
             Global.MethodName = "Search_002_SearchLoggedInUser";
-            Thread.Sleep(2000);
+            Thread.Sleep(5000);
 
             //Get UserName
-            String userName = commonPage.GetUserName();
+            String userName = readSearch.GetValue("Search", "loggedUser");
 
             //Enter Search menu option
             searchPage.EnterSearchMenuOption(userName);
@@ -78,10 +80,10 @@ namespace RallyTeam.TestScripts
             searchPage.PressEnterKey();
             Thread.Sleep(5000);
 
-            //Select All Radio button
+            /*//Select All Radio button
             searchPage.ClickAllRadio();
             log.Info("Select All Radio button.");
-            Thread.Sleep(2000);
+            Thread.Sleep(2000);*/
 
             //Verify the Zero Search Results are displayed
             searchPage.VerifyZeroSearch();
@@ -93,10 +95,10 @@ namespace RallyTeam.TestScripts
         public void Search_009_VerifySearchScreenDisplay()
         {
             Global.MethodName = "Search_009_VerifySearchScreenDisplay";
-            Thread.Sleep(2000);
+            Thread.Sleep(5000);
 
             //Get UserName
-            String userName = commonPage.GetUserName();
+            String userName = readSearch.GetValue("Search", "loggedUser");
 
             //Enter Search menu option
             searchPage.EnterSearchMenuOption(userName);
@@ -117,7 +119,7 @@ namespace RallyTeam.TestScripts
             log.Info("Verify Search button Field is displayed.");
             Thread.Sleep(1000);
 
-            //Verify All Radio button is displayed
+            /*//Verify All Radio button is displayed
             searchPage.VerifyAllRadioBtn();
             log.Info("Verify All Radio button is displayed.");
             Thread.Sleep(1000);
@@ -140,17 +142,17 @@ namespace RallyTeam.TestScripts
             //Verify Projects Radio button is displayed
             searchPage.VerifyProjectsRadioBtn();
             log.Info("Verify Projects Radio button is displayed.");
-            Thread.Sleep(1000);
+            Thread.Sleep(1000);*/
         }
 
-        [Test]
+        /*[Test]
         public void Search_012_VerifyAllRadio()
         {
             Global.MethodName = "Search_012_VerifyAllRadio";
-            Thread.Sleep(2000);
+            Thread.Sleep(5000);
 
             //Get UserName
-            String userName = commonPage.GetUserName();
+            String userName = readSearch.GetValue("Search", "loggedUser");
 
             //Enter Search menu option
             searchPage.EnterSearchMenuOption(userName);
@@ -170,7 +172,7 @@ namespace RallyTeam.TestScripts
             searchPage.VerifySearchResult(userName);
             log.Info("Verify the Search highlighted result.");
             Thread.Sleep(2000);
-        }
+        }*/
 
         [Test]
         public void Search_013_VerifyGroupRadio()
@@ -215,10 +217,10 @@ namespace RallyTeam.TestScripts
             searchPage.PressEnterKey();
             Thread.Sleep(5000);
 
-            //Select Group Radio button
+            /*//Select Group Radio button
             searchPage.ClickGroupRadio();
             log.Info("Select Group Radio button.");
-            Thread.Sleep(2000);
+            Thread.Sleep(2000);*/
 
             //Verify the Search Result is displayed
             searchPage.VerifySearchResult(groupName);
@@ -255,10 +257,10 @@ namespace RallyTeam.TestScripts
         public void Search_014_VerifyUserRadio()
         {
             Global.MethodName = "Search_014_VerifyUserRadio";
-            Thread.Sleep(2000);
+            Thread.Sleep(5000);
 
             //Get UserName
-            String userName = commonPage.GetUserName();
+            String userName = readSearch.GetValue("Search", "loggedUser");
 
             //Enter Search menu option
             searchPage.EnterSearchMenuOption(userName);
@@ -269,7 +271,7 @@ namespace RallyTeam.TestScripts
             searchPage.PressEnterKey();
             Thread.Sleep(5000);
 
-            //Select Users Radio button
+            /*//Select Users Radio button
             searchPage.ClickUsersRadio();
             log.Info("Select Users Radio button.");
             Thread.Sleep(2000);
@@ -277,7 +279,7 @@ namespace RallyTeam.TestScripts
             //Verify the Search Result is displayed
             searchPage.VerifySearchResult(userName);
             log.Info("Verify the Search highlighted result.");
-            Thread.Sleep(2000);
+            Thread.Sleep(2000);*/
         }
 
         [Test]
@@ -326,10 +328,10 @@ namespace RallyTeam.TestScripts
             searchPage.PressEnterKey();
             Thread.Sleep(5000);
 
-            //Select Events Radio button
+            /*//Select Events Radio button
             searchPage.ClickEventsRadio();
             log.Info("Select Events Radio button.");
-            Thread.Sleep(2000);
+            Thread.Sleep(2000);*/
 
             //Verify the Search Result is displayed
             searchPage.VerifySearchResult(eventName);
@@ -408,7 +410,7 @@ namespace RallyTeam.TestScripts
 
             //Select Project Type
             projectsPage.SelectProjectType("Just for Me");
-            Thread.Sleep(5000);
+            Thread.Sleep(8000);
 
             //Enter Search menu option
             searchPage.EnterSearchMenuOption(projectName);
@@ -419,10 +421,10 @@ namespace RallyTeam.TestScripts
             searchPage.PressEnterKey();
             Thread.Sleep(5000);
 
-            //Select Projects Radio button
+            /*//Select Projects Radio button
             searchPage.ClickProjectsRadio();
             log.Info("Select Projects Radio button.");
-            Thread.Sleep(2000);
+            Thread.Sleep(2000);*/
 
             //Verify the Search Result is displayed
             searchPage.VerifySearchResult(projectName);
@@ -460,7 +462,7 @@ namespace RallyTeam.TestScripts
             Thread.Sleep(2000);
         }
 
-        [Test]
+        /*[Test]
         public void Search_022_SearchEmptyData()
         {
             Global.MethodName = "Search_022_SearchEmptyData";
@@ -482,10 +484,10 @@ namespace RallyTeam.TestScripts
             Thread.Sleep(1000);
 
             //Verify the Empty Result Message
-            searchPage.VerifyEmptySEarchMsg();
+            searchPage.VerifyEmptySearchMsg();
             log.Info("Verify the empty result message.");
             Thread.Sleep(2000);
-        }
+        }*/
 
         [Test]
         public void Search_023_VerifyNumberSearch()
@@ -522,7 +524,7 @@ namespace RallyTeam.TestScripts
 
             //Select Project Type
             projectsPage.SelectProjectType("Just for Me");
-            Thread.Sleep(2000);
+            Thread.Sleep(10000);
 
             //Enter Search menu option
             searchPage.EnterSearchMenuOption("12345");
@@ -531,12 +533,12 @@ namespace RallyTeam.TestScripts
 
             //Press Enter Key
             searchPage.PressEnterKey();
-            Thread.Sleep(5000);
+            Thread.Sleep(10000);
 
-            //Select Projects Radio button
+            /*//Select Projects Radio button
             searchPage.ClickProjectsRadio();
             log.Info("Select Projects Radio button.");
-            Thread.Sleep(2000);
+            Thread.Sleep(2000);*/
 
             //Verify the Search Result is displayed
             searchPage.VerifySearchResult("12345");
@@ -630,10 +632,10 @@ namespace RallyTeam.TestScripts
             searchPage.PressEnterKey();
             Thread.Sleep(5000);
 
-            //Select Projects Radio button
+            /*//Select Projects Radio button
             searchPage.ClickProjectsRadio();
             log.Info("Select Projects Radio button.");
-            Thread.Sleep(2000);
+            Thread.Sleep(2000);*/
 
             //Verify the Search Result is not displayed
             searchPage.VerifySearchResultNotDisplayed(projectName);
@@ -666,10 +668,10 @@ namespace RallyTeam.TestScripts
             Thread.Sleep(2000);
             peoplePage.ClickPeopleMenu();
             log.Info("Click the People menu option.");
-            Thread.Sleep(3000);
+            Thread.Sleep(5000);
 
             //Get UserName
-            String userName = commonPage.GetUserName();
+            String userName = readSearch.GetValue("Search", "loggedUser");
 
             //Enter the Search text
             peoplePage.EnterSearchBox(userName);
@@ -693,10 +695,10 @@ namespace RallyTeam.TestScripts
             Thread.Sleep(2000);
             peoplePage.ClickPeopleMenu();
             log.Info("Click the People menu option.");
-            Thread.Sleep(3000);
+            Thread.Sleep(5000);
 
             //Get UserName
-            String userName = commonPage.GetUserName();
+            String userName = readSearch.GetValue("Search", "loggedUser");
 
             //Enter the Search text
             peoplePage.EnterSearchBox("abcd");
@@ -802,10 +804,10 @@ namespace RallyTeam.TestScripts
             Thread.Sleep(2000);
             peoplePage.ClickPeopleMenu();
             log.Info("Click the People menu option.");
-            Thread.Sleep(3000);
+            Thread.Sleep(5000);
 
             //Get UserName
-            String userName = commonPage.GetUserName();
+            String userName = readSearch.GetValue("Search", "loggedUser");
 
             //Click the Advance Search option
             peoplePage.ClickAdvanceSearchLink();
@@ -819,7 +821,7 @@ namespace RallyTeam.TestScripts
 
             //Press Advance Search button
             peoplePage.ClickAdvanceSearchBtn();
-            Thread.Sleep(3000);
+            Thread.Sleep(5000);
 
             //Verify correct search result is displayed
             peoplePage.VerifyUserContainerUserName(userName);
