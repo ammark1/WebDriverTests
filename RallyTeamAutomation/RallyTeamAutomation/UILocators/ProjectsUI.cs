@@ -87,7 +87,7 @@ namespace RallyTeam.UILocators
 
         public readonly static By addProjectDlg = By.XPath("//div[contains(@class, 'rt-modal__title')]/span[text()='Create a Project']");
         public readonly static By AddMemberButton = By.XPath("//a[contains(@class, 'rt-member__action') and @tooltip='Add members']/i]");
-        public readonly static By addSomeoneText = By.XPath("//input[@placeholder='Enter user name or email']");
+        public readonly static By addSomeoneText = By.XPath("//input[contains(@placeholder, 'Enter user')]");
         public readonly static By PlusIcon = By.XPath("//div[contains(@class, 'add-button') and contains(text(), '+')]");
         public readonly static By searchSkillsText = By.XPath("//input[@placeholder='What skills are you looking for?']");
         public readonly static By myTeamDiv = By.XPath("//div[@class='row m-t-xl rt-staffing-wizard__team']");

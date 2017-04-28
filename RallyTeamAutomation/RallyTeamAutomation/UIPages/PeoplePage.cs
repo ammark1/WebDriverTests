@@ -119,7 +119,13 @@ namespace RallyTeam.UIPages
             _assertHelper.AssertElementDisplayed(PeopleUI.viewProfileBtn);
         }
 
-        //Assert the New Message Window button
+        //Assert the Send Message Window non external storm
+        public void VerifySendMessageWindow()
+        {
+            _assertHelper.AssertElementDisplayed(PeopleUI.sendMsgWindowOld);
+        }
+
+        //Assert the New Message Window
         public void VerifyNewMessageWindow()
         {
             _assertHelper.AssertElementDisplayed(PeopleUI.newMessageWindow);
@@ -192,9 +198,9 @@ namespace RallyTeam.UIPages
         }
 
         //Assert the User Profile Interests
-        public void VerifyInterests()
+        public void VerifyDevelopmentSkills()
         {
-            _assertHelper.AssertElementDisplayed(PeopleUI.interests);
+            _assertHelper.AssertElementDisplayed(PeopleUI.developmentSkills);
         }
 
         //Assert the User Profile Projects
@@ -299,6 +305,12 @@ namespace RallyTeam.UIPages
             _driver.SafeClick(PeopleUI.endorseBtn);
         }
 
+        //Select Project DropDown
+        public void SelectProjectDropDown(String projectName)
+        {
+            _driver.SelectDropDownOption(projectName, PeopleUI.projectDropDown);
+        }
+
         //Enter the Project Title
         public void EnterProjectTitle(String projectTitle)
         {
@@ -385,10 +397,10 @@ namespace RallyTeam.UIPages
             _driver.SafeClick(PeopleUI.requestFeedbackBtn);
         }
 
-        //Select Project
-        public void SelectProject(String projectName)
+        //Select Request Feedback Project
+        public void SelectRequestFeedbackProject(String projectName)
         {
-            _driver.SafeSelectDropDownText(PeopleUI.projectDropDown, projectName);
+            _driver.SafeSelectDropDownText(PeopleUI.requestFeedbackProject, projectName);
         }
 
         //Enter Feedback From

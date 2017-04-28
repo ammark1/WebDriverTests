@@ -30,7 +30,7 @@ namespace RallyTeam.UIPages
         //Assert Login Page    
         public void VerifyLoginPage()
         {
-            _assertHelper.AssertElementDisplayed(AuthenticationUI.loginDiv);
+            _assertHelper.AssertElementDisplayed(AuthenticationUI.loginForm);
         }
 
         //Assert Work Email
@@ -115,6 +115,12 @@ namespace RallyTeam.UIPages
         public void ClickUserIcon()
         {
               _driver.SafeClick(DashboardUI.userIcon);
+        }
+
+        //Assert on the User Icon at the top
+        public void VerifyUserIcon()
+        {
+            _assertHelper.AssertElementDisplayed(DashboardUI.userIcon);
         }
 
         //Click on the Sign out link

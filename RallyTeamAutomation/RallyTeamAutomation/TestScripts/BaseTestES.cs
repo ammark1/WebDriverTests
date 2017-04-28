@@ -7,6 +7,8 @@ using OpenQA.Selenium.IE;
 using OpenQA.Selenium.Chrome;
 using OpenQA.Selenium.Safari;
 using OpenQA.Selenium.Firefox;
+using OpenQA.Selenium.Remote;
+//using OpenQA.Selenium.edge.EdgeDriver;
 using System.Drawing;
 using System.Reflection;
 using System.Text;
@@ -45,12 +47,16 @@ namespace RallyTeam.TestScripts
         protected CommonMethods commonPage;
         protected DashboardPage dashboardPage;
         protected UserProfilePage userProfilePage;
-        protected OnboardingPage onboardingPage;
         protected PostProjectPage postProjectPage;
         protected MarketplacePage marketplacePage;
         protected DirectMessagingPage directMessagingPage;
         protected PeoplePage peoplePage;
         protected InvoicingPage invoicingPage;
+        protected AddUsersPage addUsersPage;
+        protected VendorPage vendorPage;
+        protected NotificationsPage notificationsPage;
+        protected RegistrationPage registrationPage;
+        protected GroupsPage groupsPage;
         protected CommonIssuesPage commonIssuePage;
 
         [SetUp]
@@ -58,14 +64,18 @@ namespace RallyTeam.TestScripts
         {
             _driver = GetDriver();
             authenticationPage = new AuthenticationPage(_driver, _pageLoadTimeout);
-            onboardingPage = new OnboardingPage(_driver, _pageLoadTimeout);
             postProjectPage = new PostProjectPage(_driver, _pageLoadTimeout);
             marketplacePage = new MarketplacePage(_driver, _pageLoadTimeout);
             directMessagingPage = new DirectMessagingPage(_driver, _pageLoadTimeout);
             peoplePage = new PeoplePage(_driver, _pageLoadTimeout);
             invoicingPage = new InvoicingPage(_driver, _pageLoadTimeout);
+            addUsersPage = new AddUsersPage(_driver, _pageLoadTimeout);
+            registrationPage = new RegistrationPage(_driver, _pageLoadTimeout);
             userProfilePage = new UserProfilePage(_driver, _pageLoadTimeout);
             commonIssuePage = new CommonIssuesPage(_driver, _pageLoadTimeout);
+            vendorPage = new VendorPage(_driver, _pageLoadTimeout);
+            notificationsPage = new NotificationsPage(_driver, _pageLoadTimeout);
+            groupsPage = new GroupsPage(_driver, _pageLoadTimeout);
 
             _assertHelper = new AssertHelper(_driver, _pageLoadTimeout);
             _driver.Manage().Window.Maximize();
@@ -116,14 +126,30 @@ namespace RallyTeam.TestScripts
             {
                 case "chrome":
                     System.Environment.SetEnvironmentVariable("webdriver.chrome.driver", "chromedriver.exe");
-                    var options = new ChromeOptions();
-                    options.AddArgument("no-sandbox");
-                    return new ChromeDriver();
+                    //var options = new ChromeOptions();
+
+                    ChromeOptions options = new ChromeOptions();
+                    //DesiredCapabilities capabilities = DesiredCapabilities.Chrome();
+                    options.AddArguments("--disable-extensions");
+                    options.AddArguments("-ignore-certificate-errors");
+                    options.AddArgument("test-type");
+                    options.AddArguments("disable-infobars");
+                    options.ToCapabilities();
+                    //capabilities.SetCapability("chrome.binary", @"C:\Program Files (x86)\Google\Chrome\Application\chrome.exe");
+                    //capabilities.SetCapability(ChromeOptions.Capability, options);
+                    return new ChromeDriver(options);
                 case "firefox":
+                    System.Environment.SetEnvironmentVariable("webdriver.chrome.driver", "geckodriver.exe");
                     return new FirefoxDriver();
                 case "ie":
                     System.Environment.SetEnvironmentVariable("webdriver.ie.driver", "IEDriverServer.exe");
-                    return new InternetExplorerDriver();
+                    InternetExplorerOptions ieoptions = new InternetExplorerOptions { EnableNativeEvents = false, RequireWindowFocus = true };
+                    ieoptions.AddAdditionalCapability("disable-popup-blocking", true);
+                    return new InternetExplorerDriver(AppDomain.CurrentDomain.BaseDirectory + ConfigurationManager.AppSettings["IDEServerPath"], ieoptions, TimeSpan.FromSeconds(90));
+                /*case "edge":
+                    System.Environment.SetEnvironmentVariable("webdriver.edge.driver", "MicrosoftWebDriver.exe");
+                    return new EdgeDriver();*/
+
                 case "phantomjs":
                     System.Environment.SetEnvironmentVariable("phantomjs.binary.path", "phantomjs.exe");
                     return new PhantomJSDriver();

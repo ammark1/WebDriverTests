@@ -31,7 +31,7 @@ namespace RallyTeam.UILocators
         public readonly static By interests = By.XPath("//div[text() ='Interests']");
         public readonly static By projects = By.XPath("//div[text() ='Projects']");
         public readonly static By mandatoryErrorMsg = By.XPath("//span[text()= 'Please correct the errors in the form to continue.']");
-        
+        public readonly static By errorOpeningUserProfile = By.XPath("//div[contains(text(), 'error')]");
 
         //Edit Profile
         public readonly static By editProfileIcon = By.XPath("//i[@class= 'fa fa-pencil-square-o']");
@@ -85,6 +85,7 @@ namespace RallyTeam.UILocators
         public readonly static By groupsTab = By.XPath("//a[text()='Groups']");
         public readonly static By groupColumn = By.XPath("//table[contains(@class, 'table table-hover')]//thead/tr//strong[text()= 'Group']");
         public readonly static By notesColumn = By.XPath("//table[contains(@class, 'table table-hover')]//thead/tr//strong[text()= 'Notes']");
+        public readonly static By userNameLink = By.XPath("//table[contains(@class, 'table table-hover')]//tbody/tr[1]/td[1]//a");
         public readonly static By adminCheckBox = By.XPath("//table[contains(@class, 'table table-hover')]//tbody/tr[1]/td[5]//input");
         public readonly static By viewNotesLink = By.XPath("//table[contains(@class, 'table table-hover')]//tbody/tr[1]/td[6]//a");
         public readonly static By searchUser = By.XPath("//input[@placeholder= 'Search']");

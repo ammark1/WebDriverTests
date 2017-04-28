@@ -506,14 +506,14 @@ namespace RallyTeam.TestScripts
             log.Info("Click on the Search button on the main page");
             Thread.Sleep(5000);
 
-            //Move to User Container
+            /*//Move to User Container
             peoplePage.MoveToUserContainer();
             log.Info("Move to user container.");
-            Thread.Sleep(2000);
+            Thread.Sleep(2000);*/
 
             //Click View Profile button
             peoplePage.ClickViewProfileBtn();
-            log.Info("Click on Message button.");
+            log.Info("Click on View Profile button.");
             Thread.Sleep(5000);
 
             //Click Endorse button

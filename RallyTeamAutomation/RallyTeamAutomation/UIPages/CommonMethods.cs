@@ -18,7 +18,7 @@ namespace RallyTeam.UIPages
             : base(driver, pageLoadTimeout)
         {
 
-        }
+        }        
 
         //Navigate To Mailinator.com
         public void NavigateToUrl(String _navigateUrl)
@@ -48,6 +48,12 @@ namespace RallyTeam.UIPages
         public void PressTabKey()
         {
             _driver.PressKeyBoardTab();
+        }
+
+        //Press Down Arrow Key
+        public void PressDownArrowKey()
+        {
+            _driver.PressKeyBoardDownArrow();
         }
 
         //Get Highlighted Text (Not working for now)
@@ -80,8 +86,9 @@ namespace RallyTeam.UIPages
         {
             String userName = _driver.GetUserNameTooltipValue(DashboardUI.userIconToolTip);
             return userName;
-        }
+        }       
 
-        
+
+
     }
 }

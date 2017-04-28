@@ -292,7 +292,7 @@ namespace RallyTeam.TestScripts
             log.Info("Verify Edit Profile Window Country is displayed.");
             Thread.Sleep(1000);
 
-            //Verify Edit Profile Window Old Password
+            /*//Verify Edit Profile Window Old Password
             userProfilePage.VerifyEditProfileOldPassword();
             log.Info("Verify Edit Profile Window Old Password is displayed.");
             Thread.Sleep(1000);
@@ -304,7 +304,7 @@ namespace RallyTeam.TestScripts
 
             //Verify Edit Profile Window Confirm Password
             userProfilePage.VerifyEditProfilConfirmPassword();
-            log.Info("Verify Edit Profile Window Confirm Password is displayed.");
+            log.Info("Verify Edit Profile Window Confirm Password is displayed.");*/
         }
 
         [Test]

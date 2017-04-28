@@ -20,7 +20,6 @@ namespace RallyTeam.TestScripts
     {
         private static readonly ILog Log = LogManager.GetLogger(MethodBase.GetCurrentMethod().DeclaringType);
         static ReadData readMessages = new ReadData("DirectMessaging");
-        ProjectsTest pt = new ProjectsTest();
 
         //SignIn
         private void SignInDifferentUser()
@@ -414,7 +413,7 @@ namespace RallyTeam.TestScripts
             log.Info("Verify close icon is displayed.");
         }
 
-        [Test]
+        /*[Test]
         public void DirectMessaging_006_SendNewAnnouncementAndVerify()
         {
             Global.MethodName = "DirectMessaging_006_SendNewAnnouncementAndVerify";
@@ -728,6 +727,6 @@ namespace RallyTeam.TestScripts
             //Verify reply text area should not be present
             directMessagingPage.VerifyReplyTextAreaNotDisplayed();
             log.Info("Verify reply text area is not present.");
-        }
+        }*/
     }
 }

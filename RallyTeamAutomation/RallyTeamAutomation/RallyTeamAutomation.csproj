@@ -66,6 +66,7 @@
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.ComponentModel.Composition" />
+    <Reference Include="System.configuration" />
     <Reference Include="System.Core" />
     <Reference Include="System.Drawing" />
     <Reference Include="System.Windows.Forms" />
@@ -75,12 +76,12 @@
     <Reference Include="System.Data" />
     <Reference Include="System.Net.Http" />
     <Reference Include="System.Xml" />
-    <Reference Include="WebDriver, Version=3.0.1.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\Selenium.WebDriver.3.0.1\lib\net40\WebDriver.dll</HintPath>
+    <Reference Include="WebDriver">
+      <HintPath>..\packages\Selenium.WebDriver.3.4.0\lib\net40\WebDriver.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="WebDriver.Support, Version=3.0.1.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\Selenium.Support.3.0.1\lib\net40\WebDriver.Support.dll</HintPath>
+    <Reference Include="WebDriver.Support">
+      <HintPath>..\packages\Selenium.Support.3.4.0\lib\net40\WebDriver.Support.dll</HintPath>
       <Private>True</Private>
     </Reference>
   </ItemGroup>
@@ -88,37 +89,30 @@
     <Compile Include="Global.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="TestScripts\ActivitiesTest.cs" />
     <Compile Include="TestScripts\AuthenticationTest.cs" />
     <Compile Include="TestScripts\BaseTest.cs" />
     <Compile Include="TestScripts\BaseTestES.cs" />
     <Compile Include="TestScripts\BaseTestWithoutLogin.cs" />
     <Compile Include="TestScripts\CommonIssuesTest.cs" />
-    <Compile Include="TestScripts\EventsTest.cs" />
+    <Compile Include="TestScripts\AddUserTest.cs" />
     <Compile Include="TestScripts\GroupsTest.cs" />
-    <Compile Include="TestScripts\InviteUsersTest.cs" />
     <Compile Include="TestScripts\InvoicingTest.cs" />
     <Compile Include="TestScripts\MarketplaceTest.cs" />
     <Compile Include="TestScripts\DirectMessagingTest.cs" />
-    <Compile Include="TestScripts\OnboardingTest.cs" />
+    <Compile Include="TestScripts\NotificationsTest.cs" />
     <Compile Include="TestScripts\PeopleTest.cs" />
-    <Compile Include="TestScripts\PeopleTestES.cs" />
     <Compile Include="TestScripts\PostProjectTest.cs" />
-    <Compile Include="TestScripts\ProjectsTest.cs" />
     <Compile Include="TestScripts\RegistrationTest.cs" />
-    <Compile Include="TestScripts\SearchTest.cs" />
-    <Compile Include="TestScripts\TasksTest.cs" />
-    <Compile Include="TestScripts\UserProfileTest.cs" />
-    <Compile Include="UILocators\ActivitiesUI.cs" />
+    <Compile Include="TestScripts\VendorTest.cs" />
     <Compile Include="UILocators\AuthenticationUI.cs" />
     <Compile Include="UILocators\BaseUI.cs" />
     <Compile Include="UILocators\DashboardUI.cs" />
-    <Compile Include="UILocators\EventsUI.cs" />
+    <Compile Include="UILocators\AddUsersUI.cs" />
     <Compile Include="UILocators\GroupsUI.cs" />
-    <Compile Include="UILocators\InviteUsersUI.cs" />
     <Compile Include="UILocators\InvoicingUI.cs" />
     <Compile Include="UILocators\MarketPlaceUI.cs" />
     <Compile Include="UILocators\DirectMessagingUI.cs" />
+    <Compile Include="UILocators\NotificationsUI.cs" />
     <Compile Include="UILocators\OnboardingUI.cs" />
     <Compile Include="UILocators\PeopleUI.cs" />
     <Compile Include="UILocators\PostProjectUI.cs" />
@@ -127,26 +121,24 @@
     <Compile Include="UILocators\SearchUI.cs" />
     <Compile Include="UILocators\TasksUI.cs" />
     <Compile Include="UILocators\UserProfileUI.cs" />
-    <Compile Include="UIPages\ActivitiesPage.cs" />
+    <Compile Include="UILocators\VendorUI.cs" />
     <Compile Include="UIPages\AuthenticationPage.cs" />
     <Compile Include="UIPages\BasePage.cs" />
     <Compile Include="UIPages\CommonIssuesPage.cs" />
     <Compile Include="UIPages\CommonMethods.cs" />
     <Compile Include="UIPages\DashboardPage.cs" />
-    <Compile Include="UIPages\EventsPage.cs" />
+    <Compile Include="UIPages\AddUsersPage.cs" />
     <Compile Include="UIPages\GroupsPage.cs" />
-    <Compile Include="UIPages\InviteUsersPage.cs" />
     <Compile Include="UIPages\InvoicingPage.cs" />
     <Compile Include="UIPages\MarketplacePage.cs" />
     <Compile Include="UIPages\DirectMessagingPage.cs" />
-    <Compile Include="UIPages\OnboardingPage.cs" />
+    <Compile Include="UIPages\NotificationsPage.cs" />
     <Compile Include="UIPages\PeoplePage.cs" />
     <Compile Include="UIPages\PostProjectPage.cs" />
-    <Compile Include="UIPages\ProjectsPage.cs" />
     <Compile Include="UIPages\RegistrationPage.cs" />
     <Compile Include="UIPages\SearchPage.cs" />
-    <Compile Include="UIPages\TasksPage.cs" />
     <Compile Include="UIPages\UserProfilePage.cs" />
+    <Compile Include="UIPages\VendorPage.cs" />
     <Compile Include="Util\AssertHelper.cs" />
     <Compile Include="Util\DriverExtender.cs" />
     <Compile Include="Util\ExpectedConditionsExtender.cs" />
@@ -159,16 +151,7 @@
       <SubType>Designer</SubType>
     </None>
     <None Include="packages.config" />
-    <None Include="TestData\Activities.ini">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </None>
     <None Include="TestData\Authentication.ini">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </None>
-    <None Include="TestData\Groups.ini">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </None>
-    <None Include="TestData\Events.ini">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
     <None Include="TestData\DirectMessaging.ini">
@@ -177,9 +160,10 @@
     <None Include="TestData\Invoicing.ini">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
-    <None Include="TestData\People.ini">
+    <None Include="TestData\Notifications.ini">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
+    <None Include="TestData\People.ini" />
     <None Include="TestData\PostProject.ini">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
@@ -203,19 +187,18 @@
     <Service Include="{82A7F48D-3B50-4B1E-B82E-3ADA8210C358}" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="..\packages\Chromium.ChromeDriver.2.24\content\chromedriver.exe">
-      <Link>chromedriver.exe</Link>
+    <Content Include="chromedriver.exe">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
-  <Import Project="..\packages\Selenium.WebDriver.IEDriver.3.0.0.1\build\Selenium.WebDriver.IEDriver.targets" Condition="Exists('..\packages\Selenium.WebDriver.IEDriver.3.0.0.1\build\Selenium.WebDriver.IEDriver.targets')" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
     <PropertyGroup>
       <ErrorText>This project references NuGet package(s) that are missing on this computer. Use NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
     </PropertyGroup>
-    <Error Condition="!Exists('..\packages\Selenium.WebDriver.IEDriver.3.0.0.1\build\Selenium.WebDriver.IEDriver.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Selenium.WebDriver.IEDriver.3.0.0.1\build\Selenium.WebDriver.IEDriver.targets'))" />
+    <Error Condition="!Exists('..\packages\Selenium.WebDriver.IEDriver.3.4.0\build\Selenium.WebDriver.IEDriver.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Selenium.WebDriver.IEDriver.3.4.0\build\Selenium.WebDriver.IEDriver.targets'))" />
   </Target>
+  <Import Project="..\packages\Selenium.WebDriver.IEDriver.3.4.0\build\Selenium.WebDriver.IEDriver.targets" Condition="Exists('..\packages\Selenium.WebDriver.IEDriver.3.4.0\build\Selenium.WebDriver.IEDriver.targets')" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
   <Target Name="BeforeBuild">

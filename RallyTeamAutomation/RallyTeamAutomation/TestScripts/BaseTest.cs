@@ -42,18 +42,11 @@ namespace RallyTeam.TestScripts
         private static readonly ILog Log = LogManager.GetLogger(MethodBase.GetCurrentMethod().DeclaringType);
 
         protected AuthenticationPage authenticationPage;
-        protected GroupsPage groupsPage;
         protected DashboardPage dashboardPage;
         protected CommonMethods commonPage;
-        protected ProjectsPage projectsPage;
-        protected EventsPage eventsPage;
-        protected TasksPage tasksPage;
         protected UserProfilePage userProfilePage;
-        protected ActivitiesPage activitiesPage;
         protected SearchPage searchPage;
-        protected PeoplePage peoplePage;
-        protected InviteUsersPage inviteUsersPage;
-        protected OnboardingPage onboardingPage;
+        protected AddUsersPage addUsersPage;
         protected RegistrationPage registrationPage;
 
         [SetUp]
@@ -61,16 +54,9 @@ namespace RallyTeam.TestScripts
         {
             _driver = GetDriver();
             authenticationPage = new AuthenticationPage(_driver, _pageLoadTimeout);
-            groupsPage = new GroupsPage(_driver, _pageLoadTimeout);
-            projectsPage = new ProjectsPage(_driver, _pageLoadTimeout);
-            eventsPage = new EventsPage(_driver, _pageLoadTimeout);
-            tasksPage = new TasksPage(_driver, _pageLoadTimeout);
             userProfilePage = new UserProfilePage(_driver, _pageLoadTimeout);
-            activitiesPage = new ActivitiesPage(_driver, _pageLoadTimeout);
             searchPage = new SearchPage(_driver, _pageLoadTimeout);
-            peoplePage = new PeoplePage(_driver, _pageLoadTimeout);
-            inviteUsersPage = new InviteUsersPage(_driver, _pageLoadTimeout);
-            onboardingPage = new OnboardingPage(_driver, _pageLoadTimeout);
+            addUsersPage = new AddUsersPage(_driver, _pageLoadTimeout);
             registrationPage = new RegistrationPage(_driver, _pageLoadTimeout);
 
             _assertHelper = new AssertHelper(_driver, _pageLoadTimeout);
@@ -137,7 +123,9 @@ namespace RallyTeam.TestScripts
                     return new FirefoxDriver();
                 case "ie":
                     System.Environment.SetEnvironmentVariable("webdriver.ie.driver", "IEDriverServer.exe");
-                    return new InternetExplorerDriver();
+                    var ieoptions = new InternetExplorerOptions { EnableNativeEvents = false };
+                    ieoptions.AddAdditionalCapability("disable-popup-blocking", true);
+                    return new InternetExplorerDriver(ieoptions);
                 case "phantomjs":
                     System.Environment.SetEnvironmentVariable("phantomjs.binary.path", "phantomjs.exe");
                     return new PhantomJSDriver();

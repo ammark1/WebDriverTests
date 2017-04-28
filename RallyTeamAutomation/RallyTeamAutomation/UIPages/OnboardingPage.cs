@@ -39,8 +39,8 @@ namespace RallyTeam.UIPages
             _assertHelper.AssertElementDisplayed(RegistrationUI.resendEmailBtn);
         }
 
-        //Enter Mailinator Inout Email Address
-        public void EnterMailinatorEmail(String email)
+        //Enter Harakirimail Inout Email Address
+        public void EnterHarakirimailEmail(String email)
         {
             _driver.SafeEnterText(OnboardingUI.harakiriInputEmail, email);
         }
@@ -60,7 +60,7 @@ namespace RallyTeam.UIPages
         //Click the email Subject
         public void ClickEmailSubject()
         {
-            _driver.ClickElementUsingAction(OnboardingUI.harakiriConfirmEmailSubject);
+            _driver.ClickElementUsingAction(OnboardingUI.harakiriInviteUserSubject);
         }
 
         //Assert the email subject

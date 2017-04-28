@@ -47,18 +47,62 @@ namespace RallyTeam.UIPages
             _driver.SafeEnterText(PostProjectUI.projectDesc, projectDescription);
         }
 
-        //Enter Project Location
-        public void EnterProjectLocation(String projectLocation)
+        //Enter Project Deliverables
+        public void EnterProjectDeliverables(String projectDeliverables)
         {
-            _driver.WaitForElementAvailableAtDOM(PostProjectUI.projectLocation, 1);
-            _driver.SafeEnterText(PostProjectUI.projectLocation, projectLocation);
+            _driver.WaitForElementAvailableAtDOM(PostProjectUI.projectDelv, 1);
+            _driver.SafeEnterText(PostProjectUI.projectDelv, projectDeliverables);
         }
 
-        //Enter Members Needed
-        public void EnterMembersNeeded(String noOfMembers)
+        //Select Project Category
+        public void SelectProjectCategory(String projectCategory)
         {
-            _driver.WaitForElementAvailableAtDOM(PostProjectUI.membersNeeded, 1);
-            _driver.SafeEnterText(PostProjectUI.membersNeeded, noOfMembers);
+            _driver.WaitForElementAvailableAtDOM(PostProjectUI.projectCategory, 1);
+            _driver.SelectDropDownOption(projectCategory, PostProjectUI.projectCategory);
+        }
+
+        //Select Project Type
+        public void SelectProjectType(String projectType)
+        {
+            _driver.WaitForElementAvailableAtDOM(PostProjectUI.projectType, 1);
+            _driver.SelectDropDownOption(projectType, PostProjectUI.projectType);
+        }
+
+        //Click Startd Date field
+        public void ClickStartDateField()
+        {
+            _driver.WaitForElementAvailableAtDOM(PostProjectUI.startDate, 1);
+            _driver.SafeClick(PostProjectUI.startDate);
+        }
+
+        //Click Todays Date from Calender Icon
+        public void ClickTodaysDate()
+        {
+            _driver.ClickElementUsingAction(PostProjectUI.todayDate);
+        }
+
+        //Click Ongoing checkbox
+        public void ClickOngoingCheckbox()
+        {
+            _driver.SafeClick(PostProjectUI.ongoingCheckbox);
+        }
+
+        //Click Back button
+        public void ClickBackBtn()
+        {
+            _driver.SafeClick(PostProjectUI.backBtn);
+        }
+
+        //Click Save Draft button
+        public void ClickSaveDraftBtn()
+        {
+            _driver.SafeClick(PostProjectUI.saveDraftBtn);
+        }
+
+        //Click Continue button
+        public void ClickContinueBtn()
+        {
+            _driver.SafeClick(PostProjectUI.continueBtn);
         }
 
         //Enter Skills Needed
@@ -68,18 +112,63 @@ namespace RallyTeam.UIPages
             _driver.SafeEnterText(PostProjectUI.skillsNeeded, skillsNeeded);
         }
 
+        //Enter Project Location
+        public void EnterProjectLocation(String projectLocation)
+        {
+            _driver.WaitForElementAvailableAtDOM(PostProjectUI.projectLocation, 1);
+            _driver.SafeEnterText(PostProjectUI.projectLocation, projectLocation);
+        }
+
+        //Click Remote Checkbox
+        public void ClickRemoteCheckbox()
+        {
+            _driver.SafeClick(PostProjectUI.remoteCheckbox);
+        }
+
+        //Click Onsite Checkbox
+        public void ClickOnsiteCheckbox()
+        {
+            _driver.SafeClick(PostProjectUI.onsiteCheckbox);
+        }
+
+        //Select Staff
+        public void SelectStaff(String staff)
+        {
+            _driver.WaitForElementAvailableAtDOM(PostProjectUI.staff, 1);
+            _driver.SelectDropDownOption(staff, PostProjectUI.staff);
+        }
+
+        //Select Expected Time Commitment
+        public void SelectExpectedTimeCommt(String expectedTimeCommt)
+        {
+            _driver.WaitForElementAvailableAtDOM(PostProjectUI.expectedTimeCommt, 1);
+            _driver.SelectDropDownOption(expectedTimeCommt, PostProjectUI.expectedTimeCommt);
+        }
+
+        //Enter Members Needed
+        public void EnterMembersNeeded(String noOfMembers)
+        {
+            _driver.WaitForElementAvailableAtDOM(PostProjectUI.membersNeeded, 1);
+            _driver.SafeEnterText(PostProjectUI.membersNeeded, noOfMembers);
+        }        
+
         //Enter Member Name
         public void EnterMemberName(String memberName)
         {
-            _driver.WaitForElementAvailableAtDOM(PostProjectUI.specificallyAddMember, 1);
-            _driver.SafeEnterText(PostProjectUI.specificallyAddMember, memberName);
+            _driver.WaitForElementAvailableAtDOM(PostProjectUI.memberName, 1);
+            _driver.SafeEnterText(PostProjectUI.memberName, memberName);
         }
 
-        //Click Create button
-        public void ClickOnCreateProjectBtn()
+        //Click Add button
+        public void ClickAddBtn()
         {
-            _driver.WaitForElementAvailableAtDOM(PostProjectUI.createBtn, 1);
-            _driver.SafeClick(PostProjectUI.createBtn);
+            _driver.SafeClick(PostProjectUI.addBtn);
+        }
+
+        //Click Publish button
+        public void ClickPublishBtn()
+        {
+            _driver.SafeClick(PostProjectUI.publishBtn);
         }
 
         //Verify the About tab on Projects Page
@@ -88,17 +177,368 @@ namespace RallyTeam.UIPages
             _assertHelper.AssertElementDisplayed(PostProjectUI.aboutTab);
         }
 
+        //Verify the Project Draft Status in the Marketplace
+        public void VerifyProjectDraftStatusMarketplace()
+        {
+            _assertHelper.AssertElementDisplayed(MarketPlaceUI.projectDraftStatus);
+        }
+
+        //Verify the Project Name on About page
+        public void VerifyProjectName(string projectName)
+        {
+            _assertHelper.AssertElementDisplayed(PostProjectUI.aboutProjectName(projectName));
+        }
+
+        //Verify the Project Description on About page
+        public void VerifyProjectDesc(string projectDesc)
+        {
+            _assertHelper.AssertElementDisplayed(PostProjectUI.aboutProjectDesc(projectDesc));
+        }
+
+        //Verify the Project Deliverables on About page
+        public void VerifyProjectDelv(string projectDelv)
+        {
+            _assertHelper.AssertElementDisplayed(PostProjectUI.aboutProjectDelv(projectDelv));
+        }
+
+        //Verify the Project Skills on About page
+        public void VerifyProjectSkills(string skills)
+        {
+            _assertHelper.AssertElementDisplayed(PostProjectUI.aboutProjectSkills(skills));
+        }
+
+        //Verify the Project Type on About page
+        public void VerifyProjectType(string type)
+        {
+            _assertHelper.AssertElementDisplayed(PostProjectUI.aboutProjectType(type));
+        }
+
+        //Verify the Project Location on About page
+        public void VerifyProjectLocation(string location)
+        {
+            _assertHelper.AssertElementDisplayed(PostProjectUI.aboutProjectLocation(location));
+        }
+
+        //Verify the Project Staff on About page
+        public void VerifyProjectStaffOnsite()
+        {
+            _assertHelper.AssertElementDisplayed(PostProjectUI.aboutProjectStaffingOnsite());
+        }
+
+        //Verify the Project Staff on About page
+        public void VerifyProjectStaffRemote()
+        {
+            _assertHelper.AssertElementDisplayed(PostProjectUI.aboutProjectStaffingRemote());
+        }
+
+        //Verify the Project Category on About page
+        public void VerifyProjectCategory(string category)
+        {
+            _assertHelper.AssertElementDisplayed(PostProjectUI.aboutProjectCategory(category));
+        }
+
+        //Verify the Project Hours on About page
+        public void VerifyProjectHours(string hours)
+        {
+            _assertHelper.AssertElementDisplayed(PostProjectUI.aboutProjectType(hours));
+        }
+
+        //Verify Member Name on About Page
+        public void VerifyMemberName(String memberName)
+        {
+            _assertHelper.AssertElementDisplayed(PostProjectUI.aboutMemberName(memberName));
+        }
+
+        //Verify Member Name on About Page
+        public void VerifyMemberNameNotDisplayed(String memberName)
+        {
+            _assertHelper.AssertElementNotDisplayed(PostProjectUI.aboutMemberName(memberName));
+        }
+
+        //Click Settings Icon
+        public void ClickSettingsIcon()
+        {
+            _driver.SafeClick(PostProjectUI.projectSettings);
+        }
+
+        //Select Project Option
+        public void SelectProjectOption(string option)
+        {
+            _driver.SafeClick(PostProjectUI.projectSettingsOptions(option));
+        }
+
+        //Verify General Tab
+        public void VerifyGeneralTab()
+        {
+            _assertHelper.AssertElementDisplayed(PostProjectUI.generalTab);
+        }
+
+        //Verify Staffing Info Tab
+        public void VerifyStaffingInfoTab()
+        {
+            _assertHelper.AssertElementDisplayed(PostProjectUI.staffingInfoTab);
+        }
+
+        //Click Staffing Info Tab
+        public void ClickStaffingInfoTab()
+        {
+            _driver.SafeClick(PostProjectUI.staffingInfoTab);
+        }
+
+        //Click Save Button
+        public void ClickSaveBtn()
+        {
+            _driver.SafeClick(PostProjectUI.saveBtn);
+        }
+
+        //Click Remove Member Icon
+        public void ClickRemoveMemberIcon()
+        {
+            _driver.SafeClick(PostProjectUI.removeMemberIcon);
+        }
+
+        //Verify Member Name Not Exists on About Page
+        public void VerifyMemberNotExists(String memberName)
+        {
+            _assertHelper.AssertElementNotDisplayed(PostProjectUI.aboutMemberName(memberName));
+        }
+
+        //Click Manage Team Save Button
+        public void ClickManageTeamSaveBtn()
+        {
+            _driver.SafeClick(PostProjectUI.manageTeamSaveBtn);
+        }
+
+        //Press Mark Complete button on Project About Page
+        public void ClickMarkCompleteBtn()
+        {
+            _driver.SafeClick(PostProjectUI.aboutProjectMarkCompleteBtn);
+        }
+
+        //Select Awesome Rating User1
+        public void SelectAwesomeRatingUserOne()
+        {
+            _driver.SafeClick(PostProjectUI.markCompleteAwesomeMember1);
+        }
+
+        //Select Awesome Rating User2
+        public void SelectAwesomeRatingUserTwo()
+        {
+            _driver.SafeClick(PostProjectUI.markCompleteAwesomeMember2);
+        }
+
+        //Press Complete Project button
+        public void ClickCompleteProjectBtn()
+        {
+            _driver.SafeClick(PostProjectUI.CompleteProjectBtn);
+        }
+
+        //Verify the Update Metrics Button
+        public void VerifyUpdateMetricsBtn()
+        {
+            _assertHelper.AssertElementDisplayed(PostProjectUI.aboutProjectUpdateMetricsBtn);
+        }
+
+        //Verify the Completed Status on About Page
+        public void VerifyCompletedStatus()
+        {
+            _assertHelper.AssertElementDisplayed(PostProjectUI.aboutProjectCompletedStatus);
+        }
+
+        //Verify the In Progress Status on About Page
+        public void VerifyInProgressStatus()
+        {
+            _assertHelper.AssertElementDisplayed(PostProjectUI.aboutProjectInProgressStatus);
+        }
+
+        //Verify the Closed Status on About Page
+        public void VerifyClosedStatus()
+        {
+            _assertHelper.AssertElementDisplayed(PostProjectUI.aboutProjectClosedStatus);
+        }
+
+        //Press Yes Button from the Delete Project Window
+        public void PressDeleteProjectWindowYesBtn()
+        {
+            _driver.SafeClick(PostProjectUI.deleteProjectWindowYesBtn);
+        }
+
+        //Select Project Status
+        public void SelectProjectStatus(string status)
+        {
+            _driver.SelectDropDownOption(status, PostProjectUI.projectStatusDropDown);
+        }
+
+        //Select Project Owner
+        public void SelectProjectOwner(string owner)
+        {
+            _driver.SelectDropDownOption(owner, PostProjectUI.projectOwnerDropDown);
+        }
+
+        //Enter Project Name in Search field
+        public void SearchProjectName(String projectName)
+        {
+            _driver.SafeEnterText(MarketPlaceUI.searchText, projectName);
+        }
+
+        //Press Search button
+        public void ClickSearchBtn()
+        {
+            _driver.SafeClick(MarketPlaceUI.searchBtn);
+        }
+
+        //Click the Project on Projects Page
+        public void ClickProjectNameOnPage(String projectName)
+        {
+            _driver.ClickElementUsingJS(MarketPlaceUI.ProjectNameOnPage(projectName));
+        }
+
+        //Press Request To Join button
+        public void ClickRequestToJoinBtn()
+        {
+            _driver.ClickUsingSendKeys(PostProjectUI.requestToJoinBtn);
+        }
+
+        //Verify Requested button
+        public void AsssertRequestSentBtn()
+        {
+            _assertHelper.AssertElementDisplayed(PostProjectUI.requestedBtn);
+        }
+
+        //Click Requested User Accept Icon
+        public void RequestedUserAcceptIcon()
+        {
+            _driver.SafeClick(PostProjectUI.manageTeamAcceptIcon);
+        }
+
+        //Click Requested User Reject Icon
+        public void RequestedUserRejectIcon()
+        {
+            _driver.SafeClick(PostProjectUI.manageTeamRejectIcon);
+        }
+
+        //Select Private Radio option
+        public void ClickPrivateRadioOption()
+        {
+            _driver.SafeClick(PostProjectUI.privateRadio);
+        }
+
+        //Verify Private icon for Private Project
+        public void AssertPrivateIcon()
+        {
+            _assertHelper.AssertElementDisplayed(PostProjectUI.privateProjectIcon);
+        }
+
+        //Click Private icon for Private Project
+        public void ClickPrivateIcon()
+        {
+            _driver.SafeClick(PostProjectUI.privateProjectIcon);
+        }
+
+        //Click Promote button
+        public void ClickPromoteBtn()
+        {
+            _driver.SafeClick(PostProjectUI.promoteBtn);
+        }
+
+        //Verify Promote Project Success Message
+        public void VerifyPromoteProjectSuccessMsg()
+        {
+            _assertHelper.AssertElementDisplayed(PostProjectUI.promoteSuccessMsg);
+        }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
         //Verify the Suggested Member Name
         public void VerifySuggestedMemberName(String suggestedMemberName)
         {
             _assertHelper.AssertElementDisplayed(PostProjectUI.suggestedMemberName(suggestedMemberName));
         }
 
-        //Verify the Update Metrics Button
-        public void VerifyUpdateMetricsBtn()
-        {
-            _assertHelper.AssertElementDisplayed(PostProjectUI.updateMetricsBtn);
-        }
+        
 
         //Press Complete Project window
         public void ClickCompleteProjectWindow()
@@ -106,12 +546,7 @@ namespace RallyTeam.UIPages
             _driver.SafeClick(ProjectsUI.completeProjectWindow);
         }
 
-        //Press Mark Complete button at Complete Project window
-        public void ClickMarkComplete()
-        {
-            _driver.WaitForElementAvailableAtDOM(ProjectsUI.completeProjMarkComplete, 1);
-            _driver.SafeClick(ProjectsUI.completeProjMarkComplete);
-        }
+        
 
         //Select Closed option from All Projects Dropdown
         public void SelectAllProjectsClosed()
@@ -126,35 +561,7 @@ namespace RallyTeam.UIPages
             _driver.ClickElementUsingJS(PostProjectUI.deleteProjectIcon);
         }
 
-        //Verify No Button from the Delete Group Window
-        public void VerifyDeleteProjectWindow()
-        {
-            _assertHelper.AssertElementDisplayed(ProjectsUI.deleteProjectWindow);
-        }
-
-        //Verify No Button from the Delete Group Window
-        public void VerifyDeleteProjectWindowNoBtn()
-        {
-            _assertHelper.AssertElementDisplayed(ProjectsUI.deleteProjectWindowNoBtn);
-        }
-
-        //Verify Yes Button from the Delete Group Window
-        public void VerifyDeleteProjectWindowYesBtn()
-        {
-            _assertHelper.AssertElementDisplayed(ProjectsUI.deleteProjectWindowYesBtn);
-        }
-
-        //Press No Button from the Delete Project Window
-        public void PressDeleteProjectWindowNoBtn()
-        {
-            _driver.SafeClick(ProjectsUI.deleteProjectWindowNoBtn);
-        }
-
-        //Press Yes Button from the Delete Project Window
-        public void PressDeleteProjectWindowYesBtn()
-        {
-            _driver.SafeClick(ProjectsUI.deleteProjectWindowYesBtn);
-        }
+        
 
         //Select a value from Stratus dropdown
         public void SelectStatusDropDown(String option)
@@ -200,8 +607,8 @@ namespace RallyTeam.UIPages
         //Select user from suggestion list
         public void SelectUserfromSuggestion(String SuggItem)
         {
-            _driver.WaitForElementAvailableAtDOM(GroupsUI.addMemberSuggList(SuggItem), 1);
-            _driver.SafeClick(GroupsUI.addMemberSuggList(SuggItem));
+            _driver.WaitForElementAvailableAtDOM(PostProjectUI.addMemberSuggList(SuggItem), 1);
+            _driver.SafeClick(PostProjectUI.addMemberSuggList(SuggItem));
         }
 
         //Press Project Add Member Window Done button
@@ -239,60 +646,48 @@ namespace RallyTeam.UIPages
             _assertHelper.AssertElementNotDisplayed(ProjectsUI.VerifyProjectMemberName(memberName));
         }
 
-        //Enter Project Name in Search field
-        public void SearchProjectName(String projectName)
-        {
-            _driver.SafeEnterText(MarketPlaceUI.searchText, projectName);
-        }
-
-        //Press Search button
-        public void ClickSearchBtn()
-        {
-            _driver.SafeClick(MarketPlaceUI.searchBtn);
-        }
-
-        //Click the Project on Projects Page
-        public void ClickProjectNameOnPage(String projectName)
-        {
-            _driver.ClickElementUsingJS(ProjectsUI.ProjectNameOnPage(projectName));
-        }
-
-        //Press Request To Join button
-        public void ClickRequestToJoinBtn()
-        {
-            _driver.ClickUsingSendKeys(ProjectsUI.requestToJoinBtn);
-        }
-
-        //Verify Request Sent button
-        public void AsssertRequestSentBtn()
-        {
-            _driver.WaitForElementAvailableAtDOM(ProjectsUI.requestSentBtn, 1);
-            _assertHelper.AssertElementDisplayed(ProjectsUI.requestSentBtn);
-        }
-
+        
         //Click Private Project checkbox
         public void ClickPrivateProjectCheckBox()
         {
             _driver.SafeClick(PostProjectUI.privateProjectCheckbox);
         }
 
-        //Verify Private icon for Private Project
-        public void AssertPrivateIcon()
-        {
-            _assertHelper.AssertElementDisplayed(PostProjectUI.privateProjectIcon);
-        }
+        
 
-        //Click Private icon for Private Project
-        public void ClickPrivateIcon()
-        {
-            _driver.SafeClick(PostProjectUI.privateProjectIcon);
-        }
+        
 
         //Verify Project is not displayed message
         public void AssertProjectNotDisplayedMsg()
         {
             _assertHelper.AssertElementDisplayed(PostProjectUI.noProjectDisplayedMsg);
-        }       
+        }
+
+       
+
+        //Press on Project's Discussion tab
+        public void ClickDiscussionTab()
+        {
+            _driver.SafeClick(ProjectsUI.discussionTab);
+        }
+
+        //Click the Message in the Text Area
+        public void ClickMessageTextArea()
+        {
+            _driver.ClickElementUsingAction(ProjectsUI.discussionTypeMessageArea);
+        }
+
+        //Enter the Message in the Text Area
+        public void EnterMessageTextArea(String message)
+        {
+            _driver.SafeEnterText(ProjectsUI.discussionTypeMessageArea, message);
+        }
+
+        //Press the Message Post button
+        public void ClickMessagePostBtn()
+        {
+            _driver.SafeClick(PostProjectUI.discussionPostBtn);
+        }
 
 
     }

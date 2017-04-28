@@ -19,6 +19,7 @@ namespace RallyTeam.TestScripts
     {
         private static readonly ILog Log = LogManager.GetLogger(MethodBase.GetCurrentMethod().DeclaringType);
         static ReadData readInvoicing = new ReadData("Invoicing");
+        static ReadData readPostProject = new ReadData("PostProject");
 
         //SignIn
         private void SignInDifferentUser()
@@ -39,8 +40,7 @@ namespace RallyTeam.TestScripts
             log.Info("Click the New Invoice button.");
 
             //Create New Invoice
-            Thread.Sleep(5000);
-            
+            Thread.Sleep(5000);            
             invoicingPage.EnterInvoiceTitle(invoiceTitle);
             log.Info("Enter the Invoice Title.");
             Thread.Sleep(1000);
@@ -75,14 +75,19 @@ namespace RallyTeam.TestScripts
         //Delete Project
         public void DeleteProject()
         {
-            //Click Delete Project Icon
+            //Click Settings Icon
+            postProjectPage.ClickSettingsIcon();
+            log.Info("Click Settings Icon");
             Thread.Sleep(3000);
-            postProjectPage.ClickDeleteProjectIcon();
-            Thread.Sleep(2000);
 
-            //Click the Delete Project Window Yes Button
+            //Select Project Settings Option
+            postProjectPage.SelectProjectOption("Delete Project");
+            log.Info("Select Delete Project option.");
+            Thread.Sleep(3000);
+
+            //Press Delete Project Window Yes button
             postProjectPage.PressDeleteProjectWindowYesBtn();
-            Thread.Sleep(2000);
+            log.Info("Press Delete Project Window Yes button.");
         }
 
         //Post a Project
@@ -98,51 +103,48 @@ namespace RallyTeam.TestScripts
             Thread.Sleep(1000);
 
             //Enter the Project Description
-            String projectDesc = readInvoicing.GetValue("AddProjectDetails", "projectDesc");
+            String projectDesc = readPostProject.GetValue("AddProjectDetails", "projectDesc");
             postProjectPage.EnterProjectDescription(projectDesc);
             Thread.Sleep(1000);
 
-            //Click on the create button
-            postProjectPage.ClickOnCreateProjectBtn();
-            Thread.Sleep(7000);
+            //Click Continue Button
+            postProjectPage.ClickContinueBtn();
+            log.Info("Click on the Continue button.");
+            Thread.Sleep(5000);
 
-            //Click on Add member icon
+            //Enter Skills
+            String skills = readPostProject.GetValue("AddProjectDetails", "skills");
+            postProjectPage.EnterSkillsNeeded(skills);
             Thread.Sleep(3000);
-            postProjectPage.ClickAddMemberIcon();
-            log.Info("Click the Add member icon for the Project.");
-
-            //Enter the Project Member Email
-            Thread.Sleep(4000);
-            String addMemberEmail = readInvoicing.GetValue("AddProjectMember", "addMemberEmail");
-            postProjectPage.EnterProjectMemberEmail(addMemberEmail);
-
-            //Press enter key
-            Thread.Sleep(3000);
-            //String addMemberName = readInvoicing.GetValue("AddProjectMember", "addMemberName");
-            //postProjectPage.SelectUserfromSuggestion(addMemberName);
             commonPage.PressEnterKey();
-            log.Info("User selected successfully.");
-
-            //Click the Add Project Member window Done button
             Thread.Sleep(2000);
-            postProjectPage.ClickAddProjectMemberDoneBtn();
-            log.Info("Click the Add Project Member window Done button.");
+            log.Info("Enter Skills.");
+
+            String addMembersEmail = readPostProject.GetValue("AddProjectDetails", "memberEmail");
+            List<String> addMembersEmailList = addMembersEmail.Split(',').ToList();
+            int noOfMember = addMembersEmailList.Count;
+            foreach (String value in addMembersEmailList)
+            {
+                postProjectPage.EnterMemberName(value);
+                Thread.Sleep(2000);
+                commonPage.PressEnterKey();
+                Thread.Sleep(5000);
+                postProjectPage.ClickAddBtn();
+                log.Info("Click Add button.");
+                Thread.Sleep(3000);
+            }
+
+            //Click Continue Button
+            postProjectPage.ClickContinueBtn();
+            log.Info("Click on the Continue button.");
             Thread.Sleep(10000);
 
-            //Select Project status as Completed
-            postProjectPage.SelectStatusDropDown("Completed");
-            log.Info("Select Project status as 'Completed'");
-            Thread.Sleep(4000);
-
-            //Select awesome rating
-            invoicingPage.ClickAwesomeRating();
-            log.Info("Select Awesome rating.");
+            //Click Publish button
+            commonPage.ScrollDown();
             Thread.Sleep(2000);
-
-            //Click on Mark Complete button
-            postProjectPage.ClickMarkComplete();
-            log.Info("Click Mark Complete button.");
-            Thread.Sleep(5000);
+            postProjectPage.ClickPublishBtn();
+            log.Info("Click Publish Button");
+            Thread.Sleep(7000);
         }
 
         [Test]
@@ -152,8 +154,8 @@ namespace RallyTeam.TestScripts
 
             //Post a new project
             StringBuilder builder = new StringBuilder();
-            builder.Append(RandomString(4));
-            String projectName = readInvoicing.GetValue("AddProjectDetails", "projectName");
+            builder.Append(RandomString(6));
+            String projectName = readPostProject.GetValue("AddProjectDetails", "projectName");
             projectName = projectName + builder;
             PostNewProject(projectName);                     
 
@@ -203,21 +205,26 @@ namespace RallyTeam.TestScripts
             log.Info("Click the Marketplace tab.");
             Thread.Sleep(5000);
 
-            //Click the Browse button
-            marketplacePage.ClickBrowseBtn();
-            log.Info("Click the Browse button.");
-            Thread.Sleep(5000);
-
             //Enter the Project Name
             Thread.Sleep(5000);
-            marketplacePage.EnterSearchField(projectName);
+            postProjectPage.SearchProjectName(projectName);
             log.Info("Enter the project name.");
             Thread.Sleep(1000);
 
-            //Select Completed Projects from the All Projects drop-down
+            //Click Search button
+            postProjectPage.ClickSearchBtn();
+            log.Info("Click the Search button.");
+            Thread.Sleep(15000);
+
+            //Click the created project
+            postProjectPage.ClickProjectNameOnPage(projectName);
+            log.Info("Click the Project Name on the Projects Page.");
+            Thread.Sleep(10000);
+
+            /*//Select Completed Projects from the All Projects drop-down
             marketplacePage.SelectAllProjectsDropDown("Completed Projects");
             log.Info("Select Completed Projects from the drop-down.");
-            Thread.Sleep(5000);
+            Thread.Sleep(5000);*/
 
             //Click the created Project
             invoicingPage.ClickProjectNameOnPage(projectName);
@@ -235,8 +242,8 @@ namespace RallyTeam.TestScripts
 
             //Post a new project
             StringBuilder builder = new StringBuilder();
-            builder.Append(RandomString(4));
-            String projectName = readInvoicing.GetValue("AddProjectDetails", "projectName");
+            builder.Append(RandomString(6));
+            String projectName = readPostProject.GetValue("AddProjectDetails", "projectName");
             projectName = projectName + builder;
             PostNewProject(projectName);
 
@@ -291,24 +298,19 @@ namespace RallyTeam.TestScripts
             log.Info("Click the Marketplace tab.");
             Thread.Sleep(5000);
 
-            //Click the Browse button
-            marketplacePage.ClickBrowseBtn();
-            log.Info("Click the Browse button.");
-            Thread.Sleep(5000);
-
             //Enter the Project Name
             Thread.Sleep(5000);
-            marketplacePage.EnterSearchField(projectName);
+            postProjectPage.SearchProjectName(projectName);
             log.Info("Enter the project name.");
             Thread.Sleep(1000);
 
-            //Select Completed Projects from the All Projects drop-down
-            marketplacePage.SelectAllProjectsDropDown("Completed Projects");
-            log.Info("Select Completed Projects from the drop-down.");
-            Thread.Sleep(10000);
+            //Click Search button
+            postProjectPage.ClickSearchBtn();
+            log.Info("Click the Search button.");
+            Thread.Sleep(15000);
 
-            //Click the created Project
-            invoicingPage.ClickProjectNameOnPage(projectName);
+            //Click the created project
+            postProjectPage.ClickProjectNameOnPage(projectName);
             log.Info("Click the Project Name on the Projects Page.");
             Thread.Sleep(10000);
 
@@ -323,8 +325,8 @@ namespace RallyTeam.TestScripts
 
             //Post a new project
             StringBuilder builder = new StringBuilder();
-            builder.Append(RandomString(4));
-            String projectName = readInvoicing.GetValue("AddProjectDetails", "projectName");
+            builder.Append(RandomString(6));
+            String projectName = readPostProject.GetValue("AddProjectDetails", "projectName");
             projectName = projectName + builder;
             PostNewProject(projectName);
 
@@ -399,24 +401,19 @@ namespace RallyTeam.TestScripts
             log.Info("Click the Marketplace tab.");
             Thread.Sleep(5000);
 
-            //Click the Browse button
-            marketplacePage.ClickBrowseBtn();
-            log.Info("Click the Browse button.");
-            Thread.Sleep(5000);
-
             //Enter the Project Name
             Thread.Sleep(5000);
-            marketplacePage.EnterSearchField(projectName);
+            postProjectPage.SearchProjectName(projectName);
             log.Info("Enter the project name.");
             Thread.Sleep(1000);
 
-            //Select Completed Projects from the All Projects drop-down
-            marketplacePage.SelectAllProjectsDropDown("Completed Projects");
-            log.Info("Select Completed Projects from the drop-down.");
-            Thread.Sleep(10000);
+            //Click Search button
+            postProjectPage.ClickSearchBtn();
+            log.Info("Click the Search button.");
+            Thread.Sleep(15000);
 
-            //Click the created Project
-            invoicingPage.ClickProjectNameOnPage(projectName);
+            //Click the created project
+            postProjectPage.ClickProjectNameOnPage(projectName);
             log.Info("Click the Project Name on the Projects Page.");
             Thread.Sleep(10000);
 
@@ -431,8 +428,8 @@ namespace RallyTeam.TestScripts
 
             //Post a new project
             StringBuilder builder = new StringBuilder();
-            builder.Append(RandomString(4));
-            String projectName = readInvoicing.GetValue("AddProjectDetails", "projectName");
+            builder.Append(RandomString(6));
+            String projectName = readPostProject.GetValue("AddProjectDetails", "projectName");
             projectName = projectName + builder;
             PostNewProject(projectName);
 
@@ -442,7 +439,7 @@ namespace RallyTeam.TestScripts
             log.Info("Click on the Signout button.");
 
             //Sign in with a different user
-            Thread.Sleep(2000);
+            Thread.Sleep(5000);
             SignInDifferentUser();
             log.Info("Sign in with different user.");
 
@@ -472,7 +469,7 @@ namespace RallyTeam.TestScripts
             authenticationPage.ClickOnLoginButton();
 
             //Click Invoicing menu option
-            Thread.Sleep(5000);
+            Thread.Sleep(7000);
             invoicingPage.ClickInvoicingMenu();
             log.Info("Click the Invoicing menu.");
 
@@ -507,24 +504,19 @@ namespace RallyTeam.TestScripts
             log.Info("Click the Marketplace tab.");
             Thread.Sleep(5000);
 
-            //Click the Browse button
-            marketplacePage.ClickBrowseBtn();
-            log.Info("Click the Browse button.");
-            Thread.Sleep(5000);
-
             //Enter the Project Name
             Thread.Sleep(5000);
-            marketplacePage.EnterSearchField(projectName);
+            postProjectPage.SearchProjectName(projectName);
             log.Info("Enter the project name.");
             Thread.Sleep(1000);
 
-            //Select Completed Projects from the All Projects drop-down
-            marketplacePage.SelectAllProjectsDropDown("Completed Projects");
-            log.Info("Select Completed Projects from the drop-down.");
-            Thread.Sleep(10000);
+            //Click Search button
+            postProjectPage.ClickSearchBtn();
+            log.Info("Click the Search button.");
+            Thread.Sleep(15000);
 
-            //Click the created Project
-            invoicingPage.ClickProjectNameOnPage(projectName);
+            //Click the created project
+            postProjectPage.ClickProjectNameOnPage(projectName);
             log.Info("Click the Project Name on the Projects Page.");
             Thread.Sleep(10000);
 
@@ -532,7 +524,7 @@ namespace RallyTeam.TestScripts
             DeleteProject();
         }
 
-        [Test]
+        /*[Test]
         public void Invoicing_005_MarkPaidInvoiceAndVerifyStatus()
         {
             Global.MethodName = "Invoicing_005_MarkPaidInvoiceAndVerifyStatus";
@@ -648,7 +640,7 @@ namespace RallyTeam.TestScripts
 
             //Delete Project
             DeleteProject();
-        }
+        }*/
 
         [Test]
         public void Invoicing_006_EditDraftInvoice()
@@ -657,8 +649,8 @@ namespace RallyTeam.TestScripts
 
             //Post a new project
             StringBuilder builder = new StringBuilder();
-            builder.Append(RandomString(4));
-            String projectName = readInvoicing.GetValue("AddProjectDetails", "projectName");
+            builder.Append(RandomString(6));
+            String projectName = readPostProject.GetValue("AddProjectDetails", "projectName");
             projectName = projectName + builder;
             PostNewProject(projectName);
 
@@ -718,24 +710,19 @@ namespace RallyTeam.TestScripts
             log.Info("Click the Marketplace tab.");
             Thread.Sleep(5000);
 
-            //Click the Browse button
-            marketplacePage.ClickBrowseBtn();
-            log.Info("Click the Browse button.");
-            Thread.Sleep(5000);
-
             //Enter the Project Name
             Thread.Sleep(5000);
-            marketplacePage.EnterSearchField(projectName);
+            postProjectPage.SearchProjectName(projectName);
             log.Info("Enter the project name.");
             Thread.Sleep(1000);
 
-            //Select Completed Projects from the All Projects drop-down
-            marketplacePage.SelectAllProjectsDropDown("Completed Projects");
-            log.Info("Select Completed Projects from the drop-down.");
-            Thread.Sleep(5000);
+            //Click Search button
+            postProjectPage.ClickSearchBtn();
+            log.Info("Click the Search button.");
+            Thread.Sleep(15000);
 
-            //Click the created Project
-            invoicingPage.ClickProjectNameOnPage(projectName);
+            //Click the created project
+            postProjectPage.ClickProjectNameOnPage(projectName);
             log.Info("Click the Project Name on the Projects Page.");
             Thread.Sleep(10000);
 
@@ -750,8 +737,8 @@ namespace RallyTeam.TestScripts
 
             //Post a new project
             StringBuilder builder = new StringBuilder();
-            builder.Append(RandomString(4));
-            String projectName = readInvoicing.GetValue("AddProjectDetails", "projectName");
+            builder.Append(RandomString(6));
+            String projectName = readPostProject.GetValue("AddProjectDetails", "projectName");
             projectName = projectName + builder;
             PostNewProject(projectName);
 
@@ -811,30 +798,24 @@ namespace RallyTeam.TestScripts
             log.Info("Click the Marketplace tab.");
             Thread.Sleep(5000);
 
-            //Click the Browse button
-            marketplacePage.ClickBrowseBtn();
-            log.Info("Click the Browse button.");
-            Thread.Sleep(5000);
-
             //Enter the Project Name
             Thread.Sleep(5000);
-            marketplacePage.EnterSearchField(projectName);
+            postProjectPage.SearchProjectName(projectName);
             log.Info("Enter the project name.");
             Thread.Sleep(1000);
 
-            //Select Completed Projects from the All Projects drop-down
-            marketplacePage.SelectAllProjectsDropDown("Completed Projects");
-            log.Info("Select Completed Projects from the drop-down.");
-            Thread.Sleep(10000);
+            //Click Search button
+            postProjectPage.ClickSearchBtn();
+            log.Info("Click the Search button.");
+            Thread.Sleep(15000);
 
-            //Click the created Project
-            invoicingPage.ClickProjectNameOnPage(projectName);
+            //Click the created project
+            postProjectPage.ClickProjectNameOnPage(projectName);
             log.Info("Click the Project Name on the Projects Page.");
-            Thread.Sleep(5000);
+            Thread.Sleep(10000);
 
             //Delete Project
             DeleteProject();
-        }
-        
+        }        
     }
 }

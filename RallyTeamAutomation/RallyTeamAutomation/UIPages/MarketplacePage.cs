@@ -30,7 +30,7 @@ namespace RallyTeam.UIPages
         //Click on Browse button
         public void ClickBrowseBtn()
         {
-            _driver.ClickUsingSendKeys(MarketPlaceUI.browseBtn);
+            _driver.SafeClick(MarketPlaceUI.browseBtn);
         }
 
         //Enter the Search text field

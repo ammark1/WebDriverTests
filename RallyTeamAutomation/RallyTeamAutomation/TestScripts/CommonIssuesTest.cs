@@ -15,13 +15,13 @@ namespace RallyTeam.TestScripts
     [Category("CommonIssues")]
     public class CommonIssuesTest : BaseTestES
     {
-        static ReadData readPostProject = new ReadData("CommonIssues");
+        static ReadData commonIssues = new ReadData("CommonIssues");
 
         //SignIn
         private void SignInDifferentUser()
         {
-            String userName = readPostProject.GetValue("SignInDifferentUser", "userName");
-            String password = readPostProject.GetValue("SignInDifferentUser", "password");
+            String userName = commonIssues.GetValue("SignInDifferentUser", "userName");
+            String password = commonIssues.GetValue("SignInDifferentUser", "password");
             authenticationPage.SetUserName(userName);
             authenticationPage.SetPassword(password);
             authenticationPage.ClickOnLoginButton();
@@ -72,6 +72,26 @@ namespace RallyTeam.TestScripts
             authenticationPage.ClickOnLoginButton();
             Thread.Sleep(5000);
             commonIssuePage.VerifyDeactivateUserMsg();
+        }
+
+        [Test]
+        public void CommonIssues_002_VerifyNoErrorOnOpeningUserProfile()
+        {
+            Global.MethodName = "CommonIssues_002_VerifyNoErrorOnOpeningUserProfile";
+
+            Thread.Sleep(5000);
+            peoplePage.ClickUserProfileIcon();
+            log.Info("Click the User Profile Icon.");
+            Thread.Sleep(2000);
+
+            //Select the User Profile Option 'Profile'
+            peoplePage.ClickUserProfileOptions("Profile");
+            log.Info("Click User Profile option 'Profile'.");
+
+            //Verify error message not displayed on opening profile page
+            commonIssuePage.VerifyErrorMsgNotDisplayedOpeningUserProfile();
+            log.Info("Verify error message not displayed on opening profile page.");
+            Thread.Sleep(2000);
         }
 
 

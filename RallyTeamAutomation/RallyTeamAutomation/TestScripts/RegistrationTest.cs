@@ -480,7 +480,7 @@ namespace RallyTeam.TestScripts
             Thread.Sleep(2000);
         }
 
-        [Test]
+        /*[Test]
         public void Register_User_013_InvalidWorkEmail()
         {
             Global.MethodName = "Register_User_013_InvalidWorkEmail";
@@ -518,8 +518,9 @@ namespace RallyTeam.TestScripts
             registrationPage.InvalidEmailErrorMessage();
             log.Info("Verify invalid email error message on the screen.");
             Thread.Sleep(2000);
-        }
+        }*/
 
+        /*Login button has been removed from Registration page
         [Test]
         public void Register_User_014_ClickRegistrationLogin()
         {
@@ -540,6 +541,6 @@ namespace RallyTeam.TestScripts
             authenticationPage.VerifyLoginPage();
             log.Info("Verify Login Url Page");
             Thread.Sleep(2000);
-        }
+        }*/
     }
 }

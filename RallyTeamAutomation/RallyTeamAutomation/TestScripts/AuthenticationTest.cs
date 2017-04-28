@@ -13,7 +13,8 @@ namespace RallyTeam.TestScripts
 {
     [TestFixture]
     [Category("Authentication")]
-    public class AuthenticationTest : BaseTestWithoutLogin
+    public class AuthenticationTest : 
+        BaseTestWithoutLogin
     {
         static ReadData readAuthentication = new ReadData("Authentication");
 
@@ -58,6 +59,7 @@ namespace RallyTeam.TestScripts
             log.Info("Verify SignUp");
         }
 
+        /*Login button has been removed from Registration page
         [Test]
         public void Authentication_Login_003_ClickRegistrationLogin()
         {
@@ -77,7 +79,7 @@ namespace RallyTeam.TestScripts
             //Verify the login page is displayed
             authenticationPage.VerifyLoginPage();
             log.Info("Verify Login Url Page");
-        }
+        }*/
 
         [Test]
         public void Authentication_Login_004_LoginWithEmptyFields()
@@ -145,9 +147,9 @@ namespace RallyTeam.TestScripts
             log.Info("Click SignUp link.");
             Thread.Sleep(5000);
 
-            //Verify the Dashboard page
-            dashboardPage.VerifyUserLoginSuccess();
-            log.Info("Verify the login success.");
+            //Verify the login success by asserting user icon
+            authenticationPage.VerifyUserIcon();
+            log.Info("Verify the login success by asserting user icon.");
             Thread.Sleep(2000);
         }
 

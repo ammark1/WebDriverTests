@@ -18,7 +18,7 @@ namespace RallyTeam.UILocators
         public readonly static By weJustSentYouAnEmail = By.XPath("//div[contains(text(), 'We just sent you an email to the following address:')]");
         public readonly static By mailinatorInputEmail = By.XPath("//input[@id= 'inboxfield']");
         public readonly static By goButton = By.XPath("//button[contains(text(), 'Go!')]");
-        public readonly static By emailSender = By.XPath("//div[contains(text(), 'Rallyteam')]");
+        public readonly static By emailSender = By.XPath("//td[contains(text(), 'Rallyteam')]");
         public readonly static By emailSubject = By.XPath("//div[contains(text(), '360logica invites you to our exclusive network')]");
         public readonly static By iframe = By.XPath("//iframe[@id= 'publicshowmaildivcontent']");
         public readonly static By verifyYourEmailBtn = By.XPath("//a[contains(text(),'Verify Your Email')]");
@@ -40,7 +40,7 @@ namespace RallyTeam.UILocators
         public readonly static By whatDoYouWorkIn = By.XPath("//div[contains(text(), 'What do you work in?')]");
         public readonly static By expertiseDropDown = By.XPath("//select[@name= 'jobfunction']");
         public readonly static By continueExpertiseBtn = By.XPath("//button[contains(text(), 'Continue')]");
-        public readonly static By inputSkills = By.XPath("//input[contains(@placeholder, 'Type in a skill or click on a skill below')]");
+        public readonly static By inputSkills = By.XPath("//input[contains(@placeholder, 'Type to add skills')]");
         public readonly static By viewMyProfileBtn = By.XPath("//button[text()= 'View My Profile']");
         public static By skillOne(String variable)
         {
@@ -65,7 +65,7 @@ namespace RallyTeam.UILocators
         public readonly static By mailbBtn = By.XPath("//button[@id= 'getinbox']");
         public readonly static By harakiriEmailSender = By.XPath("//tbody[@id= 'mail_list_body']/tr[1]/td[contains(text(), '<noreply@rallyteam.com>')]");
         public readonly static By harakiriConfirmEmailSubject = By.XPath("//div[contains(text(), 'Confirm your email address on Rallyteam')]");
-        public readonly static By harakiriInviteEmailSubject = By.XPath("//div[contains(text(), '360logica invites you to our exclusive network')]");
+        public readonly static By harakiriInviteUserSubject = By.XPath("//div[contains(text(), 'welcomes you to our private talent marketplace')]");
         public readonly static By harakiriVerifyYourEmailBtn = By.XPath("//a[contains(text(),'Verify Your Email')]");
         //public readonly static By emailLink = By.XPath("//table[@class= 'twelve columns']//a[@class= 'need-a-link']");
         public readonly static By confirmationCode = By.XPath("//table[@class= 'twelve columns']//tbody/tr//td[1]//center[4]");

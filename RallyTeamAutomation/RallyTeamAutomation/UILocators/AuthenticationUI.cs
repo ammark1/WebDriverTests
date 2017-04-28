@@ -12,9 +12,9 @@ namespace RallyTeam.UILocators
         public readonly static By workEmail = By.Name("email");
         public readonly static By password = By.Name("password");
         public readonly static By logInBtn = By.XPath("//button[text()='Log in']");
-        public readonly static By loginDiv = By.XPath("//div[contains(text(), 'Log in with')]");
+        public readonly static By loginForm = By.XPath("//form[@name= 'loginForm']");
         public readonly static By forgotPwd = By.XPath("//a[text()='Forgot password?']");
-        public readonly static By signUp = By.XPath("//span[text()='Sign up']");
+        public readonly static By signUp = By.XPath("//span[text()='Sign Up']");
         public readonly static By registrationLogInBtn= By.XPath("//button[text()='Log in']");
         public readonly static By errorMessage = By.XPath("//div[contains(text(), 'Please fill out the missing info.')]");
         public readonly static By forgotPwdPage = By.XPath("//div[contains(text(), 'Forgot your password?')]");

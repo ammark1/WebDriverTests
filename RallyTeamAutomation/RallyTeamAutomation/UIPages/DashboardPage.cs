@@ -25,9 +25,7 @@ namespace RallyTeam.UIPages
         {
             _assertHelper.AssertElementDisplayed(DashboardUI.rallyNowHdr);
 
-        }
-
-        
+        }        
 
         //Press the Plus icon at the top of the page
         public void ClickPlusIconOnTop()

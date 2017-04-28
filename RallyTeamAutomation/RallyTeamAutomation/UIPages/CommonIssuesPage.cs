@@ -38,7 +38,11 @@ namespace RallyTeam.UIPages
             _assertHelper.AssertElementDisplayed(AuthenticationUI.deactivatedMsg);
         }
 
-
+        //Assert error message not displayed on opening profile page
+        public void VerifyErrorMsgNotDisplayedOpeningUserProfile()
+        {
+            _assertHelper.AssertElementNotDisplayed(UserProfileUI.errorOpeningUserProfile);
+        }
 
 
 

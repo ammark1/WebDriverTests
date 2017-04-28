@@ -328,7 +328,7 @@ namespace RallyTeam.TestScripts
             //Click on the side navigation link 'Activities' 
             activitiesPage.clickActivitiesMenu();
             log.Info("Click on the side navigation link 'Activities'");
-            Thread.Sleep(5000);
+            Thread.Sleep(7000);
 
             //Verify Join Event Activity
             activitiesPage.VerifyJoinEventActivity();
@@ -1109,7 +1109,7 @@ namespace RallyTeam.TestScripts
             //Click on the side navigation link 'Activities'
             activitiesPage.clickActivitiesMenu();
             log.Info("Click on the side navigation link 'Activities'");
-            Thread.Sleep(3000);
+            Thread.Sleep(5000);
 
             //Verify Project Name Activity
             activitiesPage.VerifyNameActivity(projectName);
@@ -1123,7 +1123,7 @@ namespace RallyTeam.TestScripts
 
             //Click the Delete Message option
             activitiesPage.ClickDeleteMessageOption();
-            Thread.Sleep(2000);
+            Thread.Sleep(5000);
 
             //Verify the Activity is not displayed anymore
             activitiesPage.VerifyNameActivityNotDisplayed(projectName);

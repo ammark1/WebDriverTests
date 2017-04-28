@@ -206,7 +206,7 @@ namespace RallyTeam.UIPages
         {
             _assertHelper.AssertElementDisplayed(UserProfileUI.editStateProvince);
         }
-                
+
         //Assert Edit Profile Window Postal Code
         public void VerifyEditProfilePostalCode()
         {
@@ -373,6 +373,12 @@ namespace RallyTeam.UIPages
         public void EnterSearchUser(String searchUser)
         {
             _driver.SafeEnterText(UserProfileUI.searchUser, searchUser);
+        }
+
+        //Click the Searched User
+        public void ClickSearchedUser()
+        {
+            _driver.SafeClick(UserProfileUI.userNameLink);
         }
 
         //Click the Admin check-box

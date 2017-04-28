@@ -82,7 +82,7 @@ namespace RallyTeam.TestScripts
             Thread.Sleep(5000);
 
             //Enter Harakirimail Email address
-            onboardingPage.EnterMailinatorEmail(workEmail);
+            onboardingPage.EnterHarakirimailEmail(workEmail);
             log.Info("Enter email address.");
             Thread.Sleep(2000);
 

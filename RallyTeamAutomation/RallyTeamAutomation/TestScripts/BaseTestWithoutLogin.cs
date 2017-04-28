@@ -15,6 +15,8 @@ using NUnit.Framework;
 using System.Linq;
 using OpenQA.Selenium.PhantomJS;
 using RallyTeam.UIPages;
+using NUnit.Framework.Interfaces;
+using System.Diagnostics;
 
 namespace RallyTeam.TestScripts
 {
@@ -43,7 +45,6 @@ namespace RallyTeam.TestScripts
         protected RegistrationPage registrationPage;
         protected DashboardPage dashboardPage;
         protected CommonMethods commonPage;
-        protected OnboardingPage onboardingPage;
 
         [SetUp]
         public void TestSetUp()
@@ -51,11 +52,9 @@ namespace RallyTeam.TestScripts
             _driver = GetDriver();
             authenticationPage = new AuthenticationPage(_driver, _pageLoadTimeout);
             registrationPage = new RegistrationPage(_driver, _pageLoadTimeout);
-            onboardingPage = new OnboardingPage(_driver, _pageLoadTimeout);
-
             _assertHelper = new AssertHelper(_driver, _pageLoadTimeout);
             _driver.Manage().Window.Maximize();
-            _driver.Url = _testURL;
+            _driver.Url = _externalStormURL;
             _driver.setTimeOut(_pageLoadTimeout);
 
 
@@ -73,6 +72,14 @@ namespace RallyTeam.TestScripts
         [TearDown]
         public void TearDown()
         {
+            var currentContext = TestContext.CurrentContext;
+            if (currentContext.Result.Outcome != ResultState.Success)
+            {
+                var testName = currentContext.Test.Name;
+                String filename = "Screenshots\\" + this.GetType().FullName + "." + testName + "_" + DateTime.Now.ToString("yyyy-MM-dd-HH-mm-ss") + ".png";
+                Console.WriteLine("filename: " + filename);
+                UtilityHelper.TakeScreenshot(_driver, filename);
+            }
             Log.Info("Teardown test");
             _driver.Quit();
         }

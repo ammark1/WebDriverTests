@@ -1178,6 +1178,7 @@ namespace RallyTeam.TestScripts
             Thread.Sleep(5000);
 
             //Click the created project
+            projectsPage.ClickProjectNameOnPage(projectName);
             log.Info("Click the Project Name on the Projects Page.");
             Thread.Sleep(5000);
 

@@ -93,7 +93,7 @@ namespace RallyTeam.TestScripts
             Thread.Sleep(1000);            
         }
 
-        /*[Test]
+        [Test]
         public void Messages_003_VerifyMessagesPageDisplay()
         {
             Global.MethodName = "Messages_003_VerifyMessagesPageDisplay";
@@ -210,7 +210,7 @@ namespace RallyTeam.TestScripts
             //Verify close icon is displayed
             messagesPage.VerifyNewMessagePosted(message);
             log.Info("Verify message is successfully posted.");
-        }*/
+        }
 
 
 

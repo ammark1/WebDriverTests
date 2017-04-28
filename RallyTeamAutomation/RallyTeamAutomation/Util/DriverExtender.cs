@@ -63,16 +63,16 @@ namespace RallyTeam.Util
             wait.IgnoreExceptionTypes(typeof(NoSuchElementException));
             try
             {
-                if (_browser == "ie")
+                /*if (_browser == "ie")
                 {
                     IWebElement select = _driver.FindElement(locator);
                     IJavaScriptExecutor js = (IJavaScriptExecutor)_driver;
                     js.ExecuteScript("var select = arguments[0]; for (var i = 0; i < select.options.length; i++) { if (select.options[i].text == arguments[1]) { select.options[i].selected = true; } }", select, "Completed");
                 }
                 else
-                {
+                {*/
                     new SelectElement(_driver.FindElement(locator)).SelectByText(option);
-                }
+                //}
             }
             catch (Exception error)
             {
