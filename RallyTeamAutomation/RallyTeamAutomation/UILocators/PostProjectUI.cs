@@ -13,8 +13,8 @@ namespace RallyTeam.UILocators
 
         /*Create Project elements*/
         public readonly static By projectName = By.XPath("//input[@name='abstract']");
-        public readonly static By projectDesc = By.XPath("//div[@placeholder='This project is about...']");
-        public readonly static By projectDelv = By.XPath("//div[contains(@placeholder, 'For example, design documents')]");
+        public readonly static By projectDesc = By.XPath("//form[@name= 'projectWizard1']//div[2]//span[@class= 'fr-placeholder']");
+        public readonly static By projectDelv = By.XPath("//form[@name= 'projectWizard1']//div[3]//span[contains(text(), 'For example')]");
         public readonly static By projectCategory = By.XPath("//form[@name= 'projectWizard1']//div[4]//select");
         public readonly static By projectType = By.XPath("//form[@name= 'projectWizard1']//div[5]//select");
         public readonly static By startDate = By.XPath("//input[@title='start date']");
@@ -104,7 +104,7 @@ namespace RallyTeam.UILocators
         public readonly static By deleteProjectWindowNoBtn = By.XPath("//div[contains(@class, 'modal-dialog')]//a[contains(text(),'No')]");
         public readonly static By deleteProjectWindowYesBtn = By.XPath("//div[contains(@class, 'modal-dialog')]//a[contains(text(),'Yes')]");
         public static By deleteProjectConfirmationMsg = By.XPath("//div[contains(@class, 'cg-notify-message')]//div[contains(text(), 'Project has been deleted.')]");
-        public readonly static By requestToJoinBtn = By.XPath("//a[contains(text(),'Request to Join')]");
+        public readonly static By requestToJoinBtn = By.XPath("//a[contains(@class, 'col-lg-12')]//span[contains(text(),'Request to Join')]");
         public readonly static By requestedBtn = By.XPath("//a[contains(text(),'Requested') and @disabled= 'disabled']");
         public readonly static By privateProjectIcon = By.XPath("//i[@class= 'fa fa-eye-slash']");
 
@@ -204,7 +204,7 @@ namespace RallyTeam.UILocators
         public readonly static By publicProjectIcon = By.XPath("//a[contains(text(), 'Public')]");
         public readonly static By noProjectDisplayedMsg = By.XPath("//span[text()= 'No projects match the search criteria. Please try refining your search.']");
 
-        public readonly static By discussionPostBtn = By.XPath("//div[contains(@class, 'text-right')]//button[contains(@class, 'btn')]");
+        public readonly static By discussionPostBtn = By.XPath("//div[contains(@class, 'text-right')]//button[contains(@class, 'btn')]//strong[text()= 'Post']");
                 
         /*Project About Page elements*/
         public readonly static By projectOwner = By.XPath("//select[contains(@title, 'opp-user-id')]");

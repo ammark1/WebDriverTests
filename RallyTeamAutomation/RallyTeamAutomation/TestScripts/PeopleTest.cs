@@ -60,6 +60,8 @@ namespace RallyTeam.TestScripts
             Thread.Sleep(1000);
 
             //Enter the Project Description
+            commonPage.PressTabKey();
+            Thread.Sleep(2000);
             String projectDesc = readPeople.GetValue("AddProjectDetails", "projectDesc");
             postProjectPage.EnterProjectDescription(projectDesc);
             Thread.Sleep(1000);

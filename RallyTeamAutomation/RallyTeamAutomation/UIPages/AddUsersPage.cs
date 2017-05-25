@@ -147,7 +147,7 @@ namespace RallyTeam.UIPages
             _driver.SafeClick(AddUsersUI.getStartedBtn);
         }
 
-        //Assert the Get Started Button
+        //Assert the Email Get Started Button
         public void VerifyEmailGetStartedBtn()
         {
             _assertHelper.AssertElementDisplayed(AddUsersUI.emailGetStartedBtn);

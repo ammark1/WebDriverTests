@@ -193,9 +193,9 @@ namespace RallyTeam.TestScripts
             log.Info("Click the Email Subject.");
             Thread.Sleep(5000);
                         
-            //Verify the Get Started Button
-            addUsersPage.VerifyGetStartedBtn();
-            log.Info("Verify the Get Started Button.");
+            //Verify the Email Get Started Button
+            addUsersPage.VerifyEmailGetStartedBtn();
+            log.Info("Verify the Email Get Started Button.");
         }
 
         [Test]

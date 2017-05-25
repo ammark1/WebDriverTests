@@ -21,7 +21,7 @@ namespace RallyTeam.UILocators
         public readonly static By submitBtn = By.XPath("//button[text()='Submit']");
         public readonly static By goBackLink = By.XPath("//a[text()='Go Back']");
         public readonly static By resendEmailBtn = By.XPath("//button[text()='Resend Email']");
-        public readonly static By deactivatedMsg = By.XPath("//div[contains(text(),'Could not log in. Forbidden. Oops! Your account has been deactivated. Please contact your administrator.')]");
+        public readonly static By deactivatedMsg = By.XPath("//div[contains(text(),'Your account was deactivated. Please contact your admin for more information.')]");
 
     }
 }

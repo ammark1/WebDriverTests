@@ -17,7 +17,7 @@ namespace RallyTeam.UILocators
         public readonly static By projectAssigned = By.XPath("//a[contains(text(), 'been assigned a Project')]");
         public static By projectAssignedSubject(string variable1, string variable2)
         {
-            return By.XPath("//a[contains(text(), '"+variable1+" assigned "+variable2+" to you.')]");
+            return By.XPath("//div[contains(@class, 'mail-box')]//a[contains(text(), '" + variable1+" assigned "+variable2+" to you.')]");
         }
 
         //Project Join Request
@@ -25,7 +25,7 @@ namespace RallyTeam.UILocators
         public readonly static By projectJoinRequest = By.XPath("//a[contains(text(), 'You have a new request')]");
         public static By projectJoinRequestSubject(string variable1, string variable2)
         {
-            return By.XPath("//a[contains(text(), '"+variable1+" requests to join your project "+variable2+"')]");
+            return By.XPath("//div[contains(@class, 'mail-box')]//a[contains(text(), '" + variable1+" requests to join your project "+variable2+"')]");
         }
 
         //User Recruited to a Project
@@ -33,7 +33,7 @@ namespace RallyTeam.UILocators
         public readonly static By userReqcruitedToProject = By.XPath("//a[contains(text(), 'You have a new invite')]");
         public static By UserReqcruitedToProjectSubject(string variable1, string variable2)
         {
-            return By.XPath("//a[contains(text(), '"+variable1+ " invites you to check out the project " + variable2+"')]");
+            return By.XPath("//div[contains(@class, 'mail-box')]//a[contains(text(), '" + variable1+ " invites you to check out the project " + variable2+"')]");
         }
 
         //User is added to a Project
@@ -41,7 +41,7 @@ namespace RallyTeam.UILocators
         public readonly static By userAddedToProject = By.XPath("//a[contains(text(), 'Congrats! You have just joined a new project!')]");
         public static By userAddedToProjectSubject(string variable1, string variable2)
         {
-            return By.XPath("//a[contains(text(), '" + variable1 + " added you to " + variable2 + "')]");
+            return By.XPath("//div[contains(@class, 'mail-box')]//a[contains(text(), '" + variable1 + " added you to " + variable2 + "')]");
         }
 
         //User removed from a Project
@@ -49,7 +49,7 @@ namespace RallyTeam.UILocators
         public readonly static By userRemovedFromProject = By.XPath("//a[contains(text(), 'You have been removed from a project')]");
         public static By userRemovedFromProjectSubject(string variable1, string variable2)
         {
-            return By.XPath("//a[contains(text(), '" + variable1 + " has removed you from " + variable2 + "')]");
+            return By.XPath("//div[contains(@class, 'mail-box')]//a[contains(text(), '" + variable1 + " has removed you from " + variable2 + "')]");
         }
 
         //User was mentioned in a Project with @all
@@ -57,7 +57,7 @@ namespace RallyTeam.UILocators
         public readonly static By userMentionedInProjectWithAll = By.XPath("//a[contains(text(), 'You were mentioned in Project')]");
         public static By userMentionedInProjectWithAllSubject(string variable1, string variable2)
         {
-            return By.XPath("//a[contains(text(), '" + variable1 + " said: "+variable2+"')]");
+            return By.XPath("//div[contains(@class, 'mail-box')]//a[contains(text(), '"+variable2+"')]");
         }
 
         //Invoice Requires Approval
@@ -65,7 +65,7 @@ namespace RallyTeam.UILocators
         public readonly static By invoiceRequiresApproval = By.XPath("//a[contains(text(), 'An invoice requires payment')]");
         public static By invoiceRequiresApprovalSubject(string variable1)
         {
-            return By.XPath("//a[contains(text(), '" + variable1 + " submitted an invoice that requires your approval')]");
+            return By.XPath("//div[contains(@class, 'mail-box')]//a[contains(text(), '" + variable1 + " submitted an invoice that requires your approval')]");
         }
 
         //Your Invoice was Approved
@@ -73,7 +73,7 @@ namespace RallyTeam.UILocators
         public readonly static By invoiceApproved = By.XPath("//a[contains(text(), 'Your invoice was approved')]");
         public static By invoiceApprovedSubject(string variable1, string variable2)
         {
-            return By.XPath("//a[contains(text(), '" + variable1 + " has approved your invoice "+variable2+"')]");
+            return By.XPath("//div[contains(@class, 'mail-box')]//a[contains(text(), '" + variable1 + " has approved your invoice "+variable2+"')]");
         }
 
         //Your Invoice was Denied
@@ -81,7 +81,7 @@ namespace RallyTeam.UILocators
         public readonly static By invoiceDenied = By.XPath("//a[contains(text(), 'Your invoice was not approved')]");
         public static By invoiceDeniedSubject(string variable1, string variable2)
         {
-            return By.XPath("//a[contains(text(), '" + variable1 + " has denied your invoice " + variable2 + "')]");
+            return By.XPath("//div[contains(@class, 'mail-box')]//a[contains(text(), '" + variable1 + " has denied your invoice " + variable2 + "')]");
         }
 
         //An Invoice Requires Payment
@@ -89,7 +89,7 @@ namespace RallyTeam.UILocators
         public readonly static By invoiceRequiresPayment = By.XPath("//a[contains(text(), 'An invoice requires payment')]");
         public static By invoiceRequiresPaymentSubject(string variable1)
         {
-            return By.XPath("//a[contains(text(), '" + variable1 + " has approved an invoice for payment')]");
+            return By.XPath("//div[contains(@class, 'mail-box')]//a[contains(text(), '" + variable1 + " has approved an invoice for payment')]");
         }
 
         //User Receives Feedback
@@ -97,7 +97,7 @@ namespace RallyTeam.UILocators
         public readonly static By userReceivesFeedback = By.XPath("//a[contains(text(), 'You have received feedback')]");
         public static By userReceivesFeedbackSubject(string variable1, string variable2)
         {
-            return By.XPath("//a[contains(text(), '" + variable1 + " has given you feedback on "+variable2+"')]");
+            return By.XPath("//div[contains(@class, 'mail-box')]//a[contains(text(), '" + variable1 + " has given you feedback on "+variable2+"')]");
         }
 
         //User Requests Feedback
@@ -105,7 +105,7 @@ namespace RallyTeam.UILocators
         public readonly static By userRequestsFeedback = By.XPath("//a[contains(text(), 'Someone has requested feedback from you')]");
         public static By userRequestsFeedbackSubject(string variable1, string variable2)
         {
-            return By.XPath("//a[contains(text(), '"+variable1+" has requested feedback from you on "+variable2+"')]");
+            return By.XPath("//div[contains(@class, 'mail-box')]//a[contains(text(), '" + variable1+" has requested feedback from you on "+variable2+"')]");
         }
     }
         

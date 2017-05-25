@@ -163,7 +163,9 @@
     <None Include="TestData\Notifications.ini">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
-    <None Include="TestData\People.ini" />
+    <None Include="TestData\People.ini">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
     <None Include="TestData\PostProject.ini">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>

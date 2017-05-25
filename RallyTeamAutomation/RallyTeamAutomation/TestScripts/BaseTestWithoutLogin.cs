@@ -7,6 +7,8 @@ using OpenQA.Selenium.IE;
 using OpenQA.Selenium.Chrome;
 using OpenQA.Selenium.Safari;
 using OpenQA.Selenium.Firefox;
+using OpenQA.Selenium.Remote;
+//using OpenQA.Selenium.Edge;
 using System.Drawing;
 using System.Reflection;
 using System.Text;

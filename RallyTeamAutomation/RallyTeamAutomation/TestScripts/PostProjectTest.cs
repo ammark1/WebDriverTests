@@ -631,10 +631,10 @@ namespace RallyTeam.TestScripts
             postProjectPage.EnterProjectName(projectName);
             Thread.Sleep(1000);
 
-            //Enter the Project Description
+            /*//Enter the Project Description
             String projectDesc = "Description Edited";
             postProjectPage.EnterProjectDescription(projectDesc);
-            Thread.Sleep(1000);
+            Thread.Sleep(1000);*/
             
             //Click Staffing Info Tab
             postProjectPage.ClickStaffingInfoTab();
@@ -658,10 +658,10 @@ namespace RallyTeam.TestScripts
             log.Info("Verify the Project Name on About page");
             Thread.Sleep(1000);
 
-            //Verify the Project Description on About page
+            /*//Verify the Project Description on About page
             postProjectPage.VerifyProjectDesc("Description Edited");
             log.Info("Verify the Project Description on About page");
-            Thread.Sleep(1000);                      
+            Thread.Sleep(1000); */                     
 
             //Verify the Project Skills on About page
             postProjectPage.VerifyProjectSkills("Java");

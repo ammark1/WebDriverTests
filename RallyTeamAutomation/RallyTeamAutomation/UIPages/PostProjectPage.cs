@@ -44,14 +44,14 @@ namespace RallyTeam.UIPages
         public void EnterProjectDescription(String projectDescription)
         {
             _driver.WaitForElementAvailableAtDOM(PostProjectUI.projectDesc, 1);
-            _driver.SafeEnterText(PostProjectUI.projectDesc, projectDescription);
+            _driver.EnterTextUsingAction(PostProjectUI.projectDesc, projectDescription);
         }
 
         //Enter Project Deliverables
         public void EnterProjectDeliverables(String projectDeliverables)
         {
             _driver.WaitForElementAvailableAtDOM(PostProjectUI.projectDelv, 1);
-            _driver.SafeEnterText(PostProjectUI.projectDelv, projectDeliverables);
+            _driver.EnterTextUsingAction(PostProjectUI.projectDelv, projectDeliverables);
         }
 
         //Select Project Category
@@ -396,7 +396,7 @@ namespace RallyTeam.UIPages
         //Press Request To Join button
         public void ClickRequestToJoinBtn()
         {
-            _driver.ClickUsingSendKeys(PostProjectUI.requestToJoinBtn);
+            _driver.SafeClick(PostProjectUI.requestToJoinBtn);
         }
 
         //Verify Requested button

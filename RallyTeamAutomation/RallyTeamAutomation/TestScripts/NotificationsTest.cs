@@ -260,8 +260,8 @@ namespace RallyTeam.TestScripts
             Thread.Sleep(5000);
 
             //Sign in with different user
-            String username = readNotifications.GetValue("SignInDifferentUser", "username");
-            String password = readNotifications.GetValue("SignInDifferentUser", "password");
+            String username = readNotifications.GetValue("AddProjectDetails", "joinRequestUsername");
+            String password = readNotifications.GetValue("AddProjectDetails", "joinRequestPwd");
             SignInDifferentUser(username, password);
             Thread.Sleep(7000);
 
@@ -319,7 +319,7 @@ namespace RallyTeam.TestScripts
             Thread.Sleep(1000);
 
             //Verify the Project Join Request notification subject on the Notifications Page
-            String name = readNotifications.GetValue("SignInDifferentUser", "name");
+            String name = readNotifications.GetValue("AddProjectDetails", "joinRequestName");
             notificationsPage.VerifyProjectJoinRequestSubject(name, projectName);
             log.Info("Verify Project Join Request notification subject on the Notifications Page.");
             Thread.Sleep(2000);
@@ -487,8 +487,8 @@ namespace RallyTeam.TestScripts
             Thread.Sleep(5000);
 
             //Sign in with different user
-            String userName = readNotifications.GetValue("SignInDifferentUser", "newOwner");
-            String password = readNotifications.GetValue("SignInDifferentUser", "password");
+            String userName = readNotifications.GetValue("AddProjectMember", "addMemberEmail");
+            String password = readNotifications.GetValue("AddProjectMember", "password");
             SignInDifferentUser(userName, password);
             Thread.Sleep(7000);
 
@@ -562,17 +562,30 @@ namespace RallyTeam.TestScripts
             projectName = projectName + builder;
             PostNewProject(projectName);
 
-            //Click the added member remove icon
-            commonPage.ScrollDown();
-            Thread.Sleep(1000);
-            postProjectPage.ClickAddedMemberRemoveIcon();
-            log.Info("Click Project member added remove icon.");
+            //Click Settings Icon
+            postProjectPage.ClickSettingsIcon();
+            log.Info("Click Settings Icon");
+            Thread.Sleep(3000);
 
-            //Click the Remove Member window Yes Button
-            Thread.Sleep(2000);
-            postProjectPage.PressRemoveMemberYesBtn();
-            log.Info("Click the Remove Project Member window Yes button.");
-            Thread.Sleep(6000);
+            //Select Project Settings Option
+            postProjectPage.SelectProjectOption("Manage Team");
+            log.Info("Select Edit Project option.");
+            Thread.Sleep(5000);
+
+            //Remove Member from Project
+            postProjectPage.ClickRemoveMemberIcon();
+            log.Info("Click Member Remove icon");
+            Thread.Sleep(3000);
+
+            //Remove Member from Project
+            postProjectPage.ClickRemoveMemberIcon();
+            log.Info("Click Member Remove icon");
+            Thread.Sleep(3000);
+
+            //Click Save Button
+            postProjectPage.ClickManageTeamSaveBtn();
+            log.Info("Click on the Save button.");
+            Thread.Sleep(5000);
 
             //Signout of the application
             authenticationPage.SignOut();
@@ -580,8 +593,8 @@ namespace RallyTeam.TestScripts
             Thread.Sleep(5000);
 
             //Sign in with different user
-            String userName = readNotifications.GetValue("SignInDifferentUser", "newOwner");
-            String password = readNotifications.GetValue("SignInDifferentUser", "password");
+            String userName = readNotifications.GetValue("RemovedProjectMember", "removedMemberEmail");
+            String password = readNotifications.GetValue("RemovedProjectMember", "password");
             SignInDifferentUser(userName, password);
             Thread.Sleep(7000);
 
@@ -685,8 +698,8 @@ namespace RallyTeam.TestScripts
             Thread.Sleep(5000);
 
             //Sign in with different user
-            String userName = readNotifications.GetValue("SignInDifferentUser", "newOwner");
-            String password = readNotifications.GetValue("SignInDifferentUser", "password");
+            String userName = readNotifications.GetValue("AddProjectMember", "addMemberEmail");
+            String password = readNotifications.GetValue("AddProjectMember", "password");
             SignInDifferentUser(userName, password);
             Thread.Sleep(7000);
 
@@ -749,6 +762,111 @@ namespace RallyTeam.TestScripts
         }
 
         [Test]
+        public void Notifications_013_UserMentionedInProject()
+        {
+            Global.MethodName = "Notifications_013_UserMentionedInProject";
+
+            //Post a new project
+            StringBuilder builder = new StringBuilder();
+            builder.Append(RandomString(6));
+            String projectName = readNotifications.GetValue("AddProjectDetails", "projectName");
+            projectName = projectName + builder;
+            PostNewProject(projectName);
+
+            //Go to Discussions Page
+            postProjectPage.ClickDiscussionTab();
+            log.Info("Click on the Discussions tab.");
+            Thread.Sleep(5000);
+
+            commonPage.PressTabKey();
+            Thread.Sleep(1000);
+            commonPage.PressTabKey();
+            Thread.Sleep(1000);
+            commonPage.PressTabKey();
+            Thread.Sleep(1000);
+
+            //Enter the Message in Text Area
+            postProjectPage.EnterMessageTextArea("Hi @anup");
+            log.Info("Enter message in Discussion.");
+            Thread.Sleep(6000);
+            commonPage.PressEnterKey();
+            Thread.Sleep(2000);
+
+            //Click the Post button for the message
+            postProjectPage.ClickMessagePostBtn();
+            log.Info("Click the Post button for the message.");
+            Thread.Sleep(7000);
+
+            //Signout of the application
+            authenticationPage.SignOut();
+            log.Info("Click on the Signout button.");
+            Thread.Sleep(5000);
+
+            //Sign in with different user
+            String userName = readNotifications.GetValue("AddProjectMember", "addMemberEmail");
+            String password = readNotifications.GetValue("AddProjectMember", "password");
+            SignInDifferentUser(userName, password);
+            Thread.Sleep(7000);
+
+            //Click Notifications Icon
+            notificationsPage.ClickNotificationsIcon();
+            log.Info("Click on the Notifications Icon at top.");
+            Thread.Sleep(5000);
+
+            //Verify the User Mentioned In Project WIth All on the Notification Window
+            notificationsPage.VerifyUserMentionedInProjectWIthAllNotificationWindow();
+            log.Info("Verify the User Mentioned In Project WIth All short notification on the Notification Window.");
+            Thread.Sleep(1000);
+
+            //Click See All link
+            notificationsPage.ClickSeeAll();
+            log.Info("Click See All link.");
+            Thread.Sleep(7000);
+
+            //Verify the User Mentioned In Project WIth All on Notifications Page
+            notificationsPage.VerifyUserMentionedInProjectWIthAll();
+            log.Info("Verify the User Mentioned In Project WIth All Notification on Notifications Page.");
+            Thread.Sleep(1000);
+
+            //Verify the User Mentioned In Project WIth All subject on the Notifications Page
+            String loggedInUserName = readNotifications.GetValue("LoggedInUserName", "username");
+            notificationsPage.VerifyUserMentionedInProjectWIthAllSubject(loggedInUserName, "Hi @anupkumar");
+            log.Info("Verify User Mentioned In Project WIth All notification subject on the Notifications Page.");
+            Thread.Sleep(2000);
+
+            //Signout of the application
+            authenticationPage.SignOut();
+            log.Info("Click on the Signout button.");
+            Thread.Sleep(5000);
+
+            //Login to the application
+            Thread.Sleep(5000);
+            authenticationPage.SetUserName(_workEmail);
+            authenticationPage.SetPassword(_password);
+            authenticationPage.ClickOnLoginButton();
+
+            //Enter the Project Name
+            Thread.Sleep(5000);
+            postProjectPage.SearchProjectName(projectName);
+            log.Info("Enter the project name.");
+            Thread.Sleep(2000);
+
+            //Click Search button
+            postProjectPage.ClickSearchBtn();
+            log.Info("Click the prSearch button.");
+            Thread.Sleep(15000);
+
+            //Click the created project
+            postProjectPage.ClickProjectNameOnPage(projectName);
+            log.Info("Click the Project Name on the Projects Page.");
+            Thread.Sleep(5000);
+
+            //Delete Project
+            Thread.Sleep(3000);
+            DeleteProject();
+        }
+
+        [Test]
         public void Notifications_007_InvoiceRequiresApproval()
         {
             Global.MethodName = "Notifications_007_InvoiceRequiresApproval";
@@ -766,8 +884,8 @@ namespace RallyTeam.TestScripts
             Thread.Sleep(5000);
 
             //Sign in with different user
-            String userName = readNotifications.GetValue("SignInDifferentUser", "newOwner");
-            String password = readNotifications.GetValue("SignInDifferentUser", "password");
+            String userName = readNotifications.GetValue("AddProjectMember", "addMemberEmail");
+            String password = readNotifications.GetValue("AddProjectMember", "password");
             SignInDifferentUser(userName, password);
             Thread.Sleep(7000);
 
@@ -867,8 +985,8 @@ namespace RallyTeam.TestScripts
             Thread.Sleep(5000);
 
             //Sign in with different user
-            String userName = readNotifications.GetValue("SignInDifferentUser", "newOwner");
-            String password = readNotifications.GetValue("SignInDifferentUser", "password");
+            String userName = readNotifications.GetValue("AddProjectMember", "addMemberEmail");
+            String password = readNotifications.GetValue("AddProjectMember", "password");
             SignInDifferentUser(userName, password);
             Thread.Sleep(7000);
 
@@ -997,8 +1115,8 @@ namespace RallyTeam.TestScripts
             Thread.Sleep(5000);
 
             //Sign in with different user
-            String userName = readNotifications.GetValue("SignInDifferentUser", "newOwner");
-            String password = readNotifications.GetValue("SignInDifferentUser", "password");
+            String userName = readNotifications.GetValue("AddProjectMember", "addMemberEmail");
+            String password = readNotifications.GetValue("AddProjectMember", "password");
             SignInDifferentUser(userName, password);
             Thread.Sleep(7000);
 
@@ -1127,8 +1245,8 @@ namespace RallyTeam.TestScripts
             Thread.Sleep(5000);
 
             //Sign in with different user
-            String userName = readNotifications.GetValue("SignInDifferentUser", "newOwner");
-            String password = readNotifications.GetValue("SignInDifferentUser", "password");
+            String userName = readNotifications.GetValue("AddProjectMember", "addMemberEmail");
+            String password = readNotifications.GetValue("AddProjectMember", "password");
             SignInDifferentUser(userName, password);
             Thread.Sleep(7000);
 
@@ -1246,7 +1364,7 @@ namespace RallyTeam.TestScripts
             Thread.Sleep(2000);
 
             //Enter Search User Email Id
-            String memberName = readNotifications.GetValue("AddProjectDetails", "memberName");
+            String memberName = readNotifications.GetValue("AddProjectMember", "addMemberEmail");
             userProfilePage.EnterSearchUser(memberName);
             log.Info("Enter search user email id.");
             Thread.Sleep(2000);
@@ -1263,7 +1381,7 @@ namespace RallyTeam.TestScripts
             //Click Endorse button
             peoplePage.ClickEndorseBtn();
             log.Info("Click on Endorse button.");
-            Thread.Sleep(5000);
+            Thread.Sleep(10000);
 
             //Select Project DropDown
             peoplePage.SelectProjectDropDown(projectName);
@@ -1291,8 +1409,8 @@ namespace RallyTeam.TestScripts
             Thread.Sleep(5000);
 
             //Sign in with different user
-            String userName = readNotifications.GetValue("SignInDifferentUser", "newOwner");
-            String password = readNotifications.GetValue("SignInDifferentUser", "password");
+            String userName = readNotifications.GetValue("AddProjectMember", "addMemberEmail");
+            String password = readNotifications.GetValue("AddProjectMember", "password");
             SignInDifferentUser(userName, password);
             Thread.Sleep(7000);
 
@@ -1370,8 +1488,8 @@ namespace RallyTeam.TestScripts
             Thread.Sleep(5000);
 
             //Sign in with different user
-            String userName = readNotifications.GetValue("SignInDifferentUser", "newOwner");
-            String password = readNotifications.GetValue("SignInDifferentUser", "password");
+            String userName = readNotifications.GetValue("AddProjectMember", "addMemberEmail");
+            String password = readNotifications.GetValue("AddProjectMember", "password");
             SignInDifferentUser(userName, password);
             Thread.Sleep(7000);
 
@@ -1388,7 +1506,7 @@ namespace RallyTeam.TestScripts
             //Click Request Feedback button
             peoplePage.ClickRequestFeedbackBtn();
             log.Info("Click on Request Feedback button.");
-            Thread.Sleep(5000);
+            Thread.Sleep(10000);
 
             //Select Request Feedback Project DropDown
             peoplePage.SelectRequestFeedbackProject(projectName);
@@ -1432,7 +1550,7 @@ namespace RallyTeam.TestScripts
             Thread.Sleep(3000);
 
             //Verify the User Requests Feedback subject on the Notifications Page
-            String username = readNotifications.GetValue("LoggedInUserName", "username");
+            String username = readNotifications.GetValue("AddProjectMember", "addMemberName");
             notificationsPage.VerifyUserRequestsFeedbackSubject(username, projectName);
             log.Info("Verify User Requests Feedback notification subject on the Notifications Page.");
             Thread.Sleep(2000);

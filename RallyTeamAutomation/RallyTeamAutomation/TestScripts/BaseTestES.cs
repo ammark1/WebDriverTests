@@ -8,7 +8,7 @@ using OpenQA.Selenium.Chrome;
 using OpenQA.Selenium.Safari;
 using OpenQA.Selenium.Firefox;
 using OpenQA.Selenium.Remote;
-//using OpenQA.Selenium.edge.EdgeDriver;
+//using OpenQA.Selenium.Edge;
 using System.Drawing;
 using System.Reflection;
 using System.Text;
@@ -63,6 +63,8 @@ namespace RallyTeam.TestScripts
         public void TestSetUp()
         {
             _driver = GetDriver();
+            dashboardPage = new DashboardPage(_driver, _pageLoadTimeout);
+            commonPage = new CommonMethods(_driver, _pageLoadTimeout);
             authenticationPage = new AuthenticationPage(_driver, _pageLoadTimeout);
             postProjectPage = new PostProjectPage(_driver, _pageLoadTimeout);
             marketplacePage = new MarketplacePage(_driver, _pageLoadTimeout);
@@ -83,18 +85,16 @@ namespace RallyTeam.TestScripts
             _driver.setTimeOut(_pageLoadTimeout);
 
 
+
             if (_browser == "phantomjs")
             {
                 _driver.Manage().Window.Size = new Size(_browserWidth, _browserHeight);
             }
-            Log.Info("Setup test");
-
-
-            dashboardPage = new DashboardPage(_driver, _pageLoadTimeout);
-            commonPage = new CommonMethods(_driver, _pageLoadTimeout);
+            Log.Info("Setup test");            
 
             Global.MethodName = "TestSetup";
-
+            commonPage.RefreshPage();
+            Thread.Sleep(5000);
             authenticationPage.SetUserName(_workEmail);
             authenticationPage.SetPassword(_password);
             authenticationPage.ClickOnLoginButton();
